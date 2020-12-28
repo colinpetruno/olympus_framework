@@ -1,0 +1,20 @@
+<div class="scheduling-cancellations-new">
+  <header>
+    <h3>The schedule of <%= @calendars_session_info.profile.full_name %></h3>
+    Cancel your appointment
+  </header>
+
+  <section>
+    <!-- new_scheduling_booking_cancellation -->
+    <%= simple_form_for(
+      [:scheduling, @booking],
+      url: scheduling_booking_cancellations_path,
+      method: :post
+    ) do |f| %>
+      <%= f.input :cancellation_reason %>
+
+      <%= link_to "Back", scheduling_calendar_event_path(@booking.uuid), class: "button link outline" %>
+      <%= f.submit "Confirm cancellation", class: "button primary outline" %>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,28 @@
+en:
+  dashboard:
+    settings:
+      billings:
+        index:
+          breadcrumbs:
+            billing: "Billing"
+            settings: "Settings"
+          current_plan: "Current Plan"
+          downgrade_message: >
+            You previously downgraded on %{downgrade_date}. Your account will
+            convert to the free plan on %{billing_end_date}.
+          cancel_downgrade: "No, I want to continue my plan."
+          free_plan_name: "Forever free"
+          active: "(Active)"
+          continue: "Continue"
+          payment_methods: "Payment Methods"
+          default: "Default"
+          make_default: "Make default"
+          expires: "Expires %{date}"
+          no_payment_methods: "No payment methods."
+          add_payment_method: "Add payment method"
+          billing_history: "Billing History"
+          date: "Date"
+          total: "Total"
+          invoice: "Invoice"
+          no_billing_history: "No billing history."
+          return_to_settings: "Return to settings"

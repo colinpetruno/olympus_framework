@@ -1,0 +1,70 @@
+<div class="authentication-two_factor_authentications-mobile_auth">
+  <div data-controller="authentication--mobile-otp">
+    <div class="slider slide-1">
+      <div class="start">
+        <% if two_factor_sources.mobile_auth_enabled? %>
+          <div>
+            <button class="button link outline block"
+                    data-action="authentication--mobile-otp#goToSlideTwo">
+              Disable
+            </button>
+          </div>
+        <% else %>
+          <div>
+            Mobile auth disabled
+
+            <button class="button primary outline"
+                    data-action="authentication--mobile-otp#goToSlideTwo">
+              Enable
+            </button>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="enroll">
+        <% if !two_factor_sources.mobile_auth_enabled? %>
+          <div class="qr-holder medium">
+            <%= qrcode.as_svg(
+              offset: 0,
+              color: "000",
+              shape_rendering: "crispEdges",
+              module_size: 3,
+              standalone: true,
+            ).html_safe %>
+          </div>
+
+          <div class="enable-form">
+            <%= simple_form_for([
+              :auth,
+              two_factor_sources.mobile_authenticator
+            ]) do |f| %>
+            <%= f.input :otp_password, as: :string %>
+
+            <%= f.submit "Enable", class: "button secondary outline" %>
+            <button class="button link outline"
+                    data-action="authentication--mobile-otp#goToSlideOne">
+              Cancel
+            </button>
+          <% end %>
+          </div>
+        <% else %>
+          <%# TFA is enabled, provide disable functionality %>
+          <div class="enable-form">
+            <%= simple_form_for([
+              :auth,
+              two_factor_sources.mobile_authenticator
+            ]) do |f| %>
+            <%= f.input :otp_password, as: :string %>
+
+            <%= f.submit "Disable", class: "button secondary outline" %>
+            <button class="button link outline"
+                    data-action="authentication--mobile-otp#goToSlideOne">
+              Cancel
+            </button>
+          <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

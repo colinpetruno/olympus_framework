@@ -1,0 +1,46 @@
+<div class="dashboard-settings-billing-prices-index">
+  <header class="breadcrumbs">
+    <%= link_to(
+      "Settings",
+      dashboard_settings_root_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;
+    <%= link_to(
+      "Billing",
+      dashboard_settings_billings_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;Prices
+  </header>
+
+  <h3>Select your billing frequency</h3>
+  <div class="prices">
+    <% @prices.each do |price| %>
+      <div class="price">
+        <h3><%= price.billing_product.name %></h3>
+        <h4><%= price.formatted_interval %></h4>
+        <%= price.formatted_price %>
+
+        <% if ( @current_plan.present? &&
+            @current_plan.subscribeable_id == price.billing_product_id &&
+            @current_plan.interval == price.formatted_interval.downcase) %>
+          <footer class="action">
+            <div class="selected-price">
+              (Selected)
+            </div>
+          </footer>
+        <% else %>
+          <%= simple_form_for(
+            [:dashboard, :settings, ::Billing::PaymentIntent.new(payable: price)]
+          ) do |f| %>
+            <%= f.input :payable_id, as: :hidden %>
+            <%= f.input :payable_type, as: :hidden %>
+
+            <footer class="action">
+              <%= f.submit "Select", class: "button primary block" %>
+            </footer>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

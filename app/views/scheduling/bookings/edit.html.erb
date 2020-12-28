@@ -1,0 +1,20 @@
+<div class="scheduling-bookings-edit">
+  <header>
+    <h3>Change your upcoming appointment</h3>
+    Change the dates of your upcoming appointment.
+  </header>
+
+  <section>
+    <%= render(
+      partial: "scheduling/availabilities/selector",
+      locals: {
+        presenter: @presenter,
+        submit_path: new_scheduling_booking_reschedule_path(
+          @booking
+        ),
+        return_path: scheduling_calendar_event_path(@booking),
+        timezone: @timezone
+      }
+    ) %>
+  </section>
+</div>

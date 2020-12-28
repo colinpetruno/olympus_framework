@@ -1,0 +1,38 @@
+<div class="aion-controllers-toolbar"
+     id="aion-controller-<%= renderer.controller_id %>"
+     data-aion-controller-id="<%= renderer.controller_id %>"
+     data-aion-remote-path="<%= renderer.remote_path %>"
+     data-aion-preview-date-unix="<%= renderer.preview_date.to_i %>"
+     data-aion-calendar-name="<%= renderer.calendar_name %>">
+  <div class="aion-date-range-label">
+    <%= renderer.week_range %> <span><%= renderer.month_string %></span>
+  </div>
+
+  <div class="direction-buttons toolbar-buttons">
+    <div class="button-offset-time" data-aion-time-offset="-<%= renderer.week_in_seconds %>">
+      <%= ion_icon("chevron-left") %>
+    </div>
+
+    <div class="button-offset-time" data-aion-time-offset="<%= renderer.week_in_seconds %>">
+      <%= ion_icon("chevron-right") %>
+    </div>
+  </div>
+
+  <div class="timezone">
+    <%= renderer.timezone_string %>
+  </div>
+
+  <div class="settings">
+    <%= ion_icon("ios-gear-outline") %>
+  </div>
+
+  <div class="display-toggles toolbar-buttons">
+    <div class="active">
+      <%= ion_icon("ios-calendar-outline") %>
+    </div>
+
+    <div>
+      <%= ion_icon("ios-list-outline") %>
+    </div>
+  </div>
+</div>

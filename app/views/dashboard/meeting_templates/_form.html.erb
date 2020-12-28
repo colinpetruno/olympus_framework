@@ -1,0 +1,76 @@
+<div class="dashboard-meeting_templates-form">
+  <%= simple_form_for([:dashboard, meeting_template]) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :duration %>
+    <%= f.input(
+      :base_timezone,
+      as: :select,
+      label_method: lambda do |object|
+        offset = Time.now.in_time_zone(object.tzinfo.name).formatted_offset
+        name = object.tzinfo.name
+
+        ["(#{offset})", name].join(" ")
+      end,
+      value_method: lambda { |object| object.tzinfo.name },
+      include_blank: false,
+      collection: ActiveSupport::TimeZone.all,
+      input_html: {
+        data: {
+          controller: "wisp--select"
+        }
+      }
+    ) %>
+
+    <div class="calendar-association-options">
+      <section>
+        <%= f.association(
+          :blocked_calendars,
+          as: :check_boxes,
+          collection: available_calendars
+        ) %>
+      </section>
+
+      <section>
+        <%= f.association(
+          :synced_calendars,
+          as: :check_boxes,
+          collection: available_calendars
+        ) %>
+      </section>
+
+      <section>
+        <%= f.association(
+          :meeting_rooms,
+          as: :check_boxes,
+          collection: Calendars::Finder.new(session_info).find_meeting_rooms
+        ) %>
+      </section>
+    </div>
+
+    <%= render(
+      partial: "components/availability_picker",
+      locals: {
+        presenter: ::Components::AvailabilityPickerPresenter.new(
+          meeting_template
+        ),
+        form: f
+      }
+    ) %>
+
+
+    <br /><br />
+
+    <footer>
+      <%= link_to(
+        "Back to meeting templates",
+        dashboard_meeting_templates_path,
+        class: "button link outline"
+      ) %>
+
+      <%= f.submit(
+        "Save changes",
+        class: "button primary"
+      ) %>
+    </footer>
+  <% end %>
+</div>

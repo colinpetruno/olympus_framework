@@ -1,0 +1,14 @@
+.dashboard-left_navigation_pane-team_list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > header {
+    margin-bottom: $spacing-lg;
+  }
+
+  > footer {
+    display: flex;
+    margin-top: auto;
+  }
+}

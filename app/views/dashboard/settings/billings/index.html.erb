@@ -1,0 +1,173 @@
+<div class="dashboard-settings-billings-index">
+  <header class="breadcrumbs">
+    <%= link_to(
+      t(".breadcrumbs.settings"),
+      dashboard_settings_root_path
+    ) %>&nbsp;<%= ion_icon("ios-arrow-right") %>&nbsp;
+    <%= t(".breadcrumbs.billing") %>
+  </header>
+
+
+  <section class="section plans">
+    <h3><%= t(".current_plan") %></h3>
+
+    <% if @current_plan.present? && @current_plan.cancelled_at.present? %>
+      <div class="alert warning">
+        <%= t(
+          ".downgrade_message",
+          downgrade_date: l(@current_plan.cancelled_at, format: :long),
+          billing_end_date: l(
+            Utilities::Time::UnixToDateTime.for(
+              @current_plan.paid_until_date
+            ), format: :long
+          )
+        ) %>
+
+        <%= button_to(
+          t(".cancel_downgrade"),
+          [:dashboard, :settings, @current_plan.billing_downgrade],
+          class: "button secondary outline small",
+          method: :put
+        )%>
+      </div>
+    <% end %>
+
+    <%= simple_form_for(
+      [:dashboard, :settings, ::Billing::Price.new],
+      method: :get
+    ) do |f| %>
+      <div class="plan">
+        <label>
+          <%= radio_button_tag(
+            "product_id",
+            "free",
+            @current_plan.blank?
+          ) %>
+
+          <%= t(".free_plan_name") %>
+          <% if @current_plan.blank? %>
+            <%= t(".active") %>
+          <% end %>
+        </label>
+      </div>
+
+      <% @plans.each do |plan| %>
+        <div class="plan">
+          <label>
+           <%= radio_button_tag(
+              "product_id",
+              plan.plan_id,
+              @current_plan&.subscribeable_id == plan.plan_id
+            ) %>
+            <%= plan.name %>
+
+            <% if @current_plan&.subscribeable_id == plan.plan_id %>
+              <%= t(".active") %>
+            <% end %>
+          </label>
+        </div>
+      <% end %>
+
+      <%= f.submit t(".continue"), class: "button primary" %>
+    <% end %>
+  </section>
+
+  <section class="section sources">
+    <h3><%= t(".payment_methods") %></h3>
+
+    <% if @sources.present? %>
+      <% @sources.each do |source| %>
+        <div class="source">
+          <div class="image">
+            <%= image_tag("logos_vendor/payment_icons/#{source.brand.underscore}") %>
+          </div>
+          <div class="identifier">
+            **** <%= source.last_four %>
+          </div>
+
+          <div class="default <%= "active" if source.default? %>">
+            <% if source.default? %>
+              <%= t(".default") %>
+            <% else %>
+              <%= simple_form_for([:dashboard, :settings, source]) do |f| %>
+                <%= f.input(
+                  :default,
+                  as: :hidden,
+                  input_html: { value: true }
+                ) %>
+
+                <%= f.submit t(".make_default"), class: "button link small" %>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="expiration">
+            <%= t(
+              ".expires",
+              date: [source.exp_month, source.exp_year].join("/")
+            ) %>
+          </div>
+
+          <div class="actions">
+            <% if @current_plan.blank? || !source.default? %>
+              <%= button_to([:dashboard, :settings, source], method: :delete) do %>
+                <%= ion_icon("ios-close-empty") %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div>
+        <%= t(".no_payment_methods") %>
+      </div>
+    <% end %>
+
+    <footer>
+      <%= link_to(
+        new_dashboard_settings_billing_source_path,
+        class: "button link no-padding"
+      ) do %>
+        <%= ion_icon("plus") %> <%= t(".add_payment_method") %>
+      <% end %>
+    </footer>
+  </section>
+
+  <section class="section billing-history">
+    <h3><%= t(".billing_history") %></h3>
+
+    <% if @invoices.present? %>
+      <div class="payment header">
+        <div><%= t(".date") %></div>
+        <div><%= t(".total") %></div>
+        <div><%= t(".invoice") %></div>
+      </div>
+      <% @invoices.each do |invoice| %>
+        <div class="payment">
+          <div class="date">
+            <%= l(invoice.created_at, format: :short) %>
+          </div>
+
+          <div class="amount">
+            <%= invoice.formatted_total %>
+          </div>
+
+          <div class="invoice-nr">
+            <%= link_to(
+              invoice.number,
+              dashboard_settings_billing_invoice_path(invoice.number)
+            ) %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= t(".no_billing_history") %>
+    <% end %>
+  </section>
+
+  <%= link_to(
+    t(".return_to_settings"),
+    dashboard_settings_root_path,
+    class: "button link outline block"
+  ) %>
+</div>

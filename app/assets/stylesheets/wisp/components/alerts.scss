@@ -1,0 +1,48 @@
+.alert {
+  background-color: $white;
+  border-radius: $border-radius;
+  border: $default-border;
+  padding: $spacing-md;
+
+  &.success {
+    background-color: lighten($green, 25%);
+    border: 1px solid darken($green, 10%);
+    color: darken($green, 40%);
+  }
+
+  &.notice {
+    background-color: lighten($blue, 30%);
+    border: 1px solid lighten($blue, 10%);
+    color: darken($blue, 23%);
+  }
+
+  &.error {
+    background-color: lighten($pink, 15%);
+    border: 1px solid darken($pink, 0%);
+    color: darken($pink, 40%);
+  }
+
+  &.warning {
+    $orange: #fff3cd;
+    background-color: $orange;
+    border: 1px solid darken($orange, 25%);
+  }
+}
+
+#flash-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  max-width: 300px;
+  min-width: 250px;
+  width: 250px;
+
+  .flash {
+    font-size: $font-size-small;
+    margin-bottom: $spacing-sm;
+    padding: $spacing-md;
+    user-select: none;
+  }
+}

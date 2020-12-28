@@ -1,0 +1,26 @@
+<div class="scheduling-calendar_events-edit">
+  <header>
+    <h3>Confirm your appointment details</h3>
+    Review and confirm your changes.
+  </header>
+
+  <section>
+    <%= render(
+      partial: "scheduling/calendar_events/details",
+      locals: {
+        duration_minutes: @booking.duration_minutes,
+        start_time: @booking.start_time,
+        timezone: @booking.timezone
+      }
+    ) %>
+
+    <%= render(
+      partial: "scheduling/calendar_events/form",
+      locals: {
+        simple_form_array: [:scheduling, @calendar_event],
+        start_time_unix: @booking.start_time.to_i,
+        link_back_path: scheduling_calendar_event_path(@booking)
+      }
+    ) %>
+  </section>
+</div>

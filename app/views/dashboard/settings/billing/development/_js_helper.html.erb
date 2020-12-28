@@ -1,0 +1,51 @@
+<div>
+  <div style="padding: 15px 0">
+    <label>Test cards:</label>
+
+    <div style="display: flex">
+      <select id="card-select">
+        <option></option>
+        <option data-number="4242424242424242">Visa Valid</option>
+        <option data-number="4000002500003155">3ds trigger</option>
+        <option data-number="4000002760003184">Require auth (all)</option>
+        <option data-number="4000002760003184">Require auth (on-session)</option>
+        <option data-number="4000008260003178">OTP auth, insuf. funds</option>
+        <option data-number="4000003800000446">OTP auth</option>
+      </select>
+      <div id="card-output" style="margin-left: 30px"></div>
+    </div>
+  </div>
+
+  <% if page == "sources" %>
+    <script type="text/javascript">
+      $(function() {
+        $("#card-select").change(function() {
+          var $option = $(this).find("option:selected");
+          $("#card-output").text($option.data("number"));
+
+          $("#billing_source_billing_detail_attributes_entity_name").val("Pascal Fluffy");
+          $("#billing_source_billing_detail_attributes_address_attributes_line_1").val("101 Main Street");
+          $("#billing_source_billing_detail_attributes_address_attributes_city").val("Boston");
+          $("#billing_source_billing_detail_attributes_address_attributes_province").val("MA");
+          $("#billing_source_billing_detail_attributes_address_attributes_postalcode").val("02115");
+        });
+      });
+    </script>
+  <% else %>
+    <%# Note: currently used on payment_intent#show %>
+    <script type="text/javascript">
+      $(function() {
+        $("#card-select").change(function() {
+          var $option = $(this).find("option:selected");
+          $("#card-output").text($option.data("number"));
+
+          $("#billing_payment_intent_entity_name").val("Pascal Fluffy");
+          $("#billing_payment_intent_line_1").val("101 Main Street");
+          $("#billing_payment_intent_city").val("Boston");
+          $("#billing_payment_intent_province").val("MA");
+          $("#billing_payment_intent_postalcode").val("02115");
+        });
+      });
+    </script>
+  <% end %>
+</div>

@@ -1,0 +1,40 @@
+<div class="frame">
+  <header>
+    <h3><%= t("common.titles.profile.add_profile") %></h3>
+  </header>
+
+  <section>
+    <%= simple_form_for [:dashboard, profile] do |f| %>
+      <%= f.input :given_name %>
+      <%= f.input :family_name %>
+      <%= f.input :email %>
+      <%= f.input(
+        :team_id,
+        as: :select,
+        collection: Teams::Finder.for_company(
+          session_info.company
+        ).alphabetical,
+        label_method: :team_name,
+        include_blank: false
+      ) %>
+
+      <%= f.input(
+        :role,
+        as: :select,
+        collection: Profile.role_collection_options,
+        include_blank: false
+      ) %>
+
+      <%= f.submit(
+        t("buttons.defaults.profile.create"),
+        class: "button primary"
+      ) %>
+
+      <%= link_to(
+        "Back",
+        dashboard_profiles_path,
+        class: "button link outline"
+      ) %>
+    <% end %>
+  </section>
+</div>

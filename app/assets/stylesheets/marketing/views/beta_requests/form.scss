@@ -1,0 +1,33 @@
+.marketing-beta_requests-form {
+  padding: $spacing-section 0;
+
+  > article {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: $body-max-width;
+
+    > section, > aside {
+      display: flex;
+    }
+
+    > section {
+      margin-bottom: $spacing-lg;
+    }
+
+
+    form {
+      display: block;
+      width: 100%;
+
+      label {
+        color: #747474;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: $font-size-small;
+    padding: 0;
+  }
+}

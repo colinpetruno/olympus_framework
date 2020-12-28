@@ -1,0 +1,34 @@
+<div class="admin-support-members-index">
+  <div class="frame centered">
+    <header>
+      <h3>Members</h3>
+    </header>
+
+    <section>
+      <table class="table striped bordered">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Name</th>
+          </tr>
+        </thead>
+
+        <% @members.each do |member| %>
+          <tr>
+            <td>
+              <%= link_to(member.profile.email, admin_support_member_path(member)) %>
+            </td>
+
+            <td>
+              <%= link_to(member.profile.full_name, admin_support_member_path(member)) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <footer>
+        <%== pagy_nav(@pagy) %>
+      </footer>
+    </section>
+  </div>
+</div>

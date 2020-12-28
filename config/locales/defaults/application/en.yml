@@ -1,0 +1,4 @@
+en:
+  defaults:
+    application:
+      company_name: "My company"

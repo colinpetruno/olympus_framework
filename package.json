@@ -1,0 +1,35 @@
+{
+  "name": "meettrics_web",
+  "private": true,
+  "dependencies": {
+    "@github/webauthn-json": "^0.4.5",
+    "@popperjs/core": "^2.4.0",
+    "@rails/actioncable": "^6.0.0-alpha",
+    "@rails/activestorage": "^6.0.0-alpha",
+    "@rails/ujs": "^6.0.0-alpha",
+    "@rails/webpacker": "^4.0.7",
+    "@types/bootstrap": "^5.0.0",
+    "@types/jquery": "^3.3.38",
+    "@types/jquery.tools": "^1.2.5",
+    "@types/webpack-env": "^1.15.2",
+    "bootstrap": "^5.0.0-alpha3",
+    "expose-loader": "^1.0.1",
+    "flatpickr": "^4.6.6",
+    "interactjs": "^1.9.14",
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.16.1",
+    "slim-select": "^1.26.0",
+    "stimulus": "^2.0.0",
+    "ts-loader": "^6.2.1",
+    "turbolinks": "^5.2.0",
+    "typescript": "^3.7.2",
+    "webpack-env": "^0.8.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^3.8.0"
+  }
+}

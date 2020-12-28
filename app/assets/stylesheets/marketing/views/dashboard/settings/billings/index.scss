@@ -1,0 +1,166 @@
+.dashboard-settings-billings-index {
+  display: block;
+  margin: 50px;
+
+  .section {
+    margin-bottom: $spacing-section;
+  }
+
+  .alert {
+    margin: $spacing-md 0;
+
+    input[type=submit] {
+      margin-top: 10px;
+    }
+  }
+
+  h3 {
+    border-bottom: 1px solid darken($gray-light, 5%);
+    padding: $spacing-md 0 $spacing-md 0;
+  }
+
+  .sources {
+    display: block;
+
+    > footer {
+      margin-top: $spacing-md;
+    }
+  }
+
+  .source {
+    display: flex;
+    font-size: $font-size-small;
+    line-height: 30px;
+    margin: 5px 0;
+    vertical-align: middle;
+
+    .image {
+      margin-right: $spacing-md;
+    }
+
+    .image > img {
+      max-height: 30px;
+    }
+
+    .identifier {
+      margin-right: $spacing-lg;
+    }
+
+    .expiration {
+      margin-left: auto;
+      margin-right: $spacing-md;
+    }
+
+    .default {
+      &.active {
+        background-color: $gray-light;
+        border-radius: 15px;
+        padding: 0 20px;
+      }
+      color: lighten($gray-dark, 20%);
+      font-size: $font-size-small;
+      min-width: 100px;
+      text-align: center;
+
+
+      .input-group.hidden, form {
+        margin: 0;
+      }
+
+      .button {
+        max-height: 30px;
+        line-height: 30px;
+        padding: 0;
+      }
+    }
+
+    .actions {
+      display: flex;
+      min-width: 30px;
+      max-width: 30px;
+
+      form {
+        margin: 0;
+      }
+
+      *[type=submit] {
+        background-color: transparent;
+        border: 0;
+        max-height: 30px;
+      }
+
+      i {
+        display: block;
+        font-size: 2.0rem;
+        max-height: 30px;
+        margin-top: -2px;
+      }
+    }
+
+    input[type=radio] {
+      margin-right: $spacing-sm;
+    }
+  }
+
+  .payment {
+    display: flex;
+
+    &.header {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    &:nth-child(odd) {
+      background-color: $gray-light;
+    }
+
+    > div {
+      display: flex;
+      flex-grow: 1;
+      width: 40%;
+      padding: $spacing-sm $spacing-md;
+    }
+
+    > div:first-child {
+      margin-right: $spacing-lg;
+      width: 30%;
+    }
+
+    > div:last-child {
+      margin-left: auto;
+      width: 30%;
+    }
+  }
+
+
+
+  // TODO: Look into relocating this somewhere better
+
+.StripeElement {
+  box-sizing: border-box;
+
+  height: 40px;
+
+  padding: 10px 12px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: white;
+
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+}

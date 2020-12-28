@@ -1,0 +1,14 @@
+.section-header {
+  // NOTE: Remove for `.page-header`
+  align-items: center;
+  display: flex;
+  vertical-align: middle;
+
+  a:first-child, input[type=button]:first-child {
+    margin-left: auto;
+  }
+
+  a:not(:first-child), input[type=button]:not(:first-child) {
+    margin-left: $spacing-md;
+  }
+}

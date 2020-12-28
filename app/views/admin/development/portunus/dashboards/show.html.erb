@@ -1,0 +1,32 @@
+<h3>Deks by master key</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Master key id</th>
+      <th>Count</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <% @dek_counts_by_master.each do |count| %>
+    <tr>
+      <td><%= count.master_keyname %></td>
+      <td><%= count.count %></td>
+      <td>
+        <%= button_to(
+          "Rotate dek encryption",
+          admin_development_portunus_kek_rotations_path,
+          form: {
+            data: {
+              controller: "authentication--redemptions",
+              new_session_path: new_auth_two_factor_session_path(format: :js)
+            }
+          },
+          class: "button outline primary small"
+        ) %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

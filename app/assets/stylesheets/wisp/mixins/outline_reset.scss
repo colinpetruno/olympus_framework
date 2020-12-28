@@ -1,0 +1,12 @@
+@mixin outline-reset() {
+  outline: none;
+  outline-style: none;
+  outline: 0;
+
+  &:active, &:hover, &:focus, &:visited {
+    outline-color: transparent;
+    outline: none;
+    outline-style: none;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="scheduling-calendar_events-form">
+  <%= simple_form_for(simple_form_array) do |f| %>
+    <%= f.input :timezone, as: :hidden %>
+    <%= f.input(
+      :start_time_unix,
+      as: :hidden,
+      value: start_time_unix || params[:start_time]
+    ) %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :guests, as: :text %>
+    <%= f.input :details, as: :text %>
+
+    <footer class="horizontal-buttons">
+      <%= link_to(
+        "Back",
+        link_back_path,
+        class: "button link outline block"
+      ) %>
+
+      <%= f.submit(
+        "Confirm appointment",
+        class: "button primary outline block"
+      ) %>
+    </footer>
+  <% end %>
+</div>

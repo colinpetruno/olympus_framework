@@ -1,0 +1,12 @@
+.full-width-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  margin-left: -50px !important;
+  margin-right: -50px !important;
+  margin-bottom: -20px !important;
+
+  border-bottom-left-radius: $frame-border-radius;
+  border-bottom-right-radius: $frame-border-radius;
+}

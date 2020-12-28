@@ -1,0 +1,14 @@
+.scheduling-calendar_events-new {
+  > header {
+    border-bottom: $default-border;
+    margin: 25px 0 0 0;
+    padding: 0 25px 10px 25px;
+    text-align: center;
+    user-select: none;
+  }
+
+  > section {
+    margin: 0 25px;
+    padding: 25px 0;
+  }
+}

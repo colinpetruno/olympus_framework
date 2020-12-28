@@ -1,0 +1,17 @@
+<div id="flash-container">
+  <% flash.each do |key, messages| %>
+    <div class="alert flash <%= key %>">
+      <% if messages.is_a? Hash %>
+        <% messages.each do |level, msg| %>
+          <%= content_tag :p, class: level do %>
+            <% [msg].flatten.each do |message| %>
+              <%= message %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= messages %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

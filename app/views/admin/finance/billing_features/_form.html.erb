@@ -1,0 +1,123 @@
+<%= simple_form_for([:admin, :finance, billing_feature]) do |f| %>
+  <%= f.input :feature_key %>
+  <%= f.input :feature_name %>
+
+  <div class="card" data-controller="admin--finance--billing-feature">
+    <header>
+      <h4>Free tier Settings</h4>
+    </header>
+    <%= f.input(
+      :measuring_type,
+      as: :select,
+      collection: Billing::Feature.measuring_type_options,
+      include_blank: false,
+      input_html: {
+        data: {
+          target: "admin--finance--billing-feature.selectedMeasuringType",
+          action: "change->admin--finance--billing-feature#setupForm"
+        }
+      }
+    ) %>
+
+    <div class="toggleable <%= "hidden" if !billing_feature.toggleable? %>">
+      <%= f.input :enabled, as: :boolean %>
+    </div>
+
+    <div class="measurable <%= "hidden" if billing_feature.toggleable? %>">
+      <%= f.input(
+        :unlimited,
+        as: :boolean,
+        input_html: {
+          data: {
+            action: "change->admin--finance--billing-feature#toggleCounter",
+            target: "admin--finance--billing-feature.unlimitedToggle",
+          }
+        }
+      ) %>
+
+      <%= f.input(
+        :quantity,
+        input_html: {
+          class: (billing_feature.unlimited? ? "disabled" : ""),
+          disabled: (billing_feature.unlimited? ? "disabled" : ""),
+          data: {
+            target: "admin--finance--billing-feature.quantityInput",
+          }
+        }
+      ) %>
+    </div>
+  </div>
+
+  <% if billing_feature.persisted? %>
+    <h3>Plan Configurations</h3>
+
+    <% billing_feature.billing_product_features.each do |product_feature| %>
+      <div class="card">
+        <header>
+          <h4>
+            <%= product_feature.billing_product.name %>
+            <small>
+              <%= product_feature.billing_product.description %>
+            </small>
+          </h4>
+        </header>
+
+        <section data-controller="admin--finance--billing-feature">
+          <%= f.simple_fields_for(
+            "billing_product_features_attributes[]",
+            product_feature
+          ) do |fpf| %>
+            <%= fpf.input :id, as: :hidden %>
+            <%= fpf.input(
+              :measuring_type,
+              as: :select,
+              collection: Billing::Feature.measuring_type_options,
+              include_blank: false,
+              input_html: {
+                data: {
+                  target: "admin--finance--billing-feature.selectedMeasuringType",
+                  action: "change->admin--finance--billing-feature#setupForm"
+                }
+              }
+            ) %>
+
+
+            <div class="toggleable <%= "hidden" if !product_feature.toggleable? %>">
+              <%= fpf.input :enabled, as: :boolean %>
+            </div>
+
+            <div class="measurable <%= "hidden" if product_feature.toggleable? %>">
+              <%= fpf.input(
+                :unlimited,
+                as: :boolean,
+                input_html: {
+                  data: {
+                    action: "change->admin--finance--billing-feature#toggleCounter",
+                    target: "admin--finance--billing-feature.unlimitedToggle",
+                  }
+                }
+              ) %>
+
+              <%= fpf.input(
+                :quantity,
+                input_html: {
+                  class: (product_feature.unlimited? ? "disabled" : nil),
+                  disabled: (product_feature.unlimited? ? "disabled" : nil),
+                  data: {
+                    target: "admin--finance--billing-feature.quantityInput",
+                  }
+                }
+              ) %>
+          <% end %>
+        </section>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= f.submit nil, class: "button primary" %>
+  <%= link_to(
+    "Back",
+    admin_finance_billing_products_path,
+    class: "button link outline"
+  ) %>
+<% end %>

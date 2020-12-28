@@ -1,0 +1,24 @@
+.dashboard-settings-billing-invoices-show {
+  margin: 50px;
+
+
+  .link, .download {
+    > a {
+      border: $default-border;
+      border-radius: $border-radius;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $spacing-lg;
+      text-align: center;
+    }
+
+    i {
+      font-size: 3rem;
+    }
+  }
+
+  .link {
+    margin-bottom: $spacing-section;
+  }
+}

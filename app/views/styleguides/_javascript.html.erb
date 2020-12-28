@@ -1,0 +1,41 @@
+<div class="section styleguides-forms">
+  <aside>
+    <header>
+      <h3>Javascript</h3>
+    </header>
+  </aside>
+
+  <article>
+    <h3>Javascript enhancements</h3>
+    We utilize stimulus to build JS enhancements to various input fields. This
+    is sometimes referred to as "the sprinkles". We can isolate and test these
+    sprinkles here. Check the source for the data-attribute names.
+
+    <br /><br />
+    <h4>Elapsed Time</h4>
+    You can add the elapsed time controller to countup from a start time.
+
+    <div data-controller="wisp--clock"
+         data-wisp--clock-start-time-value="<%= (DateTime.now - 930.minutes).to_i %>">
+      <span data-wisp--clock-target="timeElapsed">
+        <%= Utilities::Time::Difference.as_string(
+          DateTime.now,
+          DateTime.now - 930.minutes
+        ) %>
+      </span>
+    </div>
+
+    <br /><br />
+    <h4>Enhanced select inputs</h4>
+    Sometimes you might need to add some additional requirements to selects.
+    Currently it supports a local search only but it would be good to extend
+    the component to fetching with ajax as well.
+
+    <select data-controller="wisp--select">
+      <option>Option 1</option>
+      <option>Option 2</option>
+      <option>Option 3</option>
+      <option>Option 4</option>
+    </select>
+  </article>
+</div>

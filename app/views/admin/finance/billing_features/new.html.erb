@@ -1,0 +1,44 @@
+<div class="admin-finance-billing_features-new">
+  <div class="frame">
+    <header>
+      <h3>New billing feature</h3>
+      Create a billing feature below. Be a bit cautious here.
+      <ul>
+        <li>
+          <strong>Feature Name:</strong> Not displayed but used for
+          identification
+        </li>
+
+        <li>
+          <strong>Feature Key:</strong> This key is used in the application
+          programming. It's not shown, but once set it can't be changed. It
+          must be lowercase with underscores.
+        </li>
+
+        <li>
+          <strong>Measuring type:</strong>
+          <ul>
+            <li><strong>Toggleable</strong> Enable or disable a feature</li>
+            <li><strong>Monthly</strong> Measure the total amount per month</li>
+            <li><strong>Total</strong> Maximum amount allowed for the account</li>
+          </ul>
+        </li>
+      </ul>
+
+      The default settings below are utilized for the free tier. Once the
+      feature is created you can then go and associate it to the plans you
+      want to enable the feature for. Note, your app may not have a free tier
+      offering if it was disabled but these settings are the basis for other
+      tiers.
+    </header>
+
+    <section>
+      <%= render(
+        partial: "admin/finance/billing_features/form",
+        locals: {
+          billing_feature: @billing_feature
+        }
+      ) %>
+    </section>
+  </div>
+</div>

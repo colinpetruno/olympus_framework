@@ -1,0 +1,15 @@
+<div class="admin-finance-dashboards-show">
+  <div class="frame floating narrow center">
+    <header>
+      <h3>Finance Dashboard</h3>
+      See your revenue & manage payments
+    </header>
+
+    <section>
+      <%= image_tag("illustrations/admin/finance.svg") %>
+      <br /><br />
+      <h5>Today's Revenue</h5>
+      <%= number_to_currency(@todays_revenue.total / 100) %>
+    </section>
+  </div>
+</div>

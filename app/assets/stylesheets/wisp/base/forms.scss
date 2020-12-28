@@ -1,0 +1,149 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $form-bottom-margin;
+
+  > label {
+    color: $form-label-color;
+    display: block;
+    margin-bottom: 0px;
+    width: 100%;
+  }
+
+  > input, > .input-group > input {
+    border-color: $form-input-border-color;
+    border-radius: $form-input-border-radius;
+    border-style: solid;
+    border-width: 1px;
+    background-clip: padding-box;
+    display: block;
+    line-height: 1.5;
+    outline-color: $blue;
+    padding: $spacing-sm $spacing-sm;
+  }
+
+  select {
+    border: $default-border;
+    border-radius: $border-radius;
+    height: 36px;
+    padding: $spacing-sm $spacing-md;
+  }
+}
+
+.form-group.invalid {
+  > label {
+    color: $pink;
+  }
+
+  > input {
+    border-color: $pink;
+  }
+
+  .error-message {
+    color: $pink;
+    font-size: 14px;
+  }
+}
+
+.form-check-input {
+  margin-top: 0.15rem;
+}
+
+input[type=submit] {
+  height: 48px;
+}
+
+// this is weird where some check boxes are showing up green. It seems to do
+// with validations but unsure what is actually validating it
+.form-check-input.is-valid ~ .form-check-label {
+  color: $gray-dark;
+}
+
+form.button_to {
+  margin-bottom: 0;
+}
+
+.input-group {
+  display: flex;
+
+  &.hidden {
+    margin-bottom: 0;
+  }
+}
+
+.input-group-prepend,
+.input-group-append {
+  display: flex;
+
+  // Ensure buttons are always above inputs for more visually pleasing borders.
+  // This isn't needed for `.input-group-text` since it shares the same border-color
+  // as our inputs.
+  .button {
+    border-radius: 0;
+    position: relative;
+    z-index: 2;
+
+    &:focus {
+      z-index: 3;
+    }
+
+    &:last-child {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+  }
+
+  .button + .button,
+  .button + .input-group-text,
+  .input-group-text + .input-group-text,
+  .input-group-text + .button {
+    margin-left: -1px;
+  }
+
+  a.button {
+    // unsure why the links over buttons need 2 pixels. Extra whitespace
+    // somewhere may be adding a whitespace
+    margin-left: -2px !important;
+  }
+}
+
+.input-group {
+  > input {
+    flex-grow: 1;
+  }
+
+  > input.input:not(:first-child) {
+    border-radius-top-left: 0 !important;
+    border-radius-bottom-left: 0 !important;
+  }
+
+  > input.input:not(:last-child) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+
+  .input-group-prepend {
+    margin-right: -1px;
+  }
+
+  .input-group-append {
+    margin-left: -1px;
+  }
+}
+
+form .horizontal {
+  display: flex;
+
+  > .form-group {
+    margin: 0 $spacing-sm;
+    flex-grow: 1;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

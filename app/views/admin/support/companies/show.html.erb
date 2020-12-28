@@ -1,0 +1,30 @@
+<div class="admin-support-companies-show">
+  <div class="frame">
+    <header>
+      <h3><%= @company.name %></h3>
+    </header>
+
+    <section>
+      <%= render(
+        partial: "admin/support/companies/form",
+        locals: {
+          company: @company
+        }
+      ) %>
+
+      <br /><br />
+
+      <%= button_to(
+        "Delete",
+        admin_support_company_companies_deletion_path(@company),
+        form: {
+          data: {
+            controller: "authentication--redemptions",
+            new_session_path: new_auth_two_factor_session_path(format: :js)
+          }
+        },
+        class: "button outline primary"
+      ) %>
+    </section>
+  </div>
+</div>

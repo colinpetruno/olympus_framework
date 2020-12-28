@@ -1,0 +1,35 @@
+<div class="marketing-contact_us_requests-new">
+  <aside>
+    <h2>Contact Us</h2>
+    <%= image_tag("illustrations/marketing/pricing/contact_us.svg") %>
+  </aside>
+
+  <section>
+    <h3>Let us know how we can help you.</h3>
+    We are here to help and answer any questions you may have! We look forward
+    to hearing from you and will respond as quickly as we can!
+    <%= simple_form_for(
+      [:marketing, @contact_us_request],
+      data: {
+        track: true,
+        track_name: "Contact us form"
+      }
+    ) do |f| %>
+      <%= f.input :email %>
+
+      <%= f.input(
+        :category,
+        as: :select,
+        collection: ContactUsRequest.category_options,
+        include_blank: true
+      ) %>
+
+      <%= f.input(
+        :request,
+        label: "Let us know how we can help you"
+      ) %>
+
+      <%= f.submit "Send", class: "button primary" %>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,26 @@
+<div class="scheduling-profiles-show">
+  <header class="scheduling-header">
+    <h3>The schedule of <%= @profile.full_name %></h3>
+  </header>
+
+  <section class="scheduling-options">
+    <% if @schedule_setting.blank? || !@schedule_setting.schedule_open? %>
+      This schedule is currently not accepting any new meetings or events.
+    <% else %>
+      <% @meeting_templates.each do |template|  %>
+        <div class="meeting-option">
+          <%= link_to(
+            scheduling_meeting_template_availabilities_path(template)
+          ) do %>
+            <aside>
+              <%= template.duration %> min
+            </aside>
+
+            <section>
+            </section>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,47 @@
+<% content_for(:head_js) do %>
+  <%= javascript_pack_tag "resque_web", "data-turbolinks-track": "reload" %>
+<% end %>
+
+<%= content_for(:head_css) do %>
+  <%= stylesheet_link_tag(
+    "resque_web/application",
+    media: "all",
+    "data-turbolinks-track": "reload"
+  ) %>
+<% end %>
+
+<% content_for(:subnav) do %>
+  <div class="resque_web navbar">
+    <div class="navbar-inner">
+      <%= image_tag "resque_web/lifebuoy.png", class: 'logo' %>
+      <%= link_to "Resque", resque_web_root_path, :class => "brand navbar-brand" %>
+
+      <ul class="nav navbar-nav">
+        <% tabs.each do |tab_name,path| %>
+          <%= tab tab_name,path %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <% unless subtabs.empty? %>
+    <ul class="nav subnav">
+      <div class="container">
+        <% subtabs.each do |tab_name| %>
+          <%= subtab tab_name %>
+        <% end %>
+      </div>
+    </ul>
+  <% end %>
+<% end %>
+
+<% content_for(:subfooter) do %>
+  <footer id="footer">
+    <div class="container">
+      <p>Powered by <a href="http://github.com/resque/resque">Resque</a> v<%=Resque::Version%></p>
+      <p>Connected to Redis namespace <%= Resque.redis.namespace %> on <%=Resque.redis_id%></p>
+    </div>
+  </footer>
+<% end %>
+
+<%= render template: "layouts/admin/development" %>

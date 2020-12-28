@@ -1,0 +1,13 @@
+.styleguides-forms {
+  .toggle-list {
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      display: flex;
+      min-width: 350px;
+      max-width: 350px;
+      margin-right: 50px;
+    }
+  }
+}

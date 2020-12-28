@@ -1,0 +1,8 @@
+en:
+  admin:
+    finance:
+      billing_products:
+        edit:
+          price_interval:
+            month: "Monthly"
+            year: "Yearly"

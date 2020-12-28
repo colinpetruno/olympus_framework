@@ -1,0 +1,10 @@
+textarea {
+  padding: $spacing-sm;
+}
+
+textarea.text {
+  border-color: $form-input-border-color;
+  border-radius: $form-input-border-radius;
+  min-height: 100px;
+  width: 100%;
+}

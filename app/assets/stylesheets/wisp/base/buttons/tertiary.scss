@@ -1,0 +1,11 @@
+.button.tertiary {
+  background: transparent;
+  color: $button-tertiary-background;
+  border: 1px solid $button-tertiary-background;
+  height: $button-height;
+
+  &:hover {
+    background: $button-tertiary-background;
+    color: $button-tertiary-color;
+  }
+}

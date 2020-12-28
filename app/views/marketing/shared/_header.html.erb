@@ -1,0 +1,30 @@
+<header class="marketing-shared-header">
+  <article>
+    <div class="menu-left">
+      <%= link_to(root_path, class: "root-link") do %>
+        <%= image_tag("logos/symbol/symbol_64.png") %>
+        <%= t("base.application_name") %>
+      <% end %>
+
+      <button class="menu-toggle"
+              type="button"
+              id="menuListButton"
+              aria-haspopup="true"
+              aria-expanded="false">
+        <%= ion_icon("navicon") %>
+      </button>
+    </div>
+
+    <ul aria-labelledby="menuListButton" id="menu-list">
+      <%= render partial: "marketing/shared/nav_links" %>
+    </ul>
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(){
+        $(".menu-toggle").on("click", function() {
+          $("#menu-list").slideToggle();
+        });
+      });
+    </script>
+  </article>
+</header>

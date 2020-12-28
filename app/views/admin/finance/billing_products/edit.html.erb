@@ -1,0 +1,38 @@
+<div class="admin-finance-billing_products-edit rail">
+  <section>
+    <div class="frame">
+      <header>
+        <h3>Edit membership plan (<%= @product.name %>)</h3>
+        Configure the available features for this plan
+      </header>
+
+      <section>
+        <%= render(
+          partial: "admin/finance/billing_products/form",
+          locals: {
+            product: @product
+          }
+        ) %>
+      </section>
+    </div>
+  </section>
+
+  <aside>
+    <div class="frame">
+      <header>
+        <h3>Prices</h3>
+        Update these in Stripe and then reimport.
+      </header>
+
+      <section>
+        <% @product.billing_prices.each do |price| %>
+          <div>
+            <h4><%= t(".price_interval.#{price.interval}") %></h4>
+            <%= number_to_currency(price.amount) %>
+          </div>
+          <br />
+        <% end %>
+      </section>
+    </div>
+  </aside>
+</div>

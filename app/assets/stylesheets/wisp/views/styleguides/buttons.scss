@@ -1,0 +1,31 @@
+.styleguides-buttons {
+  .buttons-container {
+    display: flex;
+
+    margin-bottom: $spacing-lg;
+
+    > section {
+      display: flex;
+      width: 25%;
+    }
+
+    &.sizes {
+      flex-direction: column;
+
+      > section {
+        margin-bottom: $spacing-lg;
+        width: 100%;
+      }
+
+      > section > div {
+        display: flex;
+        justify-content: center;
+
+        > button {
+          margin: auto;
+          margin-right: $spacing-lg;
+        }
+      }
+    }
+  }
+}

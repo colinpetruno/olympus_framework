@@ -1,0 +1,83 @@
+.dashboard-connections-index {
+  display: flex;
+  flex-direction: column;
+
+  .intro {
+    margin-bottom: $spacing-section;
+
+    .buttons {
+      margin-top: $spacing-lg;
+    }
+  }
+
+  .intro > section {
+    display: flex;
+
+    > aside > img {
+      margin-left: 100px;
+      max-width: 300px;
+    }
+
+    > article {
+      margin-left: 150px;
+      max-width: 450px;
+    }
+  }
+
+  .providers {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: $spacing-lg;
+  }
+
+  .provider {
+    background-color: $white;
+    border: $default-border;
+    border-radius: $border-radius;
+    margin: 0 $spacing-md $spacing-lg $spacing-md;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    padding: $spacing-lg;
+    width: 300px;
+
+    &.active {
+      border-color: $green;
+      box-shadow: $box-shadow-success;
+    }
+  }
+
+  .logo {
+    > img {
+      display: block;
+      max-width: 75px;
+      margin: $spacing-md auto;
+    }
+  }
+
+  .name {
+    text-align: center;
+    margin: $spacing-md 0;
+  }
+
+  .buttons {
+    .button {
+      margin-bottom: $spacing-md;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    input[type=submit].button {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,56 @@
+<div class="dashboard-support_requests-index">
+  <header>
+    <h3>Support</h3>
+    View your outstanding requests and submit a new request
+    for support. We're a small team. We do our
+    best to get back to you within 24 hours. If you need a faster response let
+    us know and we will pick it up as soon as we possibly can. Keep others in
+    mind though!
+  </header>
+
+  <section>
+    <br /><br />
+    <h4>Your open requests</h4>
+    <% if @support_requests.blank? %>
+      <div>
+        You have no open support requests.
+      </div>
+    <% else %>
+      <table class="table border striped small">
+        <% @support_requests.each do |request| %>
+          <% next if !request.persisted? %>
+
+          <tr>
+            <td><%= request.support_request_messages.first.truncated_title %></td>
+            <td><%= l(request.submitted_at, format: :short) %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+
+
+
+    <br /><br />
+    <h4>Create a new request</h4>
+    <%= simple_form_for(
+      [:dashboard, @support_request ||= SupportRequest.new]
+    ) do |f| %>
+      <%= f.simple_fields_for(
+        :support_request_messages,
+        (@message ||= @support_request.support_request_messages.build)
+      ) do |fm| %>
+        <%= fm.input :message %>
+      <% end %>
+
+      <%= f.submit "Create", class: "button primary block" %>
+    <% end %>
+  </section>
+
+  <footer>
+    <%= link_to(
+      "Go to your dashboard",
+      dashboard_root_path,
+      class: "button link outline block"
+    ) %>
+  </footer>
+</div>

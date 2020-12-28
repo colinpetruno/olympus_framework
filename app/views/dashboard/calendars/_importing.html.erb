@@ -1,0 +1,49 @@
+<div class="dashboard-calendars-importing">
+  <div data-controller="dashboard--syncs--calendar-sync"
+       data-start-sync="<%= start_sync %>"
+       data-url="<%= dashboard_remote_syncs_path%>">
+
+    <div class="sync-pane frame">
+      <section>
+        <aside>
+          <%= image_tag("illustrations/calendars/online_calendar_purple.svg") %>
+        </aside>
+
+        <article>
+          <h3>Manage your calendars</h3>
+          The calendars we found for your providers are listed below. Read more
+          about how to configure and optimize your calendars here. Don't see
+          the calendar you want? Simply hit refresh below or manage your
+          providers.
+
+
+          <div class="buttons">
+            <button class="button primary outline"
+                    data-action="click->dashboard--syncs--calendar-sync#startSync">
+              Refresh calendars
+            </button>
+
+            <%= link_to(
+              "Manage connections",
+              dashboard_connections_path,
+              class: "button secondary outline"
+            ) %>
+          </div>
+
+          <div class="in-progress hidden">
+            <%= render partial: "components/spinner" %>
+            <h5>Refreshing your calendars...</h5>
+          </div>
+
+          <div class="sync-error hidden">
+            <small>
+              Sorry, something went wrong on our end. There's
+              nothing you can do but we have been notified and will reach out
+              as soon as it's fixed.
+            </small>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+</div>

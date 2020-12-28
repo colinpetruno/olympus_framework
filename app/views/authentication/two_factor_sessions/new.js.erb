@@ -1,0 +1,7 @@
+$("#twoFactorModalContainer").html("<%= j(
+  render(partial: "authentication/two_factor_auth_modal", locals: {
+    auth_style: "redemption"
+  })
+ ) %>");
+
+$("#twoFactorAuthModal").modal("show");

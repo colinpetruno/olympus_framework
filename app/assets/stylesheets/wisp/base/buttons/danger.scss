@@ -1,0 +1,51 @@
+.button.danger {
+  background: $button-danger-background;
+  border: 1px solid $button-danger-color;
+  color: $button-danger-color;
+  height: $button-height;
+
+  &:focus { // define focus before hover
+    border: 1px solid darken($button-danger-background, 15%);
+  }
+
+  &:active {
+    background: darken($button-danger-background, 15%);
+  }
+
+  &.disabled {
+    background: lighten($button-danger-background, 15%);
+    border: 1px solid lighten($button-danger-background, 15%);
+    color: lighten($button-danger-color, 15%);
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid $button-danger-color;
+    color: $button-danger-color;
+
+    &:focus { // define focus before hover
+      border: 1px solid darken($button-danger-background, 15%);
+      color: darken($button-danger-background, 15%);
+    }
+
+    &:hover {
+      background: $button-danger-background;
+      color: $button-danger-color;
+    }
+
+    &:active {
+      background: darken($button-danger-background, 10%);
+    }
+
+    &.disabled {
+      border: 1px solid lighten($button-danger-background, 15%);
+      color: lighten($button-danger-background, 15%);
+
+      &:hover {
+        background: transparent;
+        border: 1px solid lighten($button-danger-background, 15%);
+        color: lighten($button-danger-background, 15%);
+      }
+    }
+  }
+}

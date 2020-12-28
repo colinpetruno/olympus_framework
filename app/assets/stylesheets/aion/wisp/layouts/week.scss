@@ -1,0 +1,55 @@
+.aion-week_layout {
+  $time-column-width: 100px;
+  $row-height: 80px;
+  $border-margin: 0.5 * $row-height;
+  $calendar-border-color: darken($gray-light, 15%);
+
+  border-bottom-right-radius: $frame-border-radius;
+  border-bottom-left-radius: $frame-border-radius;
+
+  > header {
+    border-bottom: 1px solid $calendar-border-color;
+
+    .aion-date-label {
+      .aion-day-name {
+        color: lighten($gray-dark, 20%);
+        font-weight: bold;
+      }
+
+      .aion-date {
+        color: lighten($gray-dark, 40%);
+        font-size: $font-size-small;
+      }
+    }
+  }
+
+  > .calendar-window {
+    .overflow {
+      > article {
+      }
+    }
+
+    .time-label-column {
+      border-right: 1px solid $calendar-border-color;
+    }
+
+    .time-label {
+      &:after {
+        border-bottom: 1px solid $calendar-border-color;
+      }
+    }
+
+    .event-column {
+      border-right: 1px solid $calendar-border-color;
+
+      &:first-child {
+        border-left: 1px solid $calendar-border-color;
+      }
+
+      &:last-child {
+        border-right-width: 0;
+        border-right-style: none;
+      }
+    }
+  }
+}

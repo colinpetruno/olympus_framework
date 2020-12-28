@@ -1,0 +1,26 @@
+.scheduling-reschedules-new {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  > header {
+    border-bottom: $default-border;
+    margin: 25px 0;
+    padding: 0 25px 10px 25px;
+    text-align: center;
+    user-select: none;
+  }
+
+  > section {
+    padding: 0 25px 10px 25px;
+
+    .buttons > .button {
+      flex-grow: 1;
+    }
+  }
+
+  .buttons {
+    margin-top: $spacing-section;
+    text-align: center;
+  }
+}

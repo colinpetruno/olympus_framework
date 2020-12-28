@@ -1,0 +1,51 @@
+en:
+  dashboard:
+    onboarding:
+      calendars:
+        index:
+          step_title: "Let's enable your calendars"
+          step_description: >
+            We've enabled your primary calendar. Are there any other calendars
+            you would like to sync or analyze. Enable the sync to use for
+            scheduling and the beaker to enable the calendar for metrics.
+          next_step_button: "Continue"
+      company_settings:
+        index:
+          step_title: "Let's configure your company"
+          step_description: >
+            It looks like this is the first signup we have had for %{domain}.
+            Let's configure a few options for your company.
+          name_label: "What's your companies name?"
+          domain_label: "What's your companies unique domain?"
+          domain_hint: >
+            You can accept everyone in your company with this domain 
+            automatically in your settings.
+          join_title: "How can people join your company?"
+          join_description: >
+            What would you like to someone else with the same domain trieds to
+            signup. You can have them added to your company automatically,
+            request an invite or just let them make a new account.
+          next_step_button: "Save and configure your calendars"
+          signup_options:
+            allowed:
+              heading: "Open signups"
+              description: >
+                Allow anyone on the same domain to signup
+            invite: 
+              heading: "Request an invite"
+              description: >
+                If another person on the same domain tries to sign up they 
+                can request an invite. 
+            disabled:
+              heading: "Hide my company"
+              description: >
+                Others signing up with the same domain are going to make a new
+                account. Use this if you do not own your domain. 
+      introductions:
+        index: 
+          step_title: "A quick intro"
+          description: >
+            I am going to put a more detailed explanation of the dashboard here
+            before it officially launches. Let me know what you think is best
+            to include or might need some clarification.
+          next_step_button: "See my dashboard"

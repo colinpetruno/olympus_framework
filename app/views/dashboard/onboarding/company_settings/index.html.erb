@@ -1,0 +1,76 @@
+<div class="onboarding-company_settings-index">
+  <aside>
+    <div class="header-message">
+      <%= render(
+        partial: "dashboard/onboarding/shared/steps",
+        locals: {
+          step: 1
+        }
+      ) %>
+
+      <section>
+        <article>
+          <h3><%= t(".step_title") %></h3>
+
+          <%= t(
+            ".step_description",
+            domain: session_info.company.email_domain
+          ) %>
+        </article>
+      </section>
+    </div>
+  </aside>
+
+  <section class="right-pane">
+    <article>
+      <%= simple_form_for([:dashboard, :onboarding, session_info.company]) do |f| %>
+        <%= f.input :name, label: t(".name_label") %>
+        <%= f.input(
+          :email_domain,
+          label: t(".domain_label"),
+          hint: t(".domain_hint")
+        ) %>
+
+
+        <% if 1 == 2 %>
+          <h4><%= t(".join_title") %></h4>
+          <%= t(".join_description") %>
+          <div class="signup-options">
+            <% Company.open_signup_options.map do |option| %>
+              <label class="signup-option" for="company_open_signups_<%= option.last %>">
+                <aside class="image">
+                  <%= image_tag(
+                    "illustrations/onboarding/signup_options_purple/#{option.last}.svg"
+                  ) %>
+                </aside>
+
+                <div class="details">
+                  <h3><%= t(".signup_options.#{option.last}.heading") %></h3>
+
+                  <div>
+                    <small>
+                      <%= t(".signup_options.#{option.last}.description") %>
+                    </small>
+                  </div>
+
+                  <%= radio_button_tag(
+                    "company[open_signups]",
+                    option.last,
+                    option.last == session_info.company.open_signups
+                  ) %>
+                </div>
+              </label>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="submit-button">
+          <%= f.submit(
+            t(".next_step_button"),
+            class: "button primary block"
+          ) %>
+        </div>
+      <% end %>
+    </article>
+  </section>
+</div>

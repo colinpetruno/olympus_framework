@@ -1,0 +1,24 @@
+###[ Current settings for pagekite.py v1.0.1.200424. ]#########
+#
+## NOTE: This file may be rewritten/reordered by pagekite.py.
+#
+
+##[ Default kite and account details ]##
+kitename   = cpetruno-meettrics.pagekite.me
+kitesecret = ****************************** 
+
+##[ Front-end settings: use pagekite.net defaults ]##
+defaults
+
+##[ Back-ends and local services ]##
+service_on=http:@kitename:localhost:3000:@kitesecret
+service_on=http:cpetruno.developers.meettrics.com:localhost:3000:@kitesecret
+service_on=http:development.meettrics.com:localhost:3000:@kitesecret
+
+
+
+##[ Miscellaneous settings ]##
+savefile = /Users/colinpetruno/.pagekite.rc
+
+###[ End of pagekite.py configuration ]#########
+END

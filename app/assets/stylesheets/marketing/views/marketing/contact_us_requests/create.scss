@@ -1,0 +1,52 @@
+.marketing-contact_us_requests-create {
+  display: flex;
+  margin-top: 60px;
+
+  > div {
+    display: flex;
+    margin: 0 auto;
+    margin-top: $spacing-section;
+    max-width: $site-max-width;
+
+    > aside {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $spacing-section;
+      max-width: 50%;
+    }
+
+    > article {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $spacing-section;
+    }
+  }
+
+  .button {
+    margin-top: $spacing-lg;
+    margin-right: auto;
+  }
+
+  @include media-breakpoint-down(md) {
+    > div {
+      flex-direction: column;
+      text-align: center;
+
+      > aside, > article {
+        text-align: center;
+        max-width: none;
+      }
+
+      > aside {
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+
+      .button {
+        margin-right: 0;
+      }
+    }
+  }
+}

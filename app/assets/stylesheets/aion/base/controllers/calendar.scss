@@ -1,0 +1,91 @@
+.aion-controllers-calendar {
+  .aion-date-display-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // control the toolbar
+  .aion-select-container {
+    display: flex;
+
+    > div:first-child {
+      justify-content: start;
+      margin: 0 0;
+      min-width: 50px;
+    }
+
+    > div {
+      display: flex;
+      justify-content: center;
+      flex-basis: 0;
+      margin: 0 auto;
+    }
+
+    > div:last-child {
+      justify-content: flex-end;
+      margin: 0 0;
+      min-width: 50px;
+    }
+  }
+
+  .aion-forward-button, .aion-back-button {
+    cursor: pointer;
+  }
+
+  .aion-calendar-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid $gray-dark;
+  }
+
+  .aion-header-day-names {
+    display: flex;
+    flex-grow: 1;
+    flex-basis:0;
+
+    .aion-day-name {
+      display: flex;
+      flex-grow: 1;
+      flex-basis: 0;
+      justify-content: center;
+    }
+  }
+
+  .aion-calendar-row {
+    display: flex;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    &:first-child {
+      .aion-date {
+        border-top: none;
+      }
+    }
+
+    &:last-child {
+      .aion-date {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .aion-date {
+    border: 1px solid $gray-dark;
+    border-right: none;
+    border-bottom: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+    flex-grow: 1;
+    flex-basis: 0;
+
+    &:first-child {
+      border-left: none;
+    }
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}

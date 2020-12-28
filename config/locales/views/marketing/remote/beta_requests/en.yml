@@ -1,0 +1,6 @@
+en:
+  marketing:
+    remote:
+      beta_requests:
+        create:
+          message: "Thanks! We will be in touch soon!"

@@ -1,0 +1,9 @@
+<h3>New meeting template</h3>
+
+<%= render(
+  partial: "dashboard/meeting_templates/form",
+  locals: {
+    meeting_template: @meeting_template,
+    available_calendars: @available_calendars
+  }
+) %>

@@ -1,0 +1,51 @@
+<div class="dashboard-onboarding-calendars-index">
+  <aside>
+    <section class="intro-message">
+      <aside>
+        <%= render(
+          partial: "dashboard/onboarding/shared/steps",
+          locals: {
+            step: 2
+          }
+        ) %>
+        <h3><%= t(".step_title") %></h3>
+      </aside>
+
+      <section>
+        <%= t(".step_description") %>
+      </section>
+    </section>
+  </aside>
+
+  <section>
+    <div class="calendars">
+      <div>
+        <% if @calendars.present? %>
+          <% @calendars.each do |calendar| %>
+            <%= render(
+              partial: "dashboard/calendars/calendar_list_item",
+              locals: {
+                calendar: calendar
+              }
+            ) %>
+          <% end %>
+        <% else %>
+          <%= render(
+            partial: "dashboard/calendars/importing",
+            locals: {
+              start_sync: @calendars.blank?
+            }
+          ) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="continue">
+      <%= link_to(
+        t(".next_step_button"),
+        dashboard_onboarding_introductions_path,
+        class: "button primary push-right"
+      ) %>
+    </div>
+  </section>
+</div>

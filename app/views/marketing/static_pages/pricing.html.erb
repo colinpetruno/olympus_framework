@@ -1,0 +1,216 @@
+<div class="marketing-static_pages-pricing">
+  <section class="hero">
+    <article class="content">
+      <h1><%= t(".hero.title") %></h1>
+      <h3><%= t(".hero.message") %></h3>
+
+      <div class="tiers monthly">
+        <div class="tier">
+          <header><%= t(".tiers.personal_free.title") %></header>
+
+          <section class="features">
+            <ul class="feature">
+              <li class="included"><%= t(".features.unlimited") %></li>
+              <li class="included"><%= t(".features.scheduling") %></li>
+              <li class="included"><%= t(".features.basic_reporting") %></li>
+              <li class="included"><%= t(".features.one_person") %></li>
+              <li class="included"><%= t(".features.trial") %></li>
+              <li><%= t(".features.customizable") %></li>
+              <li><%= t(".features.advanced_reporting") %></li>
+            </ul>
+          </section>
+
+          <footer class="yearly">
+            <div class="price">
+              <%= t(".free_forever") %>
+            </div>
+
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+
+          <footer class="monthly">
+            <div class="price">
+              <%= t(".free_forever") %>
+            </div>
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+        </div>
+
+        <div class="tier">
+          <header><%= t(".tiers.personal_pro.title") %></header>
+
+          <section class="features">
+            <ul class="feature">
+              <li class="included"><%= t(".features.unlimited") %></li>
+              <li class="included"><%= t(".features.scheduling") %></li>
+              <li class="included"><%= t(".features.basic_reporting") %></li>
+              <li class="included"><%= t(".features.one_person") %></li>
+              <li class="included"><%= t(".features.trial") %></li>
+              <li class="included"><%= t(".features.customizable") %></li>
+              <li class="included"><%= t(".features.advanced_reporting") %></li>
+            </ul>
+          </section>
+
+          <footer class="yearly">
+            <div class="price">
+              $30 / year
+            </div>
+
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+
+          <footer class="monthly">
+            <div class="price">
+              $3 / month
+            </div>
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+        </div>
+
+        <div class="tier">
+          <header><%= t(".business_scheduling.name") %></header>
+
+          <section class="features">
+            <ul class="feature">
+              <li class="included"><%= t(".features.unlimited") %></li>
+              <li class="included"><%= t(".features.scheduling") %></li>
+              <li class="included"><%= t(".features.basic_reporting") %></li>
+              <li class="included"><%= t(".features.employees") %></li>
+              <li class="included"><%= t(".features.trial") %></li>
+              <li><%= t(".features.customizable") %></li>
+              <li><%= t(".features.advanced_reporting") %></li>
+            </ul>
+          </section>
+          <footer class="yearly">
+            <div class="price">
+              $250 / year
+            </div>
+
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+
+          <footer class="monthly">
+            <div class="price">
+              $20 / month
+            </div>
+            <%= link_to(
+              "Get started",
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+        </div>
+
+        <div class="tier">
+          <header><%= t(".tiers.business_pro.title") %></header>
+
+          <section class="features">
+            <ul class="feature">
+              <li class="included"><%= t(".features.unlimited") %></li>
+              <li class="included"><%= t(".features.scheduling") %></li>
+              <li class="included"><%= t(".features.basic_reporting") %></li>
+              <li class="included"><%= t(".features.employees") %></li>
+              <li class="included"><%= t(".features.trial") %></li>
+              <li class="included"><%= t(".features.customizable") %></li>
+              <li class="included"><%= t(".features.advanced_reporting") %></li>
+            </ul>
+          </section>
+          <footer class="yearly">
+            <div class="price">
+              $500 / year
+            </div>
+
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+
+          <footer class="monthly">
+            <div class="price">
+              $50 / month
+            </div>
+            <%= link_to(
+              t(".get_started"),
+              connect_path,
+              class: "button primary outline"
+            ) %>
+          </footer>
+        </div>
+      </div>
+
+      <div class="yearly-monthly">
+        <%= t(".monthly") %>
+        <div class="toggle large monthly">
+          <div class="toggle-container">
+            <div></div>
+          </div>
+        </div>
+        <%= t(".yearly") %>
+      </div>
+    </article>
+  </section>
+
+  <section class="enterprise">
+    <h3><%= t(".enterprise.title") %></h3>
+
+    <div class="banner">
+      <aside>
+        <%= image_tag("illustrations/marketing/pricing/contact_us.svg") %>
+
+      </aside>
+
+      <section>
+        <h4><%= t(".enterprise.subtitle") %></h4>
+        <%= t(".enterprise.message") %>
+
+        <%= link_to(
+          t(".enterprise.cta"),
+          new_marketing_contact_us_request_path,
+          class: "button secondary outline"
+        ) %>
+      </section>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    $(".toggle").off("click").on("click", function () {
+      let monthly = $(".tiers").hasClass("monthly");
+
+      if (monthly) {
+        $(".tiers").removeClass("monthly");
+        $(this).removeClass("monthly");
+
+        $(".tiers").addClass("yearly");
+        $(this).addClass("yearly");
+      } else {
+        $(".tiers").removeClass("yearly");
+        $(this).removeClass("yearly");
+
+        $(".tiers").addClass("monthly");
+        $(this).addClass("monthly");
+      }
+    });
+  </script>
+</div>

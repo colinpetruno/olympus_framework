@@ -1,0 +1,2 @@
+#!/bin/bash
+COUNT=2 QUEUE=* bundle exec rake resque:workers

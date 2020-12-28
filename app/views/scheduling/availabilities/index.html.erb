@@ -1,0 +1,20 @@
+<div class="scheduling-availabilities-index">
+  <header>
+    <h3>The schedule of <%= @calendars_session_info.profile.full_name %></h3>
+    Choose the time which works best for you.
+  </header>
+
+  <%= render(
+    partial: "scheduling/availabilities/selector",
+    locals: {
+      timezone: @timezone,
+      presenter: @presenter,
+      submit_path: new_scheduling_meeting_template_calendar_event_path(
+        @presenter.meeting_template
+      ),
+      return_path: scheduling_profile_path(
+        @calendars_session_info.profile.external_slug
+      )
+    }
+  ) %>
+</div>

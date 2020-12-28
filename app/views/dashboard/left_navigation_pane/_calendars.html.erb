@@ -1,0 +1,18 @@
+<div class="dashboard-left_navigation_pane-calendars <%= "active" if active %>">
+  <h3>Calendar Settings</h3>
+
+  <div class="nav-pane-link">
+    <%= link_to("Calendar settings", dashboard_calendars_path) %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to("Calendar connections", dashboard_connections_path) %>
+  </div>
+
+  <%= render(
+    partial: "dashboard/left_navigation_pane/calendar_list",
+    locals: {
+      presenter: presenter
+    }
+  ) %>
+</div>

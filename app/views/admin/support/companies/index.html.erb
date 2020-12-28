@@ -1,0 +1,34 @@
+<div class="admin-support-members-index">
+  <div class="frame centered">
+    <header>
+      <h3>Companies</h3>
+    </header>
+
+    <section>
+      <table class="table striped bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Created at</th>
+          </tr>
+        </thead>
+
+        <% @companies.each do |company| %>
+          <tr>
+            <td>
+              <%= link_to(company.name, admin_support_company_path(company)) %>
+            </td>
+
+            <td data-controller="wisp--clock" data-start-time-value="39023">
+              <%= l(company.created_at, format: :short) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <footer>
+        <%== pagy_nav(@pagy) %>
+      </footer>
+    </section>
+  </div>
+</div>

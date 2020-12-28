@@ -1,0 +1,28 @@
+.dashboard-left_navigation_pane-calendar_list {
+  margin-top: $spacing-lg;
+
+  .calendar {
+    border-bottom: 1px solid darken($gray-light, 10%);
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-sm;
+  }
+
+  .calendar > header {
+    display: flex;
+    line-height: 20px;
+    vertical-align: middle;
+
+    i {
+      color: $gray;
+      display: flex;
+      margin-right: 10px;
+      font-size: 1.4rem;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}

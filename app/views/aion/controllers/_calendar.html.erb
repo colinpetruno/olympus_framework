@@ -1,0 +1,70 @@
+<div class="aion-controllers-calendar"
+     id="aion-controller-<%= renderer.controller_id %>"
+     data-aion-controller-id="<%= renderer.controller_id %>"
+     data-aion-preview-path="<%= Aion::Routes.monthly_preview_path %>"
+     data-aion-preview-date-unix="<%= renderer.preview_date.to_i %>"
+     data-aion-calendar-name="<%= renderer.calendar_name %>"
+     data-aion-target-day="<%= renderer.target_date.day %>"
+     data-aion-target-month="<%= renderer.target_date.month %>"
+     data-aion-target-year="<%= renderer.target_date.year %>"
+     data-aion-remote-path="<%= renderer.remote_path %>">
+  <header>
+    <div class="aion-select-container">
+      <div class="aion-back-button aion-button"
+           data-aion-offset="<%= renderer.last_month_offset %>">
+        <%= ion_icon("chevron-left") %>
+      </div>
+
+      <div class="aion-date-display-container">
+        <div>
+          <select class="dropdown-select">
+            <% renderer.months_for_selection.each_with_index do |month_name, index| %>
+              <option value="<%= index + 1 %>" <%= 'selected="selected"' if (index + 1) == renderer.preview_date.month %>
+                      data-aion-preview-date="<%= renderer.preview_time_for(type: :month, value: index + 1) %>">
+                <%= month_name %>
+              </option>
+            <% end %>
+          </select>
+        </div>
+
+        <div>
+          <select class="dropdown-select">
+            <% renderer.years_for_selection.each do |year| %>
+              <option value="<%= year %>" <%= "selected" if year == renderer.preview_date.year %>
+                      data-aion-preview-date="<%= renderer.preview_time_for(type: :year, value: year) %>">
+                <%= year %>
+              </option>
+            <% end %>
+          </select>
+        </div>
+      </div>
+
+      <div class="aion-forward-button aion-button"
+           data-aion-offset="<%= renderer.next_month_offset %>">
+
+        <%= ion_icon("chevron-right") %>
+      </div>
+    </div>
+
+    <div class="aion-header-day-names">
+      <% renderer.week_days.each do |date| %>
+        <div class="aion-day-name">
+          <%= I18n.t("date.abbr_day_names")[date.wday] %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="aion-calendar-container">
+    <% renderer.weeks.each do |week_days| %>
+      <div class="aion-calendar-row">
+        <% week_days.each do |date| %>
+          <div class="<%= renderer.classes_for(date) %>"
+               data-aion-target-date="<%= renderer.target_for(date) %>">
+            <%= date.day %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>

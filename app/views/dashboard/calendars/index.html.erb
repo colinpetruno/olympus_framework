@@ -1,0 +1,15 @@
+<div class="dashboard-calendars-index">
+  <%= render(
+    partial: "dashboard/calendars/importing",
+    locals: {
+      start_sync: @calendars.blank?
+    }
+  ) %>
+
+  <%= render(
+    partial: "dashboard/calendars/index_list",
+    locals: {
+      calendars: @calendars
+    }
+  ) %>
+</div>

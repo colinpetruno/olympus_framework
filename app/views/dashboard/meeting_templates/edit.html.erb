@@ -1,0 +1,11 @@
+<div class="dashboard-meeting_templates-edit">
+  <h3><%= @meeting_template.name %></h3>
+
+  <%= render(
+    partial: "dashboard/meeting_templates/form",
+    locals: {
+      meeting_template: @meeting_template,
+      available_calendars: @available_calendars
+    }
+  ) %>
+</div>

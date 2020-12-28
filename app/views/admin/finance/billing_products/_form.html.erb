@@ -1,0 +1,70 @@
+<div class="admin-finance-billing_products-form">
+  <%= simple_form_for([:admin, :finance, @product]) do |f| %>
+    <%= f.input :subscription_default, as: :boolean %>
+
+    <div class="features">
+      <h3>Plan settings</h3>
+      <% @product.billing_product_features.each do |product_feature| %>
+
+        <h4><%= product_feature.billing_feature.feature_name %><h4>
+        <div class="feature"
+             data-controller="admin--finance--billing-feature">
+          <%= f.simple_fields_for(
+                "billing_product_features_attributes[]",
+                product_feature
+              ) do |fpf| %>
+            <%= fpf.input :id, as: :hidden %>
+            <%= fpf.input(
+              :measuring_type,
+              as: :select,
+              collection: Billing::Feature.measuring_type_options,
+              include_blank: false,
+              input_html: {
+                data: {
+                  target: "admin--finance--billing-feature.selectedMeasuringType",
+                  action: "change->admin--finance--billing-feature#setupForm"
+                }
+              }
+            ) %>
+
+
+            <div class="toggleable <%= "hidden" if !product_feature.toggleable? %>">
+              <%= fpf.input :enabled, as: :boolean %>
+            </div>
+
+            <div class="measurable <%= "hidden" if product_feature.toggleable? %>">
+              <%= fpf.input(
+                :unlimited,
+                as: :boolean,
+                input_html: {
+                  data: {
+                    action: "change->admin--finance--billing-feature#toggleCounter",
+                    target: "admin--finance--billing-feature.unlimitedToggle",
+                  }
+                }
+              ) %>
+
+              <%= fpf.input(
+                :quantity,
+                input_html: {
+                  class: (product_feature.unlimited? ? "disabled" : nil),
+                  disabled: (product_feature.unlimited? ? "disabled" : nil),
+                  data: {
+                    target: "admin--finance--billing-feature.quantityInput",
+                  }
+                }
+              ) %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= f.submit("Save", class: "button primary default") %>
+    <%= link_to(
+      "Back",
+      admin_finance_billing_products_path,
+      class: "button outline link"
+    ) %>
+  <% end %>
+</div>

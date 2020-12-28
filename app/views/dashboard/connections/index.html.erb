@@ -1,0 +1,91 @@
+<div class="dashboard-connections-index">
+  <div class="frame intro">
+    <section>
+      <aside>
+        <%= image_tag("illustrations/calendars/connect_purple.svg") %>
+      </aside>
+
+      <article>
+        <h3>Manage your external connections</h3>
+
+        You can integrate calendars from multiple sources together. Select the
+        calendar provider below to get started!
+
+        <div class="buttons">
+          <%= link_to(
+            "Calendar settings",
+            dashboard_calendars_path,
+            class: "button secondary outline"
+          ) %>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <section>
+    <div class="dropdown">
+      <button class="button secondary dropdown-toggle"
+              type="button"
+              id="addProviderButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false">
+        Add account
+      </button>
+
+      <div class="dropdown-menu" aria-labelledby="addProviderButton">
+        <%= link_to(
+          "/auth/google_oauth2",
+          class: "dropdown-item"
+        ) do %>
+          <%= image_tag("logos_vendor/google/g_1024x1024.svg") %>
+          Google
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <div class="providers">
+    <% @auth_credential_statuses.each do |auth_credential_status| %>
+      <div class="provider <%= [auth_credential_status.status, auth_credential_status.provider].join(" ") %>">
+        <div class="logo">
+          <%= image_tag(
+            Providers::ImagePaths::ICON[auth_credential_status.provider.to_sym]
+          ) %>
+        </div>
+
+        <div class="name">
+          <h3><%= t("common.providers.#{auth_credential_status.provider}") %></h3>
+          (<%= auth_credential_status.auth_credential.account_name %>)
+        </div>
+
+        <div class="buttons">
+          <% if auth_credential_status.active? %>
+            <%= button_to(
+              "Disconnect",
+              dashboard_connection_path(auth_credential_status.auth_credential.id),
+              method: "delete",
+              class: "button primary outline block",
+              data: {
+                confirm: "This will remove access to this account and disable all connected calendars. Are you sure you want to proceed?"
+              }
+            ) %>
+          <% elsif auth_credential_status.disconnected? %>
+            <%= link_to(
+              "Reconnect",
+              "/auth/google_oauth2",
+              class: "button secondary outline block"
+            ) %>
+            <button class="button primary outline block">Disconnect</button>
+          <% else %>
+            <%= link_to(
+              "Connect",
+              "/auth/google_oauth2",
+              class: "button secondary outline block"
+            ) %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

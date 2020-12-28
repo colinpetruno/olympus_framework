@@ -1,0 +1,15 @@
+.dashboard-pending_members-index {
+  > header {
+    padding: $spacing-lg;
+    text-align: center;
+  }
+
+  > section {
+    padding: $spacing-lg;
+    text-align: center;
+
+    img {
+      margin-top: $spacing-md;
+    }
+  }
+}

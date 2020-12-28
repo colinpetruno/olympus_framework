@@ -1,0 +1,15 @@
+<div class="dashboard-profiles-profile_card card">
+  <%= link_to dashboard_profile_path(profile) do %>
+    <div class="photo">
+
+    </div>
+
+    <div class="full_name">
+      <%= profile.full_name %>
+    </div>
+
+    <div class="email">
+      <%= profile.email %>
+    </div>
+  <% end %>
+</div>

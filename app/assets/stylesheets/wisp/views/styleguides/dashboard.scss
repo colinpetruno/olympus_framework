@@ -1,0 +1,60 @@
+.styleguides-dashboard {
+  color: #2c3242;
+  padding-left: $spacing-section;
+  margin: 0;
+
+  .section {
+    display: flex;
+    flex-direction: row;
+
+    > aside, > article {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding-top: 50px;
+    }
+
+    > aside {
+      background-color: $white;
+      // border-right: 1px solid darken($gray-light, 5%);
+//      box-shadow: 10px 0px 30px 0px darken($gray-light, 5%);
+      min-width: 350px;
+      max-width: 350px;
+      width: 350px;
+      z-index: 5;
+    }
+
+    > article {
+      background-color: $gray-light;
+      padding: $spacing-section;
+    }
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    div.icon-container {
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 20%;
+      justify-content: center;
+      margin-bottom: $spacing-section;
+      text-align: center;
+
+      > i, > div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 auto;
+      }
+
+      > i {
+        font-size: 2rem;
+        margin-bottom: $spacing-lg;
+        margin-top: $spacing-lg;
+      }
+    }
+  }
+}

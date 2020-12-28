@@ -1,0 +1,22 @@
+.styleguides-header {
+  color: lighten(#2c3242, 15%);
+
+  header {
+    display: flex;
+    flex-direction: row;
+    line-height: 50px;
+    font-size: 3.0rem;
+
+    > img {
+      display: flex;
+      max-height: 40px;
+      margin-right: $spacing-md;
+    }
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: 300;
+    margin: $spacing-section 0 $spacing-lg 0;
+  }
+}

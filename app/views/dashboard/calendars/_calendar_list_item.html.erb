@@ -1,0 +1,85 @@
+<div class="dashboard-calendars-calendar_list_item">
+  <aside class="provider-image">
+    <%= image_tag(
+      Providers::ImagePaths::ICON[calendar.provider.to_sym]
+    ) %>
+  </aside>
+
+  <section class="calendar-details">
+    <div class="details">
+      <div class="name">
+        <h3><%= calendar.name %></h3>
+      </div>
+
+      <div class="last-sync"
+           data-controller="dashboard--calendars--perform-sync">
+        <small class="lastSyncDateTarget">
+          <% if calendar.last_event_sync %>
+            <%= l(calendar.last_event_sync) %>
+          <% else %>
+            Not yet synced
+          <% end %>
+        </small>
+      </div>
+    </div>
+
+    <div class="meeting-room"
+         data-url="<%= dashboard_remote_calendar_path(calendar, format: :json) %>"
+         data-meeting-room="<%= calendar.meeting_room? %>"
+         data-controller="dashboard--calendars--toggle-meeting-room">
+      <%= ion_icon(
+        "ios-home",
+        title: "Is this a meeting room?",
+        data: {
+          action: "click->dashboard--calendars--toggle-meeting-room#toggle",
+          toggle: "tooltip"
+        }
+      ) %>
+    </div>
+
+    <div class="metrics"
+         data-url="<%= dashboard_remote_calendar_path(calendar, format: :json) %>"
+         data-metrics-enabled="<%= calendar.analytics_enabled %>"
+         data-controller="dashboard--calendars--enable-metrics">
+       <%= ion_icon(
+         "erlenmeyer-flask-bubbles",
+          title: "Enable calendar metrics",
+          data: {
+            action: "click->dashboard--calendars--enable-metrics#toggle",
+            toggle: "tooltip"
+          }
+       ) %>
+    </div>
+
+    <div class="sync-events"
+         data-start-sync-url="<%= dashboard_remote_syncs_path %>"
+         data-calendar-id="<%= calendar.id %>"
+         data-refresh-url="<%= dashboard_remote_calendar_path(calendar, format: :json) %>"
+         data-sync-in-progress="<%= calendar.sync_in_progress %>"
+         data-controller="dashboard--calendars--perform-sync">
+      <%= ion_icon(
+        "loop",
+        title: "Sync calendar",
+        data: {
+          action: "click->dashboard--calendars--perform-sync#startSync",
+          toggle: "tooltip"
+        }
+      ) %>
+    </div>
+
+    <div class="disable"
+         data-url="<%= dashboard_remote_calendar_path(calendar, format: :json) %>"
+         data-sync-enabled="<%= calendar.sync_enabled %>"
+         data-calendar-id="<%= calendar.id %>"
+         data-controller="dashboard--calendars--enable-sync">
+      <%= ion_icon(
+        "power",
+        title: "Enable calendar",
+        data: {
+          action: "click->dashboard--calendars--enable-sync#toggle",
+          toggle: "tooltip"
+        }
+      ) %>
+    </div>
+  </section>
+</div>

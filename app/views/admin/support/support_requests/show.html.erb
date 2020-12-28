@@ -1,0 +1,46 @@
+<div class="admin-support-support_requests-show">
+  <div class="frame">
+    <header>
+      <h3>Support Request for <%= @support_request.supportable.email %></h3>
+      <%= simple_form_for([:admin, :support, @support_request]) do |f| %>
+        <%= f.submit "Resolve & Close", class: "button secondary outline" %>
+      <% end %>
+
+      <%= simple_form_for([:admin, :support, @support_request], method: :delete) do |f| %>
+        <%= f.submit(
+          "Delete",
+          class: "button danger outline",
+          data: {
+            confirm: "This will remove the ticket with no resolution. Are you sure?"
+          }
+        ) %>
+      <% end %>
+    </header>
+
+    <section>
+      <% @support_request.support_request_messages.each do |message| %>
+        <div class="message <%= message.sent_by_staff? ? "staff" : "customer"%>">
+          <section>
+            <%= message.message %>
+          </section>
+
+          <footer>
+            <%= l(message.sent_at, format: :short) %> by
+            <%= message.sendable.email %>
+          </footer>
+        </div>
+      <% end %>
+
+      <br /><br />
+
+      <h4>Send message</h4>
+      <%= simple_form_for(
+        [:admin, :support, @support_request, SupportRequestMessage.new]
+      ) do |f| %>
+        <%= f.input :message %>
+
+        <%= f.submit "Send message", class: "button secondary" %>
+      <% end %>
+    </section>
+  </div>
+</div>

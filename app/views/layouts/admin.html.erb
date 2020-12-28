@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meettrics Admin</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag(
+      "wisp",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= stylesheet_link_tag(
+      "admin",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= javascript_packs_with_chunks_tag(
+      "rails",
+      "dashboard",
+      "wisp",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <% if content_for?(:head_css) %>
+      <%= content_for(:head_css) %>
+    <% end %>
+
+    <% if content_for?(:head_js) %>
+      <%= content_for(:head_js) %>
+    <% end %>
+  </head>
+
+  <body class="layouts-admin">
+    <aside class="sidebar">
+      <%= yield(:admin_sidebar) %>
+    </aside>
+
+    <section>
+      <nav class="layout-nav">
+        <ul>
+          <li><%= link_to "Home", admin_root_path %></li>
+          <li><%= link_to "Development", admin_development_root_path %></li>
+          <li><%= link_to "Finance", admin_finance_root_path %></li>
+          <li><%= link_to "Support", admin_support_root_path %></li>
+        </ul>
+
+        <ul>
+          <li><%= link_to "App Dashboard", dashboard_root_path %></li>
+        </ul>
+      </nav>
+
+      <article>
+        <% if content_for?(:subnav) %>
+          <%= content_for(:subnav) %>
+        <% end %>
+
+        <%= yield %>
+
+        <% if content_for?(:subfooter) %>
+          <%= content_for(:subfooter) %>
+        <% end %>
+      </article>
+    </section>
+
+    <div id="twoFactorModalContainer"></div>
+    <%= render partial: "layouts/shared/flash_messages" %>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<div class="scheduling-calendar_events-details">
+  <div class="duration">
+    <%= ion_icon("ios-clock-outline") %> <%= duration_minutes %> minutes
+  </div>
+
+  <div class="time">
+    <%= ion_icon("ios-calendar-outline") %>
+
+    <%= [
+      l(start_time, format: :only_time),
+      "-",
+      l(
+        start_time + duration_minutes.minutes,
+        format: :only_time_meridiem
+      ),
+      "on",
+      l(
+        start_time,
+        format: :only_date_standard,
+        ordinal: start_time.day.ordinalize
+      )
+    ].join(" ") %>
+  </div>
+
+  <div class="timezone">
+    <%# NOTE: Fix timezone object vs strings. TZINFO makes - but sometimes
+      it gets passed as a string object with a "/" instead" %>
+    <%= ion_icon("ios-world-outline") %> <%= timezone.gsub("/", " - ") %>
+  </div>
+</div>

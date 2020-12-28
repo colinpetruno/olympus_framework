@@ -1,0 +1,17 @@
+.card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > .card {
+    width: 25%;
+  }
+
+  &.small {
+    width: 20%;
+  }
+
+  &.large {
+    width: 33.33333%;
+  }
+}

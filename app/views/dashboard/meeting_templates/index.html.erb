@@ -1,0 +1,36 @@
+<div class="dashboard-meeting_templates-index">
+  <header>
+    <h3>Meeting templates</h3>
+    Meeting templates allow the quick scheduling of various styles of meetings.
+    You can specify which meeting templates are available in your
+    <%= link_to("schedule settings", dashboard_schedule_settings_path) %>.
+    <div>
+      <%= link_to(
+        "New meeting template",
+        new_dashboard_meeting_template_path,
+        class: "button secondary"
+      ) %>
+    </div>
+  </header>
+
+  <section>
+    <% @presenter.meeting_templates.each do |template| %>
+      <%= link_to(edit_dashboard_meeting_template_path(template)) do %>
+        <div class="meeting-template"
+             style="background-image: url('<%= asset_path(@presenter.next_image) %>')">
+          <% if template.meeting_template_synced_calendars.blank? %>
+            <div class="warning"
+                 title="No calendars are selected for this template. Add some now."
+                 data-toggle="tooltip">
+              !
+            </div>
+          <% end %>
+
+          <footer>
+            <%= template.name %>
+          </footer>
+        </div>
+      <% end %>
+    <% end %>
+  </section>
+</div>

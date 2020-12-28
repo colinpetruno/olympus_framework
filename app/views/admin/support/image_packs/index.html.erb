@@ -1,0 +1,17 @@
+<h3>Image Packs</h3>
+
+<%= link_to(
+  "Create",
+  new_admin_support_image_pack_path,
+  class: "button primary outline"
+) %>
+
+<% @image_packs.each do |image_pack| %>
+  <div>
+    <%= link_to(
+      image_pack.name,
+      edit_admin_support_image_pack_path(image_pack)
+    ) %>
+  </div>
+<% end %>
+

@@ -1,0 +1,40 @@
+<div class="item line-item">
+  <div class="name">
+    <%= billing_price.base_price_name %>
+  </div>
+  <div class="price">
+    <%= billing_price.formatted_base_price %>
+  </div>
+</div>
+
+<% if billing_price.discount? %>
+  <div class="discount item">
+    <div class="name">
+      Prorated discount
+    </div>
+
+    <div class="price">
+      <%= billing_price.formatted_discount %>
+    </div>
+  </div>
+<% end %>
+
+<div class="vat item">
+  <div class="name">
+    VAT (<%= ::Billing::VatPercentageFinder.for(@payment_intent) %>%)
+  </div>
+
+  <div class="price">
+    0.00
+  </div>
+</div>
+
+<div class="total item">
+  <div class="name">
+    Total
+  </div>
+
+  <div class="price">
+    <%= billing_price.formatted_price %>
+  </div>
+</div>

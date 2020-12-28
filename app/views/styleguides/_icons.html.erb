@@ -1,0 +1,16 @@
+<div class="section">
+  <aside>
+    <h3>Iconicons</h3>
+  </aside>
+
+  <article>
+    <div class="icons">
+      <% @ion_icons.each do |icon| %>
+        <div class="icon-container">
+          <h4><%= icon %></h4>
+          <i class="icon <%= icon %>"></i>
+        </div>
+      <% end %>
+    </div>
+  </article>
+</div>

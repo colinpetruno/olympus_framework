@@ -1,0 +1,33 @@
+<div class="dashboard-left_navigation_pane-profiles <%= "active" if active %>">
+  <h3>Your profile</h3>
+
+  <div class="nav-pane-link">
+    <%= link_to "Dashboard", dashboard_root_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Stats", dashboard_personal_stats_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Your calendar", dashboard_personal_calendars_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Schedule settings", dashboard_schedule_settings_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Meeting templates", dashboard_meeting_templates_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Send a meeting invite", new_dashboard_meeting_path %>
+  </div>
+
+  <% if 1 == 2 %>
+    <div class="nav-pane-link">
+      <%= link_to "Set office hours", "#" %>
+    </div>
+  <% end %>
+</div>

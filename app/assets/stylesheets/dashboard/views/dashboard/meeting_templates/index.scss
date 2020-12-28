@@ -1,0 +1,57 @@
+.dashboard-meeting_templates-index {
+  > header {
+    margin: 0 auto $spacing-section auto;
+    max-width: 600px;
+    text-align: center;
+
+    > a {
+      text-decoration: underline;
+    }
+
+    .button {
+      margin: $spacing-md 0;
+    }
+  }
+
+  > section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .meeting-template {
+    background-size: cover;
+    background-position: center;
+    border-radius: $border-radius-small;
+    border: $default-border;
+    margin-right: $spacing-lg;
+    margin-bottom: $spacing-lg;
+    min-width: 350px;
+    max-width: 350px;
+    position: relative;
+
+    > footer {
+      border-radius: 0 0 $border-radius-small $border-radius-small;
+      background-color: $white;
+      padding: $spacing-md;
+      margin-top: 150px;
+      text-align: center;
+    }
+  }
+
+  .meeting-template > .warning {
+    background-color: $pink;
+    border-radius: 50%;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    right: 10px;
+    top: 10px;
+    justify-content: center;
+    position: absolute;
+    min-width: 25px;
+    min-height: 25px;
+    text-align: center;
+  }
+}

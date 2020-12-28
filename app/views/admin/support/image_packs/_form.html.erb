@@ -1,0 +1,9 @@
+<%= simple_form_for([:admin, :support, image_pack]) do |f| %>
+  <%= f.input :name %>
+
+  <% if image_pack.persisted? %>
+    upload some images now...
+  <% end %>
+
+  <%= f.submit nil, class: "button primary" %>
+<% end %>

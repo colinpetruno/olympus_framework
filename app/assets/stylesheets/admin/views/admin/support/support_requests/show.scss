@@ -1,0 +1,27 @@
+.admin-support-support_requests-show {
+  .message {
+    margin-left: -$spacing-lg;
+    margin-right: -$spacing-lg;
+    margin-bottom: $spacing-md;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+
+    &.staff {
+      background-color: lighten($blue, 35%);
+    }
+
+    &.customer {
+      background-color: lighten($salmon, 15%);
+    }
+
+    > section {
+      padding: $spacing-sm $spacing-lg;
+    }
+
+    > footer {
+      margin-top: $spacing-md;
+      padding: $spacing-sm $spacing-lg;
+      font-size: $font-size-small;
+    }
+  }
+}

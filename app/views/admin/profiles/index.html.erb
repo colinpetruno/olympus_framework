@@ -1,0 +1,5 @@
+<% @profiles.each do |profile| %>
+  <div>
+    <%= link_to profile.full_name, admin_profile_path(profile) %>
+  </div>
+<% end %>

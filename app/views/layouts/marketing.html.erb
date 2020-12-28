@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>
+      <%= I18n.t("base.application_name") %>
+    </title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag "favicon.ico" %>
+
+    <%= stylesheet_link_tag(
+      "wisp",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= stylesheet_link_tag(
+      "marketing",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= javascript_packs_with_chunks_tag "marketing", "data-turbolinks-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:400,600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body data-controller="<%= controller_path %>" data-action="<%= action_name %>">
+    <%= render partial: "marketing/shared/header" unless @hide_header %>
+    <%= yield %>
+    <%= render partial: "marketing/shared/footer" unless @hide_footer %>
+    <%= render partial: "layouts/shared/flash_messages" %>
+  </body>
+</html>

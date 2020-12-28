@@ -1,0 +1,131 @@
+.marketing-shared-header {
+  $header-height: 60px;
+
+  background-color: $white;
+  border-bottom: 1px solid darken($gray-light, 10%);
+  color: $gray-dark;
+  min-height: $header-height;
+  // height: $header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  > article {
+    display: flex;
+    margin: 0 auto;
+    max-width: $body-max-width;
+    min-height: $header-height;
+
+    .root-link {
+      display: flex;
+      font-family: $paragraph-font-family;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      line-height: $header-height;
+      vertical-align: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: -15px;
+      padding-right: 15px;
+
+      > li {
+        margin-left: $spacing-lg;
+        line-height: $header-height;
+        vertical-align: middle;
+      }
+    }
+
+    img {
+      max-height: 40px;
+      margin: 10px 0;
+      margin-right: $spacing-md;
+    }
+
+    #menuListButton {
+      display: none;
+    }
+
+    .menu-left {
+      display: flex;
+      flex-direction: row;
+      margin-left: -15px;
+      padding-left: 15px;
+
+      button {
+        @include outline-reset();
+        display: flex;
+        font-size: 1.9rem;
+        margin-left: auto;
+        background: transparent;
+        border: none;
+      }
+    }
+
+    @media (max-width: 890px) {
+      flex-direction: column;
+      max-height: none;
+      transition: height 0.5s;
+
+      .menu-left {
+        flex-direction: row;
+        padding-left: $spacing-md;
+        padding-right: $spacing-md;
+      }
+
+      ul {
+        display: none;
+        flex-direction: column;
+        margin: 0;
+        overflow: hidden;
+        padding-left: 0;
+        text-align: center;
+
+        > li > a {
+          border-bottom: $default-border;
+          display: block;
+          text-align: center;
+        }
+
+        > li {
+          margin: 0;
+
+          &:last-child > a {
+            border-bottom: none;
+          }
+        }
+      }
+
+      #menuListButton {
+        display: block;
+      }
+    }
+
+    @media (min-width: 890px) {
+      ul {
+        display: flex !important;
+      }
+    }
+
+    @include media-breakpoint-down(xl) {
+      .menu-left {
+        margin-left: 0;
+      }
+
+      ul#menu-list {
+        margin-right: 0;
+      }
+    }
+  }
+}

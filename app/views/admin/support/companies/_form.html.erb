@@ -1,0 +1,16 @@
+<%= simple_form_for(
+  [:admin, :support, company],
+  data: {
+    controller: "authentication--redemptions",
+    new_session_path: new_auth_two_factor_session_path(format: :js)
+  }
+) do |f| %>
+  <%= f.input :email_domain %>
+  <%= f.input(
+    :open_signups,
+    as: :select,
+    collection: Company.open_signup_options
+  ) %>
+
+  <%= f.submit "Save", class: "button primary" %>
+<% end %>

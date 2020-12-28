@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <%= stylesheet_link_tag(
+      "wisp",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= javascript_packs_with_chunks_tag(
+      "rails", "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= javascript_packs_with_chunks_tag(
+      "wisp", "data-turbolinks-track": "reload"
+    ) %>
+  </head>
+
+  <body class="styleguides-dashboard">
+    <%= render partial: "styleguides/header" %>
+    <%= render partial: "styleguides/colors" %>
+    <%= render partial: "styleguides/typography" %>
+    <%= render partial: "styleguides/buttons" %>
+    <%= render partial: "styleguides/layout" %>
+    <%= render partial: "styleguides/tables" %>
+    <%= render partial: "styleguides/forms" %>
+    <%= render partial: "styleguides/javascript" %>
+    <%= render partial: "styleguides/icons" %>
+  </body>
+</html>

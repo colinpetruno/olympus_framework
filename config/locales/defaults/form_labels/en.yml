@@ -1,0 +1,7 @@
+en:
+  simple_form:
+    labels:
+      calendar:
+        sync_enabled: "Enabled"
+    hints:
+    placeholders:

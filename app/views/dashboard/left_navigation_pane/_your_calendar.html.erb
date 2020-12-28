@@ -1,0 +1,27 @@
+<div class="dashboard-left_navigation_pane-calendar <%= "active" if active %>">
+  <h3>Your Calendar</h3>
+
+  <div class="nav-pane-link">
+    <%= link_to "Your calendar", dashboard_personal_calendars_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Schedule settings", dashboard_schedule_settings_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Meeting templates", dashboard_meeting_templates_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Send a meeting invite", new_dashboard_meeting_path %>
+  </div>
+
+  <div class="nav-pane-link">
+    <%= link_to "Set office hours", "#" %>
+  </div>
+</div>
+
+<% if content_for?(:calendar_controller) %>
+  <%= content_for(:calendar_controller) %>
+<% end %>

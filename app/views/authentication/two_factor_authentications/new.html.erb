@@ -1,0 +1,73 @@
+<div class="authentications-two_factor_authentications-new">
+  <header>
+    <h3>Two factor auth</h3>
+    Manage your two factor authentication sources to ensure the best account
+    security.
+  </header>
+
+  <section>
+    <div class="accordion bordered" id="addTwoFactorAuthAccordion">
+      <div class="accordion-section">
+        <header id="addMobileAuthHeader">
+          <button type="button"
+                  data-toggle="collapse"
+                  data-target="#addMobileAuthContent"
+                  aria-expanded="true"
+                  aria-controls="addMobileAuthContent">
+            <%= ion_icon("android-phone-portrait") %> Mobile Authenticator
+
+            <% if @two_factor_auths.mobile_auth_enabled? %>
+              <span class="enabled"><small>(enabled)</small></span>
+            <% end %>
+          </button>
+        </header>
+
+        <div id="addMobileAuthContent"
+             aria-labelledby="addMobileAuthHeader"
+             class="collapse show"
+             data-parent="#addTwoFactorAuthAccordion">
+          <article>
+            <%= render(
+              partial: "authentication/two_factor_authentications/mobile_auth",
+              locals: {
+                two_factor_sources: @two_factor_auths,
+                qrcode: @qrcode
+              }
+            ) %>
+          </article>
+        </div>
+      </div>
+
+      <div class="accordion-section">
+        <header id="addFipsAuthHeader">
+          <button class="collapsed"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#addFipsContent"
+                  aria-expanded="false"
+                  aria-controls="addFipsContent">
+            <%= ion_icon("usb") %> Token Authenticator App
+            <% if @webauthn_credentials.present? %>
+              <span class="enabled"><small>(enabled)</small></span>
+            <% end %>
+          </button>
+        </header>
+
+        <div id="addFipsContent"
+             class="collapse"
+             aria-labelledby="#addFipsAuthHeader"
+             data-parent="#addTwoFactorAuthAccordion">
+          <article>
+            <%= render(
+              partial: "authentication/two_factor_authentications/fips",
+              locals: {
+                webauthn_credentials: @webauthn_credentials,
+                webauthn_options: @webauthn_options
+              }
+            ) %>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,26 @@
+<div class="dashboard-schedule_settings-show">
+  <h4>Your personal scheduling url:</h4>
+  <div>
+    <%= scheduling_profile_url(session_info.profile.external_slug) %>
+  </div>
+
+  <%= simple_form_for(
+    [:dashboard, @schedule_setting],
+    url: dashboard_schedule_settings_path
+  ) do |f| %>
+    <%= f.input(
+      :open_for_meetings?,
+      as: :toggle
+    ) %>
+
+    <%= f.association(
+      :meeting_templates,
+      collection: session_info.profile.meeting_templates,
+      as: :check_boxes
+    ) %>
+
+   <br />
+
+    <%= f.submit nil, class: "button primary" %>
+  <% end %>
+</div>

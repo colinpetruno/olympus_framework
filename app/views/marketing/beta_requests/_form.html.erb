@@ -1,0 +1,20 @@
+<div class="marketing-beta_requests-form">
+  <article>
+    <section>
+      <%= t(".description") %>
+    </section>
+
+    <aside id="AjaxMarketingBetaRequestForm">
+      <%= simple_form_for(
+        [:marketing, :remote, (@beta_request || BetaRequest.new)],
+        remote: true,
+        authenticity_token: true
+      ) do |f| %>
+        <%= f.input :email %>
+        <%= f.input :interview %>
+        <%= f.input :beta_test %>
+        <%= f.submit t("base.buttons.submit"), class: "button primary block" %>
+      <% end %>
+    </aside>
+  </article>
+</div>

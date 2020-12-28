@@ -1,0 +1,36 @@
+.marketing-static_pages-hero {
+  background-color: $gray-dark;
+  color: $white;
+
+  > article {
+    margin: 0 auto;
+    max-width: $body-max-width;
+    padding: 100px 0;
+
+    > aside {
+      font-size: $font-size-base;
+      margin: 0 auto;
+      max-width: 500px;
+      text-align: center;
+
+      h2 {
+
+      }
+
+      h1 {
+        display: inline;
+        font-size: $font-size-base;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .image {
+    margin: auto;
+    max-width: 450px;
+
+    > img {
+      width: 100%;
+    }
+  }
+}

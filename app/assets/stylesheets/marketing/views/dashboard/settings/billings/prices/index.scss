@@ -1,0 +1,44 @@
+.dashboard-settings-billing-prices-index {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 50px auto 50px;
+  justify-content: center;
+
+  .prices {
+    display: flex;
+    flex-direction: row;
+  }
+
+  h3 {
+    border-bottom: $default-border;
+    padding-bottom: $spacing-md;
+    margin-bottom: $spacing-section;
+  }
+
+
+  .price {
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 1;
+    border: $default-border;
+    padding: $spacing-lg;
+    margin: 0 $spacing-lg;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  form {
+    margin-bottom: 0;
+  }
+
+  footer.action {
+    margin-top: $spacing-md;
+  }
+
+  .selected-price {
+    line-height: 48px;
+    vertical-align: middle;
+  }
+}

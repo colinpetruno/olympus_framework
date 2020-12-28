@@ -1,0 +1,11 @@
+.dashboard-support_requests-index {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $spacing-section;
+
+  > footer {
+    display: flex;
+    margin-top: auto;
+  }
+}

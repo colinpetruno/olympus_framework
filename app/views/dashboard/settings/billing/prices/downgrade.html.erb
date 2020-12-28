@@ -1,0 +1,34 @@
+<div class="dashboard-settings-billing-prices-downgrade">
+  <header class="breadcrumbs">
+    <%= link_to(
+      "Settings",
+      dashboard_settings_root_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;
+    <%= link_to(
+      "Billing",
+      dashboard_settings_billings_path
+    ) %>
+    &nbsp;<%= ion_icon("ios-arrow-right") %>&nbsp;Downgrade
+  </header>
+
+  <h3>We're sorry to see you go</h3>
+
+  <section>
+
+  </section>
+
+  <%= simple_form_for([:dashboard, :settings,  @billing_downgrade || Billing::Downgrade.new]) do |f| %>
+    <%= f.input :reason, label: "Let us know why if you have time" %>
+
+
+    <div class="actions">
+      <%= link_to(
+        "Back",
+        dashboard_settings_billings_path,
+        class: "button link outline"
+      ) %>
+      <%= f.submit "Downgrade", class: "button secondary outline push-right" %>
+    </div>
+  <% end %>
+</div>

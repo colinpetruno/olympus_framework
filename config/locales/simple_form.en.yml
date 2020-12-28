@@ -1,0 +1,44 @@
+en:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '*'
+      # When using html, text and mark won't be used.
+      html: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    labels:
+      beta_request:
+        interview: "Would you be open to a quick interview?"
+        beta_test: "Would you like to beta test Meettrics?"
+      profile:
+        family_name: "Last name"
+        given_name: "First name"
+        email: "Email"
+        team: "Team"
+        role: "Permission level"
+
+
+
+
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'

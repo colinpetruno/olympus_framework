@@ -1,0 +1,16 @@
+.page-header {
+  display: flex;
+  flex-grow: 1;
+  max-height: 48px;
+  margin-bottom: $spacing-section;
+
+
+  a {
+    margin-left: auto;
+  }
+
+  // sibling selector
+  a ~ a {
+    margin-left: $spacing-md;
+  }
+}

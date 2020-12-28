@@ -1,0 +1,153 @@
+<div class="components-availability_picker"
+     data-controller="scheduling--availability-picker">
+  <header>
+    <div>
+
+    </div>
+    <% presenter.weekdays.each do |i| %>
+      <div>
+        <%= I18n.t("date.abbr_day_names")[i] %>
+      </div>
+    <% end %>
+  </header>
+
+  <%= form.input(
+    :meeting_availabilities_json,
+    as: :hidden,
+    input_html: {
+      id: "meetingAvailabilitiesInput",
+      value: presenter.availability_json
+    }
+  ) %>
+
+  <div class="toggle-button am"
+       data-target="am"
+       data-action="click->scheduling--availability-picker#toggleAm">
+    <svg fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          stroke="currentColor"
+          viewBox="0 0 24 24">
+       <path d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+     </svg>
+  </div>
+
+  <div class="toggle-button pm"
+       data-target="evening"
+       data-action="click->scheduling--availability-picker#togglePm">
+     <svg fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          stroke="currentColor"
+          viewBox="0 0 24 24">
+       <path d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+     </svg>
+  </div> <!-- end target -->
+
+
+  <div class="container hide-evening hide-am">
+      <div class="time-label-column">
+        <div class="am">
+          <% presenter.morning_hours.step(60.minutes) do |datetime| %>
+            <div class="time-label">
+              <%= I18n.l(
+                DateTime.strptime("#{datetime}", "%s"), format: :padded_time
+              ) if @looped_3 %>
+            </div>
+            <% @looped_3 = true %>
+          <% end %>
+        </div>
+
+        <div class="workday">
+          <% presenter.work_hours.step(60.minutes) do |datetime| %>
+            <div class="time-label">
+              <%= I18n.l(
+                DateTime.strptime("#{datetime}", "%s"), format: :padded_time
+              ) if @looped %>
+            </div>
+            <% @looped = true %>
+          <% end %>
+        </div>
+
+        <div class="evening">
+          <% presenter.evening_hours.step(60.minutes) do |datetime| %>
+            <div class="time-label">
+              <%= I18n.l(
+                DateTime.strptime("#{datetime}", "%s"), format: :padded_time
+              ) if @looped_2 %>
+              <% @looped_2 = true %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <% presenter.weekdays.each do |i| %>
+        <div class="day-column"
+             data-day-number="<%= i %>"
+             data-action="click->scheduling--availability-picker#addEvent">
+          <div class="am"></div>
+          <div class="workday"></div>
+          <div class="evening"></div>
+
+          <% presenter.availabilities_for(i).each do |availability| %>
+            <div class="availability"
+                 style="<%= availability.css_string %>"
+                 data-meettrics-id="<%= availability.id %>"
+                 data-meeting-template-id="<%= presenter.meeting_template.id %>"
+                 data-day-number="<%= availability.day %>"
+                 data-hours-label-plural="hrs"
+                 data-hours-label-singular="hr"
+                 data-minutes-label-plural="mins"
+                 data-minutes-label-singular="min"
+                 data-clock-format="12hours"
+                 data-end-minute="<%= availability.end_time %>"
+                 data-start-minute="<%= availability.start_time %>">
+
+               <div class="close"
+                    data-action="click->scheduling--availability-picker#removeEvent">
+                <%= ion_icon("android-close") %>
+              </div>
+
+              <div class="time-range">
+                <%= availability.time_range_display %>
+              </div>
+
+              <div class="duration">
+                <%= availability.duration_display %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      <% end %>
+  </div>
+
+  <div class="availability availability-template"
+       style="min-height: 96px; max-height: 96px"
+       data-meeting-template-id="<%= presenter.meeting_template.id %>"
+       data-hours-label-plural="hours"
+       data-hours-label-singular="hour"
+       data-minutes-label-plural="minutes"
+       data-minutes-label-singular="minute"
+       data-clock-format="12hours"
+       data-end-minute="600"
+       data-start-minute="240">
+    <div class="close"
+         data-action="click->scheduling--availability-picker#removeEvent">
+      <%= ion_icon("android-close") %>
+    </div>
+
+    <div class="time-range">
+      4am - 10am
+    </div>
+
+    <div class="duration">
+      6 hours
+    </div>
+  </div>
+
+</div>
+
+

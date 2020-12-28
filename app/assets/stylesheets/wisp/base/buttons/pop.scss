@@ -1,0 +1,6 @@
+@include keyframes(#pop) {
+  // this might be better to make an animations directory?
+  50% {
+    @include prefixed(transform, scale(1.2));
+  }
+}

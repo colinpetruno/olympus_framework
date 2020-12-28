@@ -1,0 +1,15 @@
+en:
+  marketing:
+    shared:
+      footer:
+        made_html: >
+          Beautiful Scheduling - Crafted with <span>❤</span> in Amsterdam.
+      nav_links:
+        home: "Home"
+        scheduling: "Scheduling"
+        pricing: "Pricing"
+        contact_us: "Contact Us"
+        about_us: "About Us"
+        login: "Login"
+        sign_up: "Sign up"
+

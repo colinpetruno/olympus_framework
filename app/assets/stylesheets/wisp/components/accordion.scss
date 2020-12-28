@@ -1,0 +1,60 @@
+.accordion {
+  .collapse {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .collapsing {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: height .35s ease;
+  }
+}
+
+.accordion.bordered {
+  .accordion-section {
+    border: $default-border;
+    margin-bottom: -1px;
+    overflow: hidden;
+
+    > header {
+      border-bottom: $default-border;
+      margin-bottom: -1px;
+
+      > button {
+        padding: $spacing-sm $spacing-md;
+      }
+    }
+
+    > div {
+      > article {
+        padding: $spacing-md;
+      }
+    }
+
+    &:first-child {
+      border-radius: $border-radius $border-radius 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+  }
+}
+
+.accordion .accordion-section {
+  > header {
+    button {
+      background: transparent;
+      border: none;
+      font-size: $font-size-large;
+      width: 100%;
+      text-align: left;
+      @include outline-reset();
+    }
+  }
+}

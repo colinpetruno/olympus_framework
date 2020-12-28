@@ -1,0 +1,17 @@
+.scheduling-bookings-edit {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  > header {
+    text-align: center;
+    border-bottom: $border;
+    padding: $spacing-md $spacing-lg;
+  }
+
+  > section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}

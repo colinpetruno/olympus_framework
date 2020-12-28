@@ -1,0 +1,159 @@
+<div class="layouts-dashboard-left_navigation_pane"
+     data-controller="dashboard--navigation">
+  <div class="sticky-nav">
+    <ul>
+      <li>
+        <%= link_to(dashboard_root_path, class: "logo-link") do %>
+          <%= image_tag("logos/symbol/symbol_64.png") %>
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to(
+          ion_icon("ios-person"),
+          "#",
+          id: "navbarIndividualButton",
+          title: "Your dashboards",
+          data: {
+            toggle: "tooltip",
+            placement: "right",
+            trigger: "hover",
+            action: "click->dashboard--navigation#updateTab",
+            tabname: "your_dashboard"
+          }
+        ) %>
+      </li>
+
+      <li>
+        <%= link_to(
+          ion_icon("ios-people"),
+          "#",
+          id: "navbarTeamsButton",
+          title: "Team dashboards",
+          data: {
+            toggle: "tooltip",
+            placement: "right",
+            trigger: "hover",
+            action: "click->dashboard--navigation#updateTab",
+            tabname: "teams"
+          }
+        ) %>
+      </li>
+
+      <li>
+        <%= link_to(
+          ion_icon("ios-home"),
+          "#",
+          id: "navbarCompaniesButton",
+          title: "Company dashboards",
+          data: {
+            toggle: "tooltip",
+            placement: "right",
+            trigger: "hover",
+            action: "click->dashboard--navigation#updateTab",
+            tabname: "company"
+          }
+        ) %>
+      </li>
+
+      <li>
+        <%= link_to(
+          ion_icon("ios-cloud"),
+          "#",
+          id: "navbarCalendarsButton",
+          title: "Connected accounts",
+          data: {
+            toggle: "tooltip",
+            placement: "right",
+            trigger: "hover",
+            action: "click->dashboard--navigation#updateTab",
+            tabname: "calendars"
+          }
+        ) %>
+      </li>
+    </ul>
+
+    <ul class="bottom">
+      <% if current_member.application_admin? %>
+        <li>
+          <%= link_to(
+            ion_icon("ios-pulse-strong"),
+            admin_root_path,
+            title: "App admin",
+            data: { toggle: "tooltip", placement: "right", trigger: "hover" }
+          ) %></li>
+      <% end %>
+
+      <li>
+        <%= link_to(
+          ion_icon("help-buoy"),
+          dashboard_support_requests_path,
+          title: "Support",
+          data: { toggle: "tooltip", placement: "right", trigger: "hover" }
+        ) %>
+      </li>
+
+      <% if session_info.profile.company_admin? %>
+        <li>
+          <%= link_to(
+            ion_icon("card"),
+            dashboard_settings_billings_path,
+            title: "Billing",
+            id: "BillingLink",
+            data: {
+              turbolinks: false,
+              track: true,
+              track_description: "Billing - Navbar",
+              toggle: "tooltip",
+              placement: "right",
+              trigger: "hover"
+            }
+          ) %>
+        </li>
+      <% end %>
+
+      <li>
+        <%= link_to(
+          ion_icon("ios-gear"),
+          dashboard_settings_root_path,
+          title: "Settings",
+          data: { toggle: "tooltip", placement: "right", trigger: "hover" }
+        ) %>
+      </li>
+
+      <li>
+        <%= link_to(
+          ion_icon("power"),
+          destroy_user_session_path,
+          id: "logoutLink",
+          title: "Logout",
+          data: { toggle: "tooltip", placement: "right", trigger: "hover" }
+        ) %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="collapsing-nav">
+    <aside id="LeftNavPaneToggle"
+           class="nav-toggle"
+           data-action="click->dashboard--navigation#toggleSideMenu">
+      <%= ion_icon("android-arrow-back") %>
+    </aside>
+
+    <section id="LeftNavPaneContent">
+      <article>
+        <% [:company, :calendars, :calendar, :individual, :teams].each do |tab| %>
+          <% tab_presenter = presenter.lookup(tab).new(session_info) %>
+
+          <%= render(
+            partial: tab_presenter.partial_name,
+            locals: {
+              presenter: tab_presenter,
+              active: presenter.section_active?(tab.to_sym)
+            }
+          ) %>
+        <% end %>
+      </article>
+    </section>
+  </div>
+</div>

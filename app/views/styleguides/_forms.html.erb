@@ -1,0 +1,65 @@
+<div class="section styleguides-forms">
+  <aside>
+    <header>
+      <h3>Forms</h3>
+    </header>
+  </aside>
+
+  <article>
+    <h4>Toggles</h4>
+    Toggles will fill up the entire width of the container they are provided.
+    The label if given will be left justified while the button will float
+    to the right.
+    <br /><br />
+
+    <section class="toggle-list">
+      <div class="form-group toggle small">
+        <label>This is a label</label>
+        <input type="checkbox" checked="checked"/>
+        <div class="toggle-container">
+          <div></div>
+        </div>
+      </div>
+
+      <div class="form-group toggle" id="testToggle">
+        <label>This is a label</label>
+        <input type="checkbox" id="testToggleCheckbox" />
+        <div class="toggle-container" id="testToggleContainer">
+          <div id="testToggleButton"></div>
+        </div>
+      </div>
+
+      <div class="form-group toggle large">
+        <label>This is a label</label>
+        <input type="checkbox" />
+        <div class="toggle-container">
+          <div></div>
+        </div>
+      </div>
+    </section>
+
+    <h4>Inputs</h4>
+    <%# %w(button, checkbox, color?, email, file, hidden, number, password,
+           radio, range?, reset?, search, submit, tel, text, time?,
+           url?, week?) %>
+
+    <%= simple_form_for(Styleguide::DemoFormModel.new, url: "#") do |f| %>
+      <%= f.input :standard_field %>
+
+      <%= f.input :email_field, as: :email, hint: "This is the hint message" %>
+      <%# f.input :file_field, as: :file %>
+      <%= f.input :number_field, as: :integer %>
+      <%= f.input :password_field, as: :password %>
+      <%= f.input :telephone_field, as: :tel %>
+      <%= f.input :url_field, as: :url %>
+      <%= f.input :search_field, as: :search, hint: "This is the hint message" %>
+      <%= f.input :select_field, as: :select, collection: ["Option 1", "Option 2"] %>
+      <%= f.input :checkbox_field, as: :boolean %>
+      <%= f.input :radio_field, as: :radio_buttons, collection: ["Option 1", "Option 2"] %>
+      <%= f.input :range_field, as: :range %>
+      <%= f.input :text_field, as: :text %>
+
+      <%= f.submit nil, class: "button primary" %>
+    <% end %>
+  </article>
+</div>

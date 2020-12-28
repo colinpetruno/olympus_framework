@@ -1,0 +1,54 @@
+<% auth_style = "redirect" if local_assigns[:auth_style].nil? %>
+
+<div class="accordion bordered" id="twoFactorAuthAccordion">
+  <div class="accordion-section">
+    <header>
+      <button type="button"
+              data-toggle="collapse"
+              data-target="#fipsContent"
+              aria-expanded="true"
+              aria-controls="collapseOne">
+        <%= ion_icon("usb") %> Security Token
+      </button>
+    </header>
+
+    <div id="fipsContent"
+         class="collapse show"
+         data-parent="#twoFactorAuthAccordion">
+      <article>
+        <%= render(
+          partial: "authentication/two_factor_sessions/fips",
+          locals: {
+            auth_style: auth_style
+          }
+        ) %>
+      </article>
+    </div>
+  </div>
+
+  <div class="accordion-section">
+    <header>
+      <button class="collapsed"
+              type="button"
+              data-toggle="collapse"
+              data-target="#mobileAuthContent"
+              aria-expanded="false"
+              aria-controls="collapseTwo">
+        <%= ion_icon("android-phone-portrait") %> Mobile Authenticator App
+      </button>
+    </header>
+
+    <div id="mobileAuthContent"
+         class="collapse"
+         data-parent="#twoFactorAuthAccordion">
+      <article>
+        <%= render(
+          partial: "authentication/two_factor_sessions/mobile_authenticator",
+          locals: {
+            auth_style: auth_style
+          }
+        ) %>
+      </article>
+    </div>
+  </div>
+</div>

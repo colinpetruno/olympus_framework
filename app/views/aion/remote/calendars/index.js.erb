@@ -1,0 +1,2 @@
+calendar = window.Aion.lookupCalendar("<%= @aion_params.calendar_id %>");
+calendar.updateFromServer(JSON.parse("<%= raw(j(@aion_params.response.to_json)) %>"));

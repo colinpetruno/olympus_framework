@@ -1,0 +1,26 @@
+<div class="modal fade"
+     id="twoFactorAuthModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <header>
+        <h3>Confirm your identity</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </header>
+
+      <article>
+        <%= render(
+          partial: "authentication/two_factor_sessions/auth_accordion",
+          locals: {
+            auth_style: "redemption"
+          }
+        ) %>
+      </article>
+    </div>
+  </div>
+</div>

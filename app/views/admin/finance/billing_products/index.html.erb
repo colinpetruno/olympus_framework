@@ -1,0 +1,68 @@
+<div class="admin-finance-billing_products-index">
+  <div class="rail">
+    <section>
+      <div class="frame">
+        <header>
+          <h4>Manage Features</h4>
+          Features are attached to billing plans. Every feature added can be
+          then configured on a per ad-hoc basis. These items should be
+          decided on at the start of a new product / project / feature.
+        </header>
+
+        <section>
+          <div>
+            <%= link_to(
+              "Add features",
+              admin_finance_billing_features_path,
+              class: "button secondary outline"
+            ) %>
+          </div>
+        </section>
+      </div>
+
+      <br />
+
+      <div class="frame">
+        <header>
+          <h4>Plans</h4>
+          Manage the features of each plan by selecting the plan below.
+        </header>
+
+        <section>
+          <table class="striped bordered">
+            <% @products.each do |product| %>
+              <tr>
+                <td>
+                  <%= link_to(
+                    product.name,
+                    edit_admin_finance_billing_product_path(product)
+                  ) %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </section>
+      </div>
+
+    </section>
+
+    <aside>
+      <div class="frame">
+        <header>
+          <h3>Stripe import</h3>
+          In order to add new plans and products you must do that in the
+          Stripe UI. Clicking this button will then import and update any
+          changes.
+        </header>
+
+        <section>
+          <%= button_to(
+            "Resync products",
+            admin_finance_stripe_syncs_path,
+            class: "button secondary outline"
+          ) %>
+        </section>
+      </div>
+    </aside>
+  </div>
+</div>

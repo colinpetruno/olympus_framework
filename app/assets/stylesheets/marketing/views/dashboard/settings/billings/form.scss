@@ -1,0 +1,17 @@
+.dashboard-settings-billing_sources-form {
+  h3 {
+    border-bottom: $default-border;
+    padding-bottom: 5px;
+    margin-bottom: $spacing-section;
+  }
+
+  #card-element {
+    border: 1px solid $form-input-border-color;
+    padding: 10px;
+    border-radius: $form-input-border-radius;
+  }
+
+  input[type=submit] {
+    margin-top: $spacing-section;
+  }
+}

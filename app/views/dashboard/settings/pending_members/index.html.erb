@@ -1,0 +1,45 @@
+<div class="dashboard-settings-pending_members-index">
+  <h3>Pending Members</h3>
+
+  <% if @pending_members.present? %>
+    <section class="pending-members-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Approve</th>
+          </tr>
+        </thead>
+        <% @pending_members.each do |pending_member| %>
+          <tr>
+            <td>
+              <%= pending_member.email %>
+            </td>
+            <td>
+              <%= button_to(
+                "Approve",
+                dashboard_settings_pending_member_path(pending_member),
+                class: "button secondary outline",
+                method: :put
+              ) %>
+
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  <% else %>
+    <section class="take-a-break">
+      <h4>Take a moment to relax.</h4>
+      There are no pending members to approve at this time
+
+      <%= image_tag("illustrations/settings/relax.svg") %>
+
+      <%= link_to(
+        "View all employees",
+        dashboard_profiles_path,
+        class: "button primary"
+      ) %>
+    </section>
+  <% end %>
+</div>

@@ -1,0 +1,89 @@
+.dashboard-onboarding-calendars-index {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: $spacing-lg;
+
+  > aside {
+    display: flex;
+    justify-content: center;
+    margin-right: $spacing-section;
+
+    .frame {
+      margin: auto;
+    }
+  }
+
+  > section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .intro-message {
+    text-align: center;
+
+    > section {
+      margin-top: $spacing-md;
+    }
+  }
+
+  .calendars {
+    border: $default-border;
+    border-radius: $border-radius;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 300px;
+    padding: 20px;
+    position: relative;
+    margin-bottom: $spacing-lg;
+
+    > div {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+      padding: 20px;
+
+      overflow-y: auto;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  div.continue > a {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .frame {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .intro-message {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    min-width: 450px;
+    margin: auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  // This is a backup in case something goes super wrong during signup
+  .dashboard-calendars-importing .sync-pane > section {
+    flex-direction: column;
+  }
+}

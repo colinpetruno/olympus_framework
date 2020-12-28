@@ -1,0 +1,241 @@
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.scheduling-availabilities-selector {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .timezone-picker {
+    margin-top: $spacing-md;
+    margin-left: $spacing-lg;
+    margin-right: $spacing-lg;
+    text-align: center;
+
+    select {
+      text-align: center;
+      text-align-last: center;
+    }
+
+    form {
+      margin-bottom: 0;
+    }
+  }
+
+
+  .week-picker {
+    display: flex;
+    margin: 0 25px;
+    margin-bottom: $spacing-md;
+    min-height: 65px;
+    user-select: none;
+
+    .date {
+      cursor: pointer;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      min-width: 50px;
+      max-width: 50px;
+      min-height: 50px;
+      max-height: 50px;
+      text-align: center;
+      margin: auto;
+
+      &.today > header {
+        text-decoration: underline;
+      }
+
+      > section {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: middle;
+        min-width: 30px;
+        max-width: 30px;
+        min-height: 30px;
+        max-height: 30px;
+        margin: auto;
+      }
+
+      &.selected > section {
+        background: $pink; // $salmon-gradient;
+        border-radius: 50%;
+        color: $white;
+      }
+    }
+
+    .change-week {
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+      min-width: 25px;
+      max-width: 25px;
+      user-select: none;
+
+      i {
+        font-size: 1.5rem;
+        color: lighten($gray-dark, 30%);
+      }
+
+      &.prev-week {
+        text-align: left;
+        user-select: none;
+      }
+
+      &.next-week {
+        text-align: right;
+        user-select: none;
+      }
+    }
+
+    .disabled {
+      color: lighten($gray-dark, 55%) !important;
+      cursor: not-allowed !important;
+
+      i {
+        color: lighten($gray-dark, 55%) !important;
+      }
+    }
+  }
+
+  section.availabilities-container {
+    border: $default-border;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 0 25px;
+  }
+
+  .no-availabilities {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $spacing-section;
+  }
+
+  .availabilities {
+    display: none;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &.show {
+      display: flex;
+    }
+
+    .availabilities-for-day {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-grow: 0;
+      // max-height: 400px;
+    }
+
+    > div {
+      bottom: 0;
+      left: 0;
+      padding: $spacing-md;
+      position: absolute;
+      overflow: hidden;
+      overflow-y: scroll;
+      right: 0;
+      top: 0;
+      display:  block;
+    }
+
+    .availability {
+      border: $default-border;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: $spacing-sm $spacing-md;
+      margin: 0 auto;
+      margin-bottom: $spacing-md;
+      min-height: 40px;
+      max-height: 40px;
+      text-align: center;
+      width: 150px;
+      transition: transform .3s;
+      user-select: none;
+
+      &.selected {
+        background: $salmon-gradient;
+        border-color: $white;
+        border-radius: 3px;
+        color: $white;
+      }
+
+      &:hover {
+        background: $salmon-gradient;
+        border-color: $white;
+        border-radius: 3px;
+        color: $white;
+
+        animation-name: hvr-pop;
+        animation-duration: 0.4s;
+        animation-timing-function: linear;
+        animation-iteration-count: 1;
+      }
+    }
+  }
+
+  .continue {
+    margin: $spacing-md 25px 0 25px;
+
+    input[type=submit] {
+      margin-bottom: $spacing-sm;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .availabilities .availability {
+      font-size: $font-size-small;
+      padding: $spacing-sm;
+      width: 75px;
+    }
+  }
+
+  @media (max-width: 460px) {
+    .week-picker {
+      overflow-x: auto;
+    }
+  }
+}

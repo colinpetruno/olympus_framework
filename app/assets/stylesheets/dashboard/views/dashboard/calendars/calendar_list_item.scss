@@ -1,0 +1,119 @@
+.dashboard-calendars-calendar_list_item {
+  border: $default-border;
+  background-color: $white;
+  border-radius: $border-radius;
+  display: flex;
+  margin-bottom: $spacing-lg;
+
+  > aside, > section {
+    display: flex;
+  }
+
+  .provider-image {
+    display: flex;
+    flex-direction: column;
+    max-width: 60px;
+    border-right: $default-border;
+    min-height: 100%;
+    vertical-align: middle;
+    padding: 0 $spacing-sm;
+
+    > img {
+      display: block;
+      height: 50px;
+      max-width: 50px;
+      margin: auto;
+      width: 50px;
+      min-width: 50px;
+    }
+  }
+
+  .calendar-details {
+    display: flex;
+    flex-grow: 1;
+    padding: $spacing-md;
+
+    .details, .last-sync, .metrics, .sync-events, .disable, .meeting-room {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .metrics, .sync-events, .disable, .meeting-room {
+      text-align: right;
+      // min-width: 100px;
+    }
+
+    .meeting-room {
+      margin-left: auto;
+    }
+
+    .sync-events.syncing {
+      @-ms-keyframes spin {
+        from { -ms-transform: rotate(0deg); }
+        to { -ms-transform: rotate(360deg); }
+      }
+      @-moz-keyframes spin {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+      }
+      @-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+      }
+      @keyframes spin {
+        from {
+          transform:rotate(0deg);
+        }
+        to {
+          transform:rotate(360deg);
+        }
+      }
+
+      > i {
+        color: $blue;
+        animation-name: spin;
+        animation-duration: 2000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        transform-origin:50% 45%;
+      }
+    }
+
+    .metrics {
+      &.enabled {
+        > i {
+          color: $green;
+        }
+      }
+    }
+
+    .meeting-room {
+      &.enabled {
+        > i {
+          color: $blue;
+        }
+      }
+    }
+
+    > div > i {
+      color: darken($gray-light, 15%);
+      cursor: pointer;
+      display: inline-block;
+      font-size: 2.5rem;
+      width: auto;
+      margin-left: auto;
+      padding: 0 $spacing-md;
+    }
+
+    .disable.enabled {
+      > i {
+        color: $salmon;
+      }
+    }
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

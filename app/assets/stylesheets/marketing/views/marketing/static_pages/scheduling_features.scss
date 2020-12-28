@@ -1,0 +1,91 @@
+.marketing-static_pages-scheduling_features {
+  padding-top: 60px;
+
+  .features {
+    justify-content: center;
+    margin: 0 auto;
+    max-width: $site-max-width;
+  }
+
+  .hero {
+    display: flex;
+
+    min-height: 70vh;
+    overflow: hidden;
+    position: relative;
+
+    > aside {
+      // background-color: $white;
+      // background: $purple-gradient;
+      background-color: lighten($blue, 30%);
+      // color: $white;
+      display: flex;
+      min-height: 70vh;
+      width: 50%;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: 550px;
+      padding: $spacing-lg $spacing-section $spacing-lg 0;
+      margin: auto 0 auto auto;
+
+      h4 {
+        margin: $spacing-lg 0;
+      }
+
+      .button {
+        margin-right: auto;
+      }
+    }
+
+    > section {
+      background-image: asset-url("photographs/boston_ducks.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      width: 60%;
+      flex-grow: 1;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .hero {
+      flex-direction: column;
+
+      > aside {
+        margin-bottom: $spacing-lg;
+        min-height: 0;
+        order: 2;
+        padding: 0 15px;
+        width: auto;
+
+        .content {
+          margin: 0 auto;
+          padding: $spacing-md;
+          text-align: center;
+
+          h1 {
+            font-size: 2rem;
+            margin: $spacing-md 0;
+          }
+
+          h4 {
+            margin: $spacing-sm 0;
+          }
+
+          .button {
+            margin: $spacing-sm auto;
+          }
+        }
+      }
+
+      > section {
+        min-height: 300px;
+        width: auto;
+        order: 1;
+      }
+    }
+  }
+}

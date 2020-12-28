@@ -1,0 +1,8 @@
+<%= simple_form_for([:dashboard, team]) do |f| %>
+  <%= f.input :team_name %>
+
+  <%= f.submit(
+    t("buttons.defaults.team.create"),
+    class: "button secondary block")
+  %>
+<% end %>

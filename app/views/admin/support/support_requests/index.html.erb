@@ -1,0 +1,49 @@
+<div class="admin-support-support_requests-index frame">
+  <header>
+    <h3>Open support requests</h3>
+  </header>
+
+  <section>
+    <table class="bordered striped">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Message</th>
+          <th>Created at</th>
+          <th>Elapsed time</th>
+        </tr>
+      </thead>
+
+      <% @support_requests.each do |request| %>
+        <tr>
+          <td>
+            <%= link_to(
+              request.supportable.email,
+              admin_support_support_request_path(request)
+            ) %>
+          </td>
+
+          <td>
+            <%= link_to(
+              request.support_request_messages.first.truncated_title,
+              admin_support_support_request_path(request)
+            ) %>
+          </td>
+
+          <td><%= l(request.created_at, format: :long) %></td>
+
+          <td data-controller="wisp--clock"
+              data-wisp--clock-start-time-value="<%= request.created_at.to_i %>">
+            <span data-wisp--clock-target="timeElapsed">
+              <%= Utilities::Time::Difference.as_string(
+                DateTime.now,
+                request.created_at
+              ) %>
+            </span>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%== pagy_nav(@pagy) %>
+  </section>
+</div>

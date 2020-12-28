@@ -1,0 +1,53 @@
+<div class="admin-support-members-show">
+  <div class="rail">
+    <section>
+      <h3>Profiles</h3>
+
+      <div class="frame">
+        <header>
+          <h4><%= @presenter.full_name %></h4>
+          <h4>
+            <%= link_to(
+              @presenter.company_name,
+              admin_support_company_path(@presenter.company)
+            ) %></h4>
+        </header>
+        <section>
+          <div>Current session: <%= @presenter.current_sign_in %></div>
+          <div>Last session: <%= @presenter.current_sign_in %></div>
+          <div>Provider: <%= @presenter.member_auth_type %></div>
+        </section>
+      </div>
+    </section>
+
+    <aside>
+      <div>
+        <h4>Recent Pageviews</h4>
+
+        <table class="table bordered striped small padded">
+          <% @presenter.page_views.each do |page_view| %>
+            <tr>
+              <td>
+                <%= l(page_view.viewed_at, format: :short) %>
+
+              </td>
+              <td>
+                <span title="<%= page_view.url.path %>">
+                  <%= page_view.url.path %>
+                </span>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+
+        <br /><br />
+        <h4>Compliance</h4>
+
+        <h5>Gdpr exports</h5>
+
+        <button class="button primary outline">Generate Export</button>
+        <button class="button primary outline">Scrub Data</button>
+      </div>
+    </aside>
+  </div>
+</div>

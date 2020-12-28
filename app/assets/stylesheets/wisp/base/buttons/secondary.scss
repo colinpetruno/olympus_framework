@@ -1,0 +1,51 @@
+.button.secondary {
+  background: $button-secondary-background;
+  border: 1px solid $button-secondary-background;
+  color: $button-secondary-color;
+  height: $button-height;
+
+  &:focus { // define focus before hover
+    border: 1px solid darken($button-secondary-background, 15%);
+  }
+
+  &:active {
+    background: darken($button-secondary-background, 15%);
+  }
+
+  &.disabled {
+    background: lighten($button-secondary-background, 15%);
+    border: 1px solid lighten($button-secondary-background, 15%);
+    color: lighten($button-secondary-color, 15%);
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid $button-secondary-background;
+    color: $button-secondary-background;
+
+    &:focus { // define focus before hover
+      border: 1px solid darken($button-secondary-background, 15%);
+      color: darken($button-secondary-background, 15%);
+    }
+
+    &:hover {
+      background: $button-secondary-background;
+      color: $button-secondary-color;
+    }
+
+    &:active {
+      background: darken($button-secondary-background, 10%);
+    }
+
+    &.disabled {
+      border: 1px solid lighten($button-secondary-background, 15%);
+      color: lighten($button-secondary-background, 15%);
+
+      &:hover {
+        background: transparent;
+        border: 1px solid lighten($button-secondary-background, 15%);
+        color: lighten($button-secondary-background, 15%);
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="dashboard-left_navigation_pane-calendar_list">
+  <% presenter.calendars.each do |calendar| %>
+    <div class="calendar" id="calendar-<%= calendar.id %>">
+      <header>
+        <%= ion_icon("android-calendar") %>
+
+        <div>
+          <%= link_to(
+            calendar.name,
+            dashboard_calendar_path(calendar)
+          ) %>
+        </div>
+      </header>
+
+      <div class="toggle small"
+           id="calendar-<%= calendar.id %>"
+           data-url="<%= dashboard_remote_calendar_path(calendar, format: :json) %>"
+           data-sync-enabled="<%= calendar.sync_enabled %>"
+           data-calendar-id="<%= calendar.id %>"
+           data-controller="dashboard--calendars--enable-sync">
+        <label>Enabled</label>
+        <div class="toggle-container"
+             data-action="click->dashboard--calendars--enable-sync#toggle">
+          <div></div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

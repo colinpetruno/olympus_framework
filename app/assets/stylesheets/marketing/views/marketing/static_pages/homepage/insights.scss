@@ -1,0 +1,31 @@
+.marketing-static_pages-homepage-insights {
+  margin-top: $spacing-section;
+  padding: $spacing-section;
+
+  > div {
+    margin: 0 auto;
+    max-width: $body-max-width;
+  }
+
+  > div > header {
+    text-align: center;
+  }
+
+  > div > article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    padding-top: $spacing-section;
+  }
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin: 0 $spacing-lg;
+    margin-bottom: $spacing-section;
+    text-align: center;
+  }
+}

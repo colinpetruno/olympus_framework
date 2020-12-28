@@ -1,0 +1,49 @@
+<div class="scheduling-calendar_events-upcoming_event">
+  <div class="details">
+    <h4>Event details</h4>
+    <section>
+      <%= @booking.details %>
+    </section>
+  </div>
+
+  <% if @booking.cancelled_at.present? %>
+    <div class="alert error">
+      This meeting was cancelled on <%= l(
+        @booking.cancelled_at,
+        format: :only_date_standard,
+        ordinal: @booking.cancelled_at.day.ordinalize
+      ) %>.<br />
+    </div>
+
+    <% if @public_url.enabled? %>
+      <br />
+      <div>
+        <%= link_to(
+          "Book a new appointment",
+          @public_url.url,
+          class: "button secondary outline"
+        ) %>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="actions">
+      <%= link_to(
+        "Update event",
+        edit_scheduling_calendar_event_path(@booking),
+        class: "button primary outline"
+      ) %>
+
+      <%= link_to(
+        "Reschedule event",
+        edit_scheduling_booking_path(@booking),
+        class: "button secondary outline"
+      ) %>
+
+      <%= link_to(
+        "Cancel event",
+        new_scheduling_booking_cancellation_path(@booking),
+        class: "button link outline"
+      ) %>
+    </div>
+  <% end %>
+</div>

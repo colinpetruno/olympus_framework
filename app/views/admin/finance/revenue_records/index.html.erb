@@ -1,0 +1,29 @@
+<div class="admin-finance-revenue_records-index">
+
+  <table class="striped bordered">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Collected</th>
+        <th>Uncollected</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+
+    <% @revenue_records.each do |record| %>
+      <tr>
+        <td>
+          <%=
+            [
+              I18n.t("date.month_names")[record.datetime_obj.strftime("%m").to_i],
+              record.datetime_obj.strftime("%Y")
+            ].join(" ")
+          %>
+        </td>
+        <td><%= number_to_currency(record.collected.to_f / 100) %></td>
+        <td><%= number_to_currency(record.uncollected.to_f / 100) %></td>
+        <td><%= number_to_currency(record.total.to_f / 100) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

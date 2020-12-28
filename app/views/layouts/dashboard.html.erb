@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Meettrics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= favicon_link_tag "favicon.ico" %>
+
+    <%= stylesheet_link_tag(
+      "wisp",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= stylesheet_link_tag(
+      "dashboard",
+      media: "all",
+      "data-turbolinks-track": "reload"
+    ) %>
+
+    <%= javascript_packs_with_chunks_tag(
+      "rails",
+      "wisp",
+      "dashboard",
+      "data-turbolinks-track": "reload"
+    ) %>
+  </head>
+
+  <body data-controller="<%= controller_path %>" data-action="<%= action_name %>">
+    <div class="layouts-dashboard">
+      <aside>
+        <%= render(
+          partial: "layouts/dashboard/left_navigation_pane",
+          locals: {
+            presenter: ::Dashboard::LeftNavigationPane::PresenterMap.for(
+              session[:selected_navigation_pane]
+            )
+          }
+        ) %>
+      </aside>
+
+      <section>
+        <div class="content-frame">
+          <div class="window">
+            <section>
+              <%= yield %>
+            </section>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <%= render partial: "layouts/shared/flash_messages" %>
+  </body>
+</html>

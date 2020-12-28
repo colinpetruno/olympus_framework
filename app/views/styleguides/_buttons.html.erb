@@ -1,0 +1,150 @@
+<section class="section styleguides-buttons">
+  <aside>
+    <h3>Buttons</h3>
+  </aside>
+
+  <article>
+    <h3>Buttons Types</h3>
+    <div class="buttons-container">
+      <section>
+        <div>
+          <button class="button primary">Action Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button secondary">Secondary Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button link">Link Button</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="buttons-container">
+      <section>
+        <div>
+          <button class="button primary outline">Action Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button secondary outline">Secondary Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button link outline">Link Button</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="buttons-container">
+      <section>
+        <div>
+          <button class="button primary disabled">Action Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button secondary disabled">Secondary Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button link disabled">Link Button</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="buttons-container">
+      <section>
+        <div>
+          <button class="button primary outline disabled">Action Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button secondary outline disabled">Secondary Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button link outline disabled">Link Button</button>
+        </div>
+      </section>
+    </div>
+
+    <br /><br />
+    <h3>Buttons Sizes</h3>
+    <div class="buttons-container sizes">
+      <section>
+        <div>
+          <button class="button primary large">Lg Button</button>
+          <button class="button primary">Button</button>
+          <button class="button primary small">Small Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button secondary large">Lg Button</button>
+          <button class="button secondary">Button</button>
+          <button class="button secondary small">Small Button</button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <button class="button link large">Lg Button</button>
+          <button class="button link">Button</button>
+          <button class="button link small">Small Button</button>
+        </div>
+      </section>
+    </div>
+
+    <br /><br />
+    <h3>Social Buttons</h3>
+
+    <div class="buttons-container sizes">
+      <section>
+        <div>
+          <button class="button google large">Continue with Google</button>
+          <button class="button google disabled">Continue with Google</button>
+          <button class="button google small">Continue with Google</button>
+        </div>
+      </section>
+  </article>
+
+  <script type="text/javascript">
+    $(function(){
+      var elements = 'a:disabled, button:disabled';
+
+      $("body").on("click", ".disabled", function(event){
+        event.preventDefault();
+        event.stopPropagation();
+
+        var $clicked = $(this);
+
+        if(!$clicked.hasClass("animate")) {
+          $(this).addClass("animate");
+
+          setTimeout(function(){
+            $clicked.removeClass("animate");
+          }, 720);
+        }
+      })
+    });
+
+  </script>
+</section>

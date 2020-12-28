@@ -1,0 +1,13 @@
+<% auth_style = "redirect" if local_assigns[:auth_style].nil? %>
+
+<div>
+  <%= simple_form_for(
+    MobileAuthenticator.last,
+    url: auth_two_factor_sessions_path(auth_type: :mobile_authenticator),
+    method: :post,
+    remote: (auth_style != "redirect")
+  ) do |f| %>
+    <%= f.input :otp_password, as: :string %>
+    <%= f.submit "Submit", class: "button primary outline block" %>
+  <% end %>
+</div>

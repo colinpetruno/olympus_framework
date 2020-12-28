@@ -1,0 +1,10 @@
+<div class="dashboard-calendars-index_list">
+  <% calendars.each do |calendar| %>
+    <%= render(
+      partial: "calendar_list_item",
+      locals: {
+        calendar: calendar
+      }
+    ) %>
+  <% end %>
+</div>

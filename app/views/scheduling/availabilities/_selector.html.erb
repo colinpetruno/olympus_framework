@@ -1,0 +1,154 @@
+<section class="scheduling-availabilities-selector"
+         data-controller="scheduling--availabilities">
+  <section class="timezone-picker">
+    <%= simple_form_for(
+      :timezone,
+      url: request.original_fullpath,
+      method: :get,
+      html: { id: :update_timezone }
+    ) do |f| %>
+
+      <%= f.input(
+        :target_date,
+        as: :hidden,
+        input_html: {
+          name: :target_date,
+          value: params[:target_date]
+        }
+      ) %>
+
+      <%= f.input(
+        :selected_date,
+        as: :hidden,
+        input_html: {
+          name: :selected_date,
+          value: params[:selected_date]
+        }
+      ) %>
+
+      <%= f.input(
+        :select_timezone,
+        as: :select,
+        label_method: lambda do |object|
+          offset = Time.now.in_time_zone(object.tzinfo.name).formatted_offset
+          name = object.tzinfo.name
+
+          ["(#{offset})", name].join(" ")
+        end,
+        label: false,
+        value_method: lambda { |object| object.tzinfo.name },
+        include_blank: false,
+        collection: ActiveSupport::TimeZone.all,
+        selected: timezone,
+        input_html: {
+          data: {
+            controller: "wisp--select"
+          },
+          name: :timezone
+        }
+      ) %>
+    <% end %>
+
+    <script type="text/javascript">
+      $(function() {
+        $("#update_timezone select").change(function() {
+          $(this).closest("form").submit();
+        });
+      });
+    </script>
+  </section>
+
+  <section class="week-picker">
+    <div id="previousWeek" class="<%= @presenter.classes_for_prev %>">
+      <% if @presenter.classes_for_prev.include?("disabled") %>
+        <%= ion_icon("chevron-left") %>
+      <% else %>
+        <%= link_to scheduling_meeting_template_availabilities_path(
+          target_date: @presenter.previous_week_date
+        ) do %>
+          <%= ion_icon("chevron-left") %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <% @presenter.dates.each do |date| %>
+      <div class="<%= @presenter.classes_for(date) %>"
+           data-date="<%= date.strftime("%Y%m%d") %>"
+           data-action="click->scheduling--availabilities#selectDate">
+        <header>
+          <%= I18n.t("date.abbr_day_names")[date.wday] %>
+        </header>
+        <section>
+          <%= date.day %>
+        </section>
+      </div>
+    <% end %>
+    <div id="nextWeek" class="<%= @presenter.classes_for_next %>">
+      <%= link_to scheduling_meeting_template_availabilities_path(
+        @presenter.meeting_template,
+        target_date: @presenter.next_week_date
+      ) do %>
+        <%= ion_icon("chevron-right") %>
+      <% end %>
+    </div>
+  </section>
+
+  <section class="availabilities-container">
+    <% @presenter.availability_keys.each do |date_key| %>
+      <div class="<%= @presenter.classes_for_availability_window(date_key) %>">
+        <div>
+          <% if @presenter.availabilities_for(date_key).present? %>
+            <div class="availabilities-for-day">
+              <% @presenter.availabilities_for(date_key).each do |availability|%>
+                <div class="availability"
+                     data-unix-time="<%= availability.javascript_time %>"
+                     data-action="click->scheduling--availabilities#selectTime">
+                  <%= availability.display_time(@timezone) %>
+                </div>
+              <% end %>
+            </div>
+          <% else %>
+            <div class="no-availabilities">
+              <%= @presenter.empty_message_for(date_key) %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+
+  <footer class="continue">
+    <%= form_for(
+      :calendar_event,
+      url: submit_path,
+      method: :get
+    ) do |f| %>
+      <input type="hidden"
+             name="timezone"
+             value="<%= timezone %>" />
+      <input id="startTime"
+             type="hidden"
+             name="start_time"
+             value="" />
+      <input id="duration"
+             type="hidden"
+             name="duration"
+             value="<%= @meeting_template.duration %>" />
+
+      <div class="horizontal-buttons">
+        <%= link_to(
+          "Back",
+          return_path,
+          class: "button link outline block"
+        ) %>
+
+        <%= f.submit(
+          "Confirm Appointment",
+          class: "button primary outline block",
+          id: "continueButton",
+          disabled: :disabled
+        ) %>
+      </div>
+    <% end %>
+  </footer>
+</section>

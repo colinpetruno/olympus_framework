@@ -1,0 +1,118 @@
+<div class="dashboard-settings-billing-payment_intents-show"
+     data-stripe-public-key="<%= Rails.application.credentials.stripe_public_key %>"
+     data-controller="dashboard--billing--payment-intents">
+  <h3>Confirm Payment</h3>
+
+
+  <%= simple_form_for([:dashboard, :settings, @payment_intent]) do |f| %>
+
+    <div class="sources">
+      <h4>Choose your payment method</h4>
+      <% @billing_sources.each do |source| %>
+        <label class="source">
+          <div class="radio">
+            <%= radio_button_tag(
+              "billing_payment_intent[billing_source_id]",
+              source.id,
+              source.default?
+            ) %>
+          </div>
+
+          <div class="image">
+            <%= image_tag("logos_vendor/payment_icons/#{source.brand.underscore}") %>
+          </div>
+
+          <div class="identifier">
+            **** <%= source.last_four %>
+          </div>
+
+          <div class="expiration">
+            Expires <%= [source.exp_month, source.exp_year].join("/") %>
+          </div>
+        </label>
+      <% end %>
+
+      <label class="source">
+        <div class="radio">
+          <%= radio_button_tag(
+            "billing_payment_intent[billing_source_id]",
+            "new_card",
+            @billing_sources.blank?
+          ) %>
+        </div>
+
+        <div class="image">
+          Use another card
+        </div>
+      </label>
+
+      <div id="card-element-container">
+        <div id="card-element"></div>
+        <div id="card-errors"></div>
+
+        <div class="horizontal">
+          <%= f.input(
+            :entity_type,
+            as: :select,
+            collection: ::Billing::Detail.entity_options,
+            include_blank: false
+          ) %>
+
+          <%= f.input :entity_name %>
+        </div>
+
+        <%= f.input :tax_number %>
+
+        <%= f.input :line_1 %>
+        <%= f.input :line_2 %>
+        <div class="horizontal">
+          <%= f.input :city %>
+          <%= f.input :province %>
+          <%= f.input :postalcode %>
+        </div>
+        <%= f.input(
+          :country_code,
+          as: :country,
+          input_html: {
+            data: { controller: "wisp--select" }
+          }
+        ) %>
+      </div>
+    </div>
+
+    <div class="prices">
+      <h4>Review your total</h4>
+
+      <%= render(
+        partial: "dashboard/settings/billing/payment_intents/line_items",
+        locals: {
+          billing_price: @billing_price
+        }
+      ) %>
+    </div>
+
+    <%= f.input :exp_year, as: :hidden %>
+    <%= f.input :exp_month, as: :hidden %>
+    <%= f.input :brand, as: :hidden %>
+    <%= f.input :last_four, as: :hidden %>
+    <%= f.simple_fields_for(:billing_external_id_attributes) do |fs| %>
+      <%= fs.input :external_id, as: :hidden %>
+    <% end %>
+
+    <div class="actions">
+      <%= f.input(:accept_terms, as: :boolean) %>
+      <%= f.submit(
+        "Confirm subscription",
+        class: "button primary push-right",
+        disabled: :disabled
+      ) %>
+    </div>
+  <% end %>
+
+  <% if !Rails.env.production? %>
+  <%= render(
+    partial: "dashboard/settings/billing/development/js_helper",
+    locals: { page: "payment_intents" }
+  ) %>
+<% end %>
+</div>

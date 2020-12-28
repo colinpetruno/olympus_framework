@@ -1,0 +1,45 @@
+<div class="admin-finance-billing_features-index">
+  <div class="frame">
+    <header>
+      <h4>Features</h4>
+      Features are items which can be controlled and limited under the
+      membership plans. You can easily adjust features to line up with your
+      pricing models.
+    </header>
+
+    <section>
+      <table class="bordered striped">
+        <thead>
+          <tr>
+            <th>Feature name</th>
+          </tr>
+        </thead>
+
+        <% @billing_features.each do |feature| %>
+          <tr>
+            <td>
+              <%= link_to(
+                feature.feature_name,
+                edit_admin_finance_billing_feature_path(feature)
+              ) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+
+      <br />
+
+      <%= link_to(
+        "Add a feature",
+        new_admin_finance_billing_feature_path,
+        class: "button primary outline"
+      ) %>
+
+      <%= link_to(
+        "Back",
+        admin_finance_billing_products_path,
+        class: "button link outline"
+      ) %>
+    </section>
+  </div>
+</div>

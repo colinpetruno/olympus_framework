@@ -1,0 +1,42 @@
+<div class="marketing-unsubscribes-new">
+  <section>
+    <% if @profile.present? %>
+      <aside>
+        <%= image_tag("illustrations/marketing/unsubscribes/heart.svg") %>
+      </aside>
+
+      <section class="member-found">
+        <h2>We're sorry to see you go</h2>
+        But totally understand. You have more than enough email.
+        <small>Tip: If you want to delete your account completely,
+          <%= link_to("log in", connect_path) %> and
+          head to the settings</small>
+
+        <%= button_to(
+          "Confirm unsubscription",
+          marketing_unsubscribes_path(unsub_id: params[:unsub_id]),
+          class: "button primary"
+        ) %>
+      </section>
+    <% else %>
+      <div class="no-member-found">
+        <h3>We aren't able to find that record in our system</h3>
+
+        <div>
+          <%= image_tag("illustrations/marketing/unsubscribes/alien.svg") %>
+        </div>
+
+        Sorry we can't find this record. Ensure that the email is still an
+        active account. Got questions? Contact our support.
+
+        <div>
+          <%= link_to(
+            "Contact support",
+            new_marketing_contact_us_request_path,
+            class: "button primary outline"
+          ) %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>

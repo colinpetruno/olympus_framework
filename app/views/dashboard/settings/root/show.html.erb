@@ -1,0 +1,46 @@
+<div class="dashboard-settings-root-show">
+  <h3>Settings</h3>
+
+  <div class="tiles">
+    <% if session_info.profile.company_admin? %>
+      <%= link_to(
+        dashboard_settings_companies_path,
+        class: "tile"
+      ) do %>
+        <section style="background-image: url('<%= asset_path(@presenter.next_image) %>')">
+        </section>
+
+        <footer>
+          Company Settings
+        </footer>
+      <% end %>
+
+      <%= link_to(
+        dashboard_settings_billings_path,
+        class: "tile",
+        data: { turbolinks: false }
+      ) do %>
+        <section style="background-image: url('<%= asset_path(@presenter.next_image) %>')">
+        </section>
+
+        <footer>
+          Billing & Subscription
+        </footer>
+      <% end %>
+    <% end %>
+
+
+    <%= link_to(
+      dashboard_settings_data_and_privacy_path,
+      class: "tile",
+      data: { turbolinks: false }
+    ) do %>
+      <section style="background-image: url('<%= asset_path(@presenter.next_image) %>')">
+      </section>
+
+      <footer>
+        Data & Privacy
+      </footer>
+    <% end %>
+  </div>
+</div>

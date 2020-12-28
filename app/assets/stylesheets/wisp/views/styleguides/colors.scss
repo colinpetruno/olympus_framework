@@ -1,0 +1,84 @@
+.styleguide-colors {
+  .color-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .color {
+      display: flex;
+      flex-direction: column;
+      margin-right: $spacing-section;
+      margin-bottom: 100px;
+
+      header {
+        min-height: 200px;
+        min-width: 200px;
+        max-width: 200px;
+        max-height: 200px;
+        margin-bottom: $spacing-md;
+      }
+    }
+
+    .gradient {
+      // border-radius: 50%;
+      margin-bottom: $spacing-md;
+    }
+
+    .gradient-purple {
+      // #5a00c8 -> #b675d6
+      // rgba(89,0,200,1) -> rgba(182,117,214,1)
+      background: linear-gradient(45deg, #5a00c8 0%, #b675d6 100%);
+    }
+
+    .gradient-salmon {
+      // #f1766d -> #fca37d
+      // rgba(241,117,109,1) -> rgba(252,163,125,1)
+      background: linear-gradient(45deg, #f1766d 0%, #fca37d 100%);
+    }
+
+    .gradient-blue {
+      // #2571f5 -> #369bf4
+      // rgba(37,113,245,1) -> rgba(54,154,244,1)
+      background: linear-gradient(45deg, #2571f5 0%, #369bf4 100%);
+    }
+
+    .blue {
+      // rgb(78, 119, 231)
+      background-color: #4e77e7;
+    }
+
+    .purple {
+      background-color: #965EC7; // print
+      background-color: #914dcc; // web
+    }
+
+    .salmon {
+      background-color: #F9997E;
+    }
+
+    .navy {
+      background-color: #2c3242;
+    }
+
+    .pink {
+      background-color: #FC6371;
+    }
+
+    .gray {
+      background-color: #747881;
+    }
+
+    .mint-light {
+      background-color: #eaf5f8;
+    }
+
+    .white {
+      background-color: $white;
+    }
+  }
+
+  .small-text {
+    color: #747881;
+    font-size: 0.8rem;
+  }
+}

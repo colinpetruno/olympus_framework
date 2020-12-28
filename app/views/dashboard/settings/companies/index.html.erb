@@ -1,0 +1,19 @@
+<div>
+  <%= simple_form_for([:dashboard, :settings, session_info.company]) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email_domain %>
+    <%= f.input(
+      :open_signups,
+      as: :select,
+      collection: Company.open_signup_options,
+      include_blank: false
+    ) %>
+
+    <%= f.submit "Update settings", class: "button secondary" %>
+    <%= link_to(
+      "Back",
+      dashboard_settings_root_path,
+      class: "button link outline"
+    ) %>
+  <% end %>
+</div>

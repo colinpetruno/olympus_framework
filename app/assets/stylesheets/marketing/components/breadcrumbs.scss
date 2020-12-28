@@ -1,0 +1,22 @@
+.breadcrumbs {
+  color: $gray-dark;
+  display: flex;
+  font-size: $font-size-base;
+  line-height: 22px;
+  margin-bottom: $spacing-section;
+  vertical-align: middle;
+
+  a {
+    color: $gray-dark;
+    display: inline;
+    text-decoration: underline;
+  }
+
+  i {
+    display: inline-block;
+    padding-top: 3px;
+    margin: 0 10px;
+    line-height: 22px;
+    vertical-align: center;
+  }
+}

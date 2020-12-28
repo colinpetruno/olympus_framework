@@ -1,0 +1,117 @@
+.marketing-static_pages-homepage-hero {
+  display: flex;
+  max-width: 100%; // $body-max-width;
+  margin: 0 auto;
+  margin-top: 60px; // adjust for fixed position header
+  width: 100%;
+
+  > aside, > section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > aside {
+    background-color: $white;
+    min-height: 500px;
+    width: 50%;
+  }
+
+  > section {
+    // background-color: #ECF1FF;
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(236,241,255,1) 29%);
+    width: 50%;
+  }
+
+  img {
+    display: block;
+    max-height: 200px;
+    margin: auto;
+  }
+
+  .hero-text {
+    color: #1d3065; // #8E3AA5; // #3870FF; // $white;
+    max-width: 640px;
+    margin-left: auto;
+    padding: 100px;
+    padding-left: 0;
+    width: 100%;
+
+    > h1 > span {
+      color: $purple;
+    }
+
+    > section {
+      margin: $spacing-lg 0;
+    }
+  }
+
+  .hero-image {
+    background-image: url(asset_path("illustrations/office_analytics/office_analytics.svg"));
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 640px;
+    margin-right: auto;
+    margin-left: $spacing-lg;
+    width: 100%;
+  }
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    position: relative;
+
+    > aside, > section {
+      width: 100%;
+      padding: 0 $spacing-md;
+    }
+
+    > aside {
+      background: $purple-gradient;
+      order: 1;
+      z-index: 5;
+    }
+
+    > section {
+      display: none;
+      order: 0
+    }
+
+    > section > .hero-image {
+      min-height: 200px;
+      background-image: none;
+      position: relative;
+    }
+
+    .hero-text {
+      color: $white;
+      padding: 0;
+      text-align: center;
+      margin: auto;
+
+      > h1 {
+        font-size: 2rem;
+      }
+
+      > h1 > span {
+        color: $white;
+      }
+
+      > h1, > section {
+        width: 100%;
+
+      }
+    }
+  }
+
+  @include media-breakpoint-down(xl) {
+    > aside {
+      padding-left: $spacing-lg;
+    }
+
+    > section {
+      padding-right: $spacing-lg;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body style="background-color: #2c3242; color: #ffffff; font-family: Verdana sans-serif">
+    <div>
+      <table width="100%" style="width: 100%">
+        <tr>
+          <td align="center">
+            <table width="600" style="width: 600px">
+              <tr>
+                <td align="center" style="padding: 20px 0;">
+                  <%= image_tag(image_url("logos/symbol/symbol_64_white.png")) %>
+                </td>
+              </tr>
+              <tr>
+                <td style="font-family: Verdana; letter-spacing: 1.5px; font-size: 20px;" align="center">
+                  Meettrics
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <table width="100%" style="width: 100%; margin-top: 25px">
+        <tr>
+          <td align="center">
+            <table width="600" style="width: 600px; background-color: #ffffff; border-radius: 10px">
+              <tr>
+                <td align="center" style="padding: 20px 0; color: #2c3242; font-family: Verdana; letter-spacing: 0px; font-size: 14px">
+                  <%= yield %>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <table width="100%" style="width: 100%;">
+      <tr>
+        <td align="center">
+          <table width="600" style="width: 600px;">
+            <tr>
+              <td align="center" style="padding: 20px 0; color: #ffffff; font-family: Verdana; letter-spacing: 0px; font-size: 12px">
+                <ul style="list-style: none; color: #ffffff; display: inline-block; padding: 0">
+                  <li style="display: inline-block; margin-right: 10px">
+                    <%= link_to(
+                      "Home",
+                      root_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+
+                  <li style="display: inline-block; margin-right: 10px">
+                    <%= link_to(
+                      "Scheduling",
+                      scheduling_features_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+
+                  <li style="display: inline-block; margin-right: 10px">
+                    <%= link_to(
+                      "Pricing",
+                      pricing_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+
+                  <li style="display: inline-block; margin-right: 10px">
+                    <%= link_to(
+                      "Contact Us",
+                      new_marketing_contact_us_request_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+
+                  <li style="display: inline-block; margin-right: 10px">
+                    <%= link_to(
+                      "About Us",
+                      about_us_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+
+                  <li style="display: inline-block; margin-right: 10px">
+                    <%= link_to(
+                      "Login",
+                      connect_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+
+                  <li style="display: inline-block">
+                    <%= link_to(
+                      "Sign Up",
+                      connect_url,
+                      style: "color: #fff; text-decoration: none; display: inline-block"
+                    ) %>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+  </body>
+</html>

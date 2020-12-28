@@ -1,0 +1,32 @@
+.center {
+  justify-content: center;
+  text-align: center;
+}
+
+.vertical-flex {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rail {
+  display: flex;
+  flex-grow: 1;
+
+  > section, > aside {
+    display: flex;
+    flex-direction: column;
+  }
+
+  > section {
+    width: 70%
+  }
+
+  > :first-child {
+    margin-right: $spacing-section;
+  }
+
+  > aside {
+    width: 30%;
+  }
+}

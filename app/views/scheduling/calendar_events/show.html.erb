@@ -1,0 +1,51 @@
+<div class="scheduling-calendar_events-show">
+  <header>
+    <h3>The schedule of <%= @calendars_session_info.profile.full_name %></h3>
+    Review your upcoming appointment
+  </header>
+
+  <section>
+    <div class="duration">
+      <%= ion_icon("ios-clock-outline") %> <%= @booking.duration_minutes %>  minutes
+    </div>
+
+    <div class="time">
+      <%= ion_icon("ios-calendar-outline") %>
+
+      <%= [
+        l(@booking.current_start_time, format: :only_time),
+        "-",
+        l(
+          @booking.current_start_time + @booking.current_duration.minutes,
+          format: :only_time_meridiem
+        ),
+        "on",
+        l(
+          @booking.current_start_time,
+          format: :only_date_standard,
+          ordinal: @booking.current_start_time.day.ordinalize
+        )
+      ].join(" ") %>
+    </div>
+
+    <div class="timezone">
+      <%= ion_icon("ios-world-outline") %> <%= @booking.timezone %>
+    </div>
+  </section>
+
+  <% if @booking.in_the_past? %>
+    <%= render(
+      partial: "scheduling/calendar_events/past_event",
+      locals: {
+        booking: @booking
+      }
+    ) %>
+  <% else %>
+    <%= render(
+      partial: "scheduling/calendar_events/upcoming_event",
+      locals: {
+        booking: @booking
+      }
+    ) %>
+  <% end %>
+</div>

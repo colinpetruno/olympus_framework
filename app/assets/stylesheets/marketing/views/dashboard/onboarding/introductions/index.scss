@@ -1,0 +1,13 @@
+.dashboard-onboarding-introductions-index {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: $spacing-section;
+  text-align: center;
+
+  .dashboard-image {
+    border: $default-border;
+    border-radius: $border-radius;
+    margin-bottom: auto;
+  }
+}

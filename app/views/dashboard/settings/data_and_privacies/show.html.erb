@@ -1,0 +1,70 @@
+<div class="frame center floating dashboard-settings-data_and_privacies-show">
+  <header>
+    <h3>Data & Privacy</h3>
+  </header>
+
+  <section>
+    <div>
+      <%= image_tag("illustrations/settings/profile_data.svg") %>
+    </div>
+
+    <div>
+      <div class="message">
+        You can export all the data we have on record for you. We believe your
+        data is yours and do not sell or monetize any information you provide
+        us. We utilize extensive measures to encrypt and protect your data.
+        Want to cancel? Just click the cancel account and we will remove
+        all of your data from our database. View our privacy policy to see how
+        long we retain your data for.
+      </div>
+
+      <% if @gdpr_export.present? && @gdpr_export.sent_at.blank? %>
+        <div class="alert notice">
+          We are working to export your file.. Check your email for a link
+          in a few minutes!
+        </div>
+        <br />
+      <% elsif @gdpr_export.present? %>
+        <%= link_to(
+          rails_blob_path(
+            @gdpr_export.export_file,
+            disposition: "attachment"
+          )
+        ) do %>
+          <div class="alert notice">
+            Download your last export
+          </div>
+        <% end %>
+        <br />
+      <% end %>
+
+      <%= button_to(
+        "Export my personal data",
+        dashboard_settings_gdpr_exports_path,
+        class: "button link outline",
+        disabled: @gdpr_export.present? && @gdpr_export.sent_at.blank?
+      ) %>
+      <br />
+    </div>
+
+    <div>
+      <%= link_to(
+        "Close account",
+        dashboard_settings_account_deletions_path,
+        method: :post,
+        data: {
+          confirm: "This will close the account and delete your data after 1 week. Are you sure you want to continue?"
+        }
+      ) %>
+      <br /><br />
+    </div>
+
+    <div>
+      <%= link_to(
+        "Back",
+        dashboard_settings_root_path,
+        class: "button primary"
+      ) %>
+    </div>
+  </section>
+</div>

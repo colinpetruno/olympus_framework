@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  // Intentional to not pad bottom as that should be padded by the frame
+  // or conatiner.
+  margin: $spacing-md auto 0 auto;
+
+  > span {
+    display: flex;
+    min-width: 15px;
+    justify-content: center;
+
+    &:first-child {
+      margin-right: $spacing-sm;
+    }
+
+    &:last-child {
+      margin-left: $spacing-sm;
+    }
+  }
+
+  span.disabled {
+    color: lighten($font-color, 20%);
+    cursor: not-allowed;
+  }
+}

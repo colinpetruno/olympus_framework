@@ -1,0 +1,70 @@
+<div class="aion-calendar aion-layouts-week calendar"
+     id="<%= renderer.calendar_name %>"
+     data-aion-remote-path="<%= Aion::Routes.monthly_calendar_refresh_path %>"
+     data-aion-target-unix="<%= renderer.target_date.to_i %>"
+     data-aion-preview-unix="<%= renderer.preview_date.to_i %>"
+     data-aion-display-format="week"
+     data-aion-calendar-id="<%= renderer.calendar_name %>">
+  <header>
+    <div class="time-label-placeholder"></div>
+
+    <% renderer.dates.each do |date| %>
+      <div class="aion-date-label">
+        <div class="aion-day-name">
+          <%= I18n.t("date.day_names")[date.wday] %>
+        </div>
+        <div class="aion-date">
+          <%= I18n.l(date, format: :padded_day_of_month) %>
+        </div>
+      </div>
+    <% end %>
+  </header>
+
+  <section class="calendar-window"
+           data-controller="aion--add-event">
+    <div class="overflow" id="scrollSlider">
+      <article>
+        <div class="time-label-column">
+          <% renderer.time_range_for_day.step(30.minutes) do |datetime| %>
+            <div class="time-label">
+              <%= I18n.l(
+                DateTime.strptime("#{datetime}", "%s"), format: :padded_time
+              ) %>
+            </div>
+          <% end %>
+        </div>
+
+        <% renderer.dates.each do |date| %>
+          <div class="event-column"
+               data-action="click->aion--add-event#addEvent">
+            <% renderer.events_for(date).each do |event| %>
+              <%= renderer.render_event(event) %>
+            <% end %>
+            <%= renderer.flush_events %>
+          </div>
+        <% end %>
+      </article>
+    </div>
+  </section>
+
+  <script type="text/javascript">
+    $(document).on("turbolinks:load", function () {
+      $("#scrollSlider").scrollTop(1400);
+    });
+  </script>
+</div>
+
+
+<div id="weekly_event_detail" style="display: none">
+  hello this is my popup
+</div>
+
+<div id="empty-event-placeholder" class="aion-layouts-week-event" style="display: none;">
+  <header>
+    (No title)
+  </header>
+
+  <section>
+
+  </section>
+</div>

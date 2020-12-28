@@ -1,0 +1,28 @@
+<div class="scheduling-calendar_events-new">
+  <header>
+    <h3>The schedule of <%= @calendars_session_info.profile.full_name %></h3>
+    Confirm your meeting details
+  </header>
+
+  <section>
+    <%= render(
+      partial: "scheduling/calendar_events/details",
+      locals: {
+        duration_minutes: @calendar_event.duration_minutes,
+        start_time: @calendar_event.start_time,
+        timezone: @calendar_event.timezone
+      }
+    ) %>
+
+    <%= render(
+      partial: "scheduling/calendar_events/form",
+      locals: {
+        simple_form_array: [:scheduling, @meeting_template, @calendar_event],
+        start_time_unix: @calendar_event.start_time_unix,
+        link_back_path: scheduling_meeting_template_availabilities_path(
+          @meeting_template.uuid
+        )
+      }
+    ) %>
+  </section>
+</div>

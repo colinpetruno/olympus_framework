@@ -1,0 +1,50 @@
+.marketing-unsubscribes-new {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  > section {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    margin: 0 auto;
+    max-width: $site-max-width;
+    padding: $spacing-section;
+    width: 100%;
+
+    > aside {
+      display: flex;
+      flex-direction: column;
+      margin-right: $spacing-section;
+
+      img {
+        margin: auto;
+        max-width: 400px;
+      }
+    }
+
+    .member-found {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      flex-grow: 1;
+
+      .button {
+        margin-top: $spacing-md;
+      }
+    }
+
+    .no-member-found {
+      text-align: center;
+      margin: auto;
+
+      img {
+        display: block;
+        max-height: 350px;
+        margin: $spacing-lg auto;
+      }
+    }
+  }
+}

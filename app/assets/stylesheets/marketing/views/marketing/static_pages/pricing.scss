@@ -1,0 +1,189 @@
+.marketing-static_pages-pricing {
+  margin-top: 60px;
+
+  .hero {
+    display: flex;
+    min-height: 500px;
+
+    > .content {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      max-width: $body-max-width;
+      padding-top: $spacing-lg;
+      text-align: center;
+    }
+
+    .tiers {
+      display: flex;
+      flex-direction: row;
+      padding-top: $spacing-lg;
+
+      &.yearly {
+        > .tier > footer.monthly {
+          display: none;
+        }
+
+        > .tier > footer.yearly {
+          display: flex;
+        }
+      }
+
+      &.monthly {
+        > .tier > footer.yearly {
+          display: none;
+        }
+
+        > .tier > footer.monthly {
+          display: flex;
+        }
+      }
+    }
+
+    .tier {
+      border: $default-border;
+      border-radius: $border-radius;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      margin-right: $spacing-lg;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      > header {
+        background: $blue-gradient;
+        border-radius: $border-radius $border-radius 0 0;
+        margin-bottom: $spacing-lg;
+        padding: $spacing-md $spacing-lg;
+        color: $white;
+      }
+
+      > section.features {
+        margin-bottom: $spacing-lg;
+      }
+
+      > footer {
+        flex-direction: column;
+        padding: $spacing-md $spacing-lg;
+        margin-top: auto;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        > li {
+          color: lighten($gray-dark, 45%);
+          position: relative;
+          display: flex;
+          text-align: center;
+          padding-left: 30px;
+        }
+
+        > li.included {
+          color: $gray-dark;
+
+          &:before {
+            display: flex;
+            font-family: "ionicons";
+            flex-grow: 0;
+            // content: "\f3ff";
+            content: "\f3fe";
+            color: $green;
+            left: $spacing-sm;
+            position: absolute;
+            margin-right: $spacing-sm;
+            width: 20px;
+          }
+        }
+      }
+    }
+
+    .yearly-monthly {
+      display: flex;
+      margin: $spacing-lg auto;
+      font-size: $font-size-large;
+      line-height: 42px;
+      vertical-align: middle;
+
+      .toggle {
+        margin: 0 $spacing-md;
+
+        &.yearly {
+          > .toggle-container > div {
+            left: 35px;
+          }
+        }
+      }
+    }
+  }
+
+  .enterprise {
+    max-width: 800px;
+    margin: $spacing-lg auto;
+
+    > h3 {
+      text-align: center;
+    }
+
+    .banner {
+      border: $default-border;
+      border-radius: $border-radius;
+      display: flex;
+      padding: $spacing-lg;
+
+      > aside {
+        display: flex;
+        flex-direction: column;
+        margin-right: $spacing-lg;
+      }
+
+      > section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      img {
+        max-height: 175px;
+        display: flex;
+        margin: auto 0;
+      }
+
+      .button {
+        margin-top: $spacing-md;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .hero {
+      padding: 0 $spacing-lg;
+
+      .tiers {
+        flex-direction: column;
+
+        .tier {
+          margin: 0;
+          margin-bottom: $spacing-lg;
+        }
+      }
+    }
+
+    .enterprise {
+      padding: 0 $spacing-lg;
+      text-align: center;
+
+      .banner {
+        flex-direction: column;
+      }
+    }
+
+    .tier > .features {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

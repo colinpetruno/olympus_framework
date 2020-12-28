@@ -1,0 +1,46 @@
+.button.link {
+  background: transparent;
+  border: 1px solid transparent;
+  color: $button-link-color;
+  height: $button-height;
+
+  &:hover {
+    background-color: $button-link-background;
+  }
+
+  &:active {
+    background: darken($button-link-background, 10%);
+  }
+
+  &.disabled {
+    background-color: transparent;
+    color: lighten($button-link-color, 40%);
+  }
+
+  &.no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid $button-link-color;
+    color: $button-link-color;
+
+    &:hover {
+      background: $button-link-background;;
+      color: $button-link-color;
+    }
+
+    &.disabled {
+      border-color: lighten($button-link-color, 40%);
+      color: lighten($button-link-color, 40%);
+
+      &:hover {
+        background: transparent;
+        border-color: lighten($button-link-color, 40%);
+        color: lighten($button-link-color, 40%);
+      }
+    }
+  }
+}

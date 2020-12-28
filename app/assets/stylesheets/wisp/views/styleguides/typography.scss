@@ -1,0 +1,72 @@
+.styleguides-typography {
+  > article > section > div {
+    max-width: 400px;
+    margin-right: auto;
+  }
+
+  > article > header {
+    margin-bottom: 100px;
+  }
+
+  > article > header > div {
+    font-size: 3.5rem;
+  }
+
+  .heading-font {
+    font-family: $heading-font-family;
+  }
+
+  .copy-font {
+    font-weight: 300;
+  }
+
+  .paragraph-font-family {
+    font-family: $paragraph-font-family;
+  }
+
+
+  .sub-headline {
+    > div {
+      font-family: $heading-font-family;
+      font-size: 1.7rem;
+    }
+  }
+
+  .section-headline {
+    > div {
+      font-size: 1.2rem;
+    }
+  }
+
+  .paragraph {
+    > div {
+      font-size: 1.0rem;
+      font-family: $paragraph-font-family;
+      font-weight: 400;
+    }
+  }
+
+  .small {
+    > div {
+      font-size: 0.8rem;
+      font-family: $paragraph-font-family;
+      font-weight: 400;
+    }
+  }
+
+  .font-style {
+    display: flex;
+    margin: 25px 0;
+
+    > div, > aside {
+      display: flex;
+      flex-direction: column;
+    }
+
+    > aside {
+      font-size: 1rem;
+      margin-left: auto;
+      width: 20%;
+    }
+  }
+}

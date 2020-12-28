@@ -1,0 +1,96 @@
+.dashboard-settings-billing-payment_intents-show {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin: 50px;
+
+  h4 {
+    border-bottom: $default-border;
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-md;
+  }
+
+  .actions {
+    display: flex;
+  }
+
+
+  #card-element-container {
+    padding: 10px 0;
+    display: none;
+  }
+
+  .prices {
+    margin: 50px 0 $spacing-lg 0;
+  }
+
+  .prices > .item {
+    color: lighten($gray-dark, 25%);
+    display: flex;
+    padding: $spacing-sm 0;
+
+    .price {
+      margin-left: auto;
+    }
+
+    &.line-item {
+      // margin-bottom: $spacing-md;
+    }
+
+    &.total {
+      border-bottom: none;
+      color: $gray-dark;
+    }
+
+    &.vat {
+      border-bottom: 0;
+
+    }
+  }
+
+  .sources {
+    margin-top: $spacing-section;
+    margin-bottom: 100px;
+  }
+
+  .button.link {
+    display: flex;
+    padding: $spacing-sm 0;
+    line-height: 30px;
+    vertical-align: middle;
+
+    > i {
+      margin: auto 0;
+      margin-right: $spacing-sm;
+    }
+  }
+
+  .source {
+    display: flex;
+    line-height: 30px;
+    vertical-align: middle;
+
+    .radio {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .image {
+      margin: 0 $spacing-md;
+    }
+
+    .image > img {
+      max-height: 30px;
+    }
+
+    .identifier {
+      margin-right: $spacing-lg;
+    }
+
+    .expiration {
+      margin-left: auto;
+      margin-right: $spacing-md;
+    }
+  }
+}

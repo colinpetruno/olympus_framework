@@ -1,0 +1,57 @@
+.frame {
+  background-color: $frame-background-color;
+  border-radius: $frame-border-radius;
+  box-shadow: $frame-box-shadow;
+  display: flex;
+  flex-direction: column;
+
+  &.center {
+    text-align: center;
+
+    > header h1,h2,h3,h4,h5,h6 {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  > header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    padding: $spacing-md $spacing-lg;
+    padding-bottom: 0;
+
+    > h1, h2, h3, h4, h5, h6 {
+      display: flex;
+      flex-direction: column;
+      margin-right: auto;
+      justify-content: center;
+    }
+
+    > .button, > form .button {
+      margin-left: $spacing-md;
+    }
+
+    > .break {
+      display: flex;
+      flex-basis: 100%;
+      height: 0;
+      // width: 100%;
+    }
+  }
+
+  > section {
+    padding: $spacing-lg;
+  }
+
+
+  &.floating {
+    display: flex;
+    margin: auto;
+  }
+
+  &.narrow {
+    max-width: 500px;
+  }
+}

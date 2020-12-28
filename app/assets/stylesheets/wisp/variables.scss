@@ -1,0 +1,162 @@
+// colors
+
+$blue-gradient: linear-gradient(45deg, #2571f5 0%, #369bf4 100%);
+$purple-gradient: linear-gradient(45deg, #5a00c8 0%, #b675d6 100%);
+$salmon-gradient:linear-gradient(45deg, #f1766d 0%, #fca37d 100%);
+
+$blue: #4e77e7;
+$purple: #914dcc;
+$pink: #fc6371;
+$salmon: #f9997e;
+$white: #ffffff;
+$gray-light: #eaf5f8;
+$gray: #747881;
+$gray-dark: #2c3242;
+$green: #77d671;
+$navy: $gray-dark;
+$red: #721c24; // for warnings
+
+// common
+$box-shadow: 0 3px 5px darken($gray-light, 5%);
+$box-shadow-success: inset 0 0 10px lighten($green, 15%);
+$box-shadow-error: inset 0 0 10px darken($pink, 0%);
+
+
+// borders
+$border-color: lighten($gray, 35%);
+$default-border: 1px solid $border-color;
+$border: $default-border; // use this one, deprecate default-border
+$border-radius: 10px;
+$border-radius-small: 5px;
+$border-radius-large: 20px;
+
+// font
+$heading-font-family: 'Noto Serif SC', serif; // "Whitney", "Helvetica Neue", Arial, sans-serif;
+$paragraph-font-family: "GT Walsheim Pro", "Helvetica Neue", Arial, sans-serif;
+
+$font-color: $gray-dark;
+$font-size-base-px: 16px;
+
+$font-size-small: 0.8rem;
+$font-size-base: 1rem;
+$font-size-large: 1.2rem;
+$font-size-heading: 1.7rem;
+$font-size-main-heading: 2.5rem;
+
+$font-size-icon: 1.7rem;
+
+// frame
+$frame-background-color: $white;
+$frame-border-radius: 20px;
+$frame-box-shadow: $box-shadow;
+
+// layout
+$background-color: $white; // $gray-light;
+$background-color-application: $gray-light;
+$body-max-width: 1280px; // max width of content sections
+
+// spacing
+$spacing-sm: 5px;
+$spacing-md: 15px;
+$spacing-lg: 30px;
+$spacing-section: 50px;
+
+//buttons
+$button-border-radius: 3px;
+$button-transition: all;
+$button-focus-box-shadow: 0 3px 5px darken($gray-light, 5%);
+
+$button-height: 48px;
+
+$button-padding-lg: $spacing-md $spacing-lg;
+$button-padding: 10px $spacing-md;
+$button-padding-sm: 5px $spacing-sm 3px $spacing-sm;
+
+$button-primary-background: $pink; // $purple-gradient;
+$button-primary-color: $white;
+
+$button-secondary-background: $blue;
+$button-secondary-color: $white;
+
+$button-tertiary-background: $pink; // outline until hover
+$button-tertiary-color: $white; // only for hover
+
+$button-link-background: $white; // only for hover
+$button-link-color: $gray-dark;
+
+$button-danger-background: lighten($red, 65%); // only for hover
+$button-danger-color: lighten($red, 20%);
+
+// cards
+$card-background-color: $white;
+$card-border-color: lighten($gray, 35%);
+$card-border-radius: 5px;
+
+
+// forms
+$form-label-color: lighten($gray-dark, 15%);
+$form-input-border-radius: 5px;
+$form-input-border-color: lighten($gray, 35%);
+$form-bottom-margin: 20px;
+
+// dropdowns
+$dropdown-item-padding-y: 4px;
+$dropdown-item-padding-x: $spacing-md;
+
+
+// tooltips
+$tooltip-color: $white;
+$tooltip-bg: $navy;
+$tooltip-border-radius: $border-radius-small;
+$tooltip-arrow-color: $navy;
+
+// modals
+
+// Padding applied to the modal body
+$modal-inner-padding:               15 !default;
+
+// Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
+$modal-footer-margin-between:       .5rem !default;
+
+$modal-dialog-margin:               .5rem !default;
+$modal-dialog-margin-y-sm-up:       1.75rem !default;
+
+$modal-title-line-height:           1rem !default;
+
+$modal-content-color:               null !default;
+$modal-content-bg:                  $white !default;
+$modal-content-border-color:        rgba(#000, .2) !default;
+$modal-content-border-width:        1px !default;
+$modal-content-border-radius:       $border-radius !default;
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
+// $modal-content-box-shadow-xs:       $box-shadow-sm !default;
+// $modal-content-box-shadow-sm-up:    $box-shadow !default;
+
+$modal-backdrop-bg:                 #000 !default;
+$modal-backdrop-opacity:            .5 !default;
+$modal-header-border-color:         $border-color !default;
+$modal-footer-border-color:         $modal-header-border-color !default;
+$modal-header-border-width:         $modal-content-border-width !default;
+$modal-footer-border-width:         $modal-header-border-width !default;
+$modal-header-padding-y:            $modal-inner-padding !default;
+$modal-header-padding-x:            $modal-inner-padding !default;
+$modal-header-padding:              $modal-header-padding-y $modal-header-padding-x !default; // Keep this for backwards compatibility
+
+$modal-sm:                          300px !default;
+$modal-md:                          500px !default;
+$modal-lg:                          800px !default;
+$modal-xl:                          1140px !default;
+
+$modal-fade-transform:              translate(0, -50px) !default;
+$modal-show-transform:              none !default;
+$modal-transition:                  transform .3s ease-out !default;
+$modal-scale-transform:             scale(1.02) !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1290px,
+  xxl: 1400px
+) !default;

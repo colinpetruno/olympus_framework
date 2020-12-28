@@ -1,0 +1,32 @@
+<article class="dashboard-onboarding-shared-steps">
+  <h2>Welcome to Meettrics!</h2>
+
+  <section>
+    <article>
+      <% if step == 1 %>
+        <%= image_tag("illustrations/onboarding/configure_settings_purple.svg") %>
+      <% elsif step == 2 %>
+        <%= image_tag("illustrations/onboarding/calendars.svg") %>
+      <% else %>
+        <%= image_tag("illustrations/onboarding/introduction.svg") %>
+      <% end %>
+    </article>
+
+    <aside>
+      <div class="step <%= "completed" if step >= 1 %>">
+        <aside>1</aside>
+        Set up your company
+      </div>
+
+      <div class="step <%= "completed" if step >= 2 %>">
+        <aside>2</aside>
+        Configure your calendars
+      </div>
+
+      <div class="step <%= "completed" if step >= 3 %>">
+        <aside>3</aside>
+        View your dashboard
+      </div>
+    </aside>
+  </section>
+</article>

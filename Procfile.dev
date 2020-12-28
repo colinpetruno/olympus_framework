@@ -1,0 +1,3 @@
+docs: bundle exec bin/docs
+webpack-dev-server: bundle exec bin/webpack-dev-server
+stripe: bundle exec bin/stripe

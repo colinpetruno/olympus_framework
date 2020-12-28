@@ -1,0 +1,24 @@
+.authentication-two_factor_authentications-fips {
+  .webauthn-credential {
+    display: flex;
+    margin-bottom: $spacing-sm;
+
+    .name, .delete {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .delete {
+      margin-left: auto;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .credentials, .empty {
+    margin-bottom: $spacing-lg;
+  }
+}

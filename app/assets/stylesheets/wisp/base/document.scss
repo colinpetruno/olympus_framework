@@ -1,0 +1,9 @@
+html, body {
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  color: $font-color;
+  font-size: $font-size-base-px;
+  font-family: $paragraph-font-family;
+  min-height: 100vh;
+}

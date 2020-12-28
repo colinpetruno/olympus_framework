@@ -1,0 +1,117 @@
+en:
+  marketing:
+    static_pages:
+      coming_soon:
+        coming_soon_title: "Coming Soon"
+      homepage:
+        hero: 
+          cta: "Sign up"
+          title_html: "Welcome to Olympus"
+          message: >
+            Customize the marketing section to your heart's deepest desires
+        connect:
+          title: "Connect your calendars"
+          body: >
+            Your business doesn't run from one calendar. Meettrics allows you
+            to import all your calendars from your company. Import the
+            calendars you have access to, configure meeting rooms and get
+            started in minutes.
+        schedule:
+          title: "Schedule your meetings"
+          body: >
+            Meettrics provides the most powerful scheduling for your employees
+            and clients to book meetings. Improve efficiency and promote your
+            brand when arranging meetings. Set up unlimited templates for quick
+            and easy meetings.
+          cta: "Learn more"
+        detailed_reporting:
+          title: "Get detailed reporting and analytics"
+          body: > 
+            Meettrics is built so you can understand the impact of meetings in
+            your company. We have the basic stats like total time spent in
+            meetings but our advanced reporting allows you to peel back the
+            layers and inspect the direct impact of meetings.
+        visualize:
+          title: "Visualize the impact of meetings"
+          body: >
+            Our visualizations help you understand your business. See how your
+            communication flows in your company and see future impact on your
+            sales pipeline in real time.
+        learn: 
+          title: "Learn about your company meetings"
+          body: >
+            You probably have meetings at your company. How much do you know
+            about them? Meettrics helps you better understand how meetings
+            impact your company. See how much time is spent, how communications
+            flow through your company and if your employees think they are
+            effective.
+      scheduling_features:
+        hero:
+          title: "Beautiful scheduling for your business."
+          cta: "Get started now"
+          message: > 
+            Make a great first impression with a bespoke experience for your
+            customers and clients without paying hundreds of dollars.
+        import:
+          title: "Import all your calendars"
+          message: >
+            Import all of your calendars to use for scheduling. Make meetings
+            by checking multiple calendars at once and check multiple
+            calendars at once for scheduling conflicts. Set up availabilities
+            for each type of meeting.
+        design:
+          title: "Beautiful design"
+          message: >
+            Scheduling a meeting is often the first impression someone has
+            with you. Meettrics makes sure it's a good one. Our free plans
+            feature local photographers and artists for a unique experience.
+            Customize your look with our paid plans!
+        templates:
+          title: "Templates, templates, templates!"
+          message: >
+            Go overboard and have as many meeting templates as you desire!
+            Meettrics doesn't believe in arbitrary pricing limitations to get
+            you to upgrade. Customize each template with it's own look and
+            settings.
+        customize:
+          title: "Customize"
+          message: >
+            Meettrics is customizable to provide a unique look for your
+            company. Upload your logo and have your own custom styles. Make
+            meeting templates for unique flows and customize the imagery to
+            match!
+      pricing:
+        get_started: "Get started"
+        monthly: "Monthly"
+        yearly: "Yearly"
+        features:
+          unlimited: "Unlimited calendars"
+          scheduling: "Scheduling"
+          basic_reporting: "Basic reporting"
+          one_person: "For 1 person"
+          employees: "50 employees"
+          trial: "14 day trial"
+          customizable: "Customizable"
+          advanced_reporting: "Advanced reporting"
+        free_forever: "Free forever"
+        hero:
+          title: "Simple, affordable pricing"
+          message: "No gimmicks or annoying limitations"
+        tiers:
+          personal_free:
+            title: "Personal Free Forever"
+          personal_pro:
+            title: "Personal Professional"
+          business_scheduling:
+            title: "Business Scheduling"
+          business_pro:
+            title: "Business Professional"
+        enterprise: 
+          cta: "Contact us"
+          title: "More than 50 employees?"
+          subtitle: "Get in touch!"
+          message: >
+            Meettrics is still in the very early stages and we want to ensure
+            you have the best experience. If you want to try it out for your
+            company with more than 50 employees just get in touch and we will
+            reach out shortly.

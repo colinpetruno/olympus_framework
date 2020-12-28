@@ -1,0 +1,11 @@
+<div class="dashboard-personal_calendars-index">
+  <div class="full-width-content">
+    <% content_for(:calendar_controller) do %>
+      <%= @calendar_renderer.render_calendar_controller %>
+    <% end %>
+    <br /><br />
+    <%= @calendar_renderer.render_toolbar_controller %>
+    <br /><br />
+    <%= @calendar_renderer.render_calendar %>
+  </div>
+</div>

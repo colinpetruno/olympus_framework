@@ -1,0 +1,27 @@
+<div class="dashboard-onboarding-introductions-index">
+  <section class="intro-message">
+    <aside>
+      <%= render(
+        partial: "dashboard/onboarding/shared/steps",
+        locals: {
+          step: 3
+        }
+      ) %>
+      <h3><%= t(".step_title") %></h3>
+    </aside>
+
+    <section>
+      <%= t(".description") %>
+    </section>
+  </section>
+
+  <div class="dashboard-image">
+    <%= image_tag("onboarding/meetrics_demo.jpg") %>
+  </div>
+
+  <%= link_to(
+    t(".next_step_button"),
+    dashboard_root_path,
+    class: "button primary"
+  ) %>
+</div>

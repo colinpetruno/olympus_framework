@@ -1,0 +1,74 @@
+<div class="authentication-two_factor_authentications-fips">
+  <div data-controller="authentication--webauthn"
+       data-create-path="<%= auth_webauthn_credentials_path %>"
+       data-post-create-path="<%= new_auth_two_factor_authentication_path %>"
+       data-webauthn-options='<%= webauthn_options.to_json %>'>
+    <div class="slider slide-1">
+      <div>
+        <h4>Connected tokens</h4>
+        <div>
+          <% if webauthn_credentials.blank? %>
+            <div class="empty">
+              You haven't added any auth devices yet. Get started below.
+            </div>
+          <% else %>
+            <div class="credentials">
+              <% webauthn_credentials.each do |credential| %>
+                <div class="webauthn-credential">
+                  <div class="name">
+                    <%= credential.nickname %>
+                  </div>
+
+                  <div class="delete">
+                    <%= button_to(
+                      "Delete",
+                      [:auth, credential],
+                      class: "button danger outline small",
+                      method: :delete,
+                      form: {
+                        data: {
+                          controller: "authentication--redemptions",
+                          new_session_path: new_auth_two_factor_session_path(format: :js)
+                        }
+                      }
+                    ) %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+
+        <button id="register"
+                data-action="click->authentication--webauthn#register"
+                class="button primary outline">Add token auth</button>
+      </div>
+
+      <div>
+        <div class="form-group">
+          <label>Key nickname</label>
+          <input type="text"
+                 id="keyNickname"
+                 class="form-control"
+                 minlength="5"
+                 maxlength="255" />
+          <div class="invalid-feedback">
+            Key nickname must be between 5 and 255 characters.
+          </div>
+        </div>
+
+        <footer>
+          <button class="button outline link"
+                  data-action="authentication--webauthn#reset">
+            Cancel
+          </button>
+
+          <button class="button outline primary"
+                  data-action="authentication--webauthn#saveRegistration">
+            Save
+          </button>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>

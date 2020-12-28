@@ -1,0 +1,12 @@
+.card {
+  background-color: $card-background-color;
+  border: 1px solid $card-border-color;
+  border-radius: $card-border-radius;
+  margin-bottom: $spacing-lg;
+  padding: $spacing-md;
+
+  > header {
+    border-bottom: $default-border;
+    margin-bottom: $spacing-lg;
+  }
+}

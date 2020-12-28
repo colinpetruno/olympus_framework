@@ -1,0 +1,3 @@
+$("#twoFactorAuthModal").modal("hide");
+
+$("#twoFactorAuthModal").trigger("twoFactorAuthEvent", <%= @auth_log.to_json.html_safe %>);

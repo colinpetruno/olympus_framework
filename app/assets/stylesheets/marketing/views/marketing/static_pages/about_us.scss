@@ -1,0 +1,19 @@
+.marketing-static_pages-about_us {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-top: 80px;
+  margin-bottom: auto;
+
+  > div {
+    max-width: 650px;
+    margin: 30px auto;
+  }
+
+  @include media-breakpoint-down(md) {
+    > div {
+      padding: 0 $spacing-md;
+      text-align: center;
+    }
+  }
+}

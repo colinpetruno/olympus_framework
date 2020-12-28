@@ -1,0 +1,36 @@
+<div class="dashboard-profiles-index">
+  <header class="page-header">
+    <h3>Employees</h3>
+
+    <%= link_to(
+      "Add employee",
+      new_dashboard_profile_path,
+      class: "button primary outline"
+    ) %>
+
+    <%= link_to(
+      "Approve pending employees (#{@pending_profiles_count})",
+      dashboard_settings_pending_members_path,
+      class: "button secondary outline"
+    ) %>
+  </header>
+
+  <% if @pending_profiles_count > 0 %>
+    <%= link_to dashboard_settings_pending_members_path do %>
+      <div class="alert warning">
+        You have pending members. Click here to approve them.
+      </div>
+    <% end %>
+    <br />
+  <% end %>
+
+  <div class="card-list center">
+    <% @profiles.each do |profile| %>
+      <%= render partial: "profile_card", locals: { profile: profile } %>
+    <% end %>
+  </div>
+
+  <footer class="center">
+    <%== pagy_nav(@pagy) %>
+  </footer>
+</div>

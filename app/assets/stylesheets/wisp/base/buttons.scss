@@ -1,0 +1,103 @@
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.03);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.button {
+  @include outline-reset();
+  @include prefixed(transform, perspective(1px) translateZ(0));
+  @include transition($btn-transition);
+
+  border-radius: $button-border-radius;
+  display: inline-block; // needed for transforms
+  font-size: $font-size-base;
+  font-weight: 400;
+  padding: $button-padding;
+  letter-spacing: 1px;
+  vertical-align: middle;
+
+  &:focus {
+    box-shadow: $button-focus-box-shadow;
+  }
+
+  &:hover {
+    animation-name: hvr-pop;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+
+  &.disabled, &[disabled=disabled] {
+    cursor: not-allowed;
+
+    &:hover {
+      animation-name: none;
+      animation-duration: 0;
+      transition: none;
+    }
+
+    &.animate {
+      animation-iteration-count: 1 !important;
+      animation: shake 0.7s cubic-bezier(.36,.07,.19,.97) both !important;
+      transition: all !important;
+    }
+  }
+
+  > i {
+    display: flex;
+    margin: auto;
+  }
+
+  &.small {
+    font-size: $font-size-small;
+    padding: $button-padding-sm;
+    vertical-align: middle;
+  }
+
+
+  &.large {
+    font-size: $font-size-large;
+    padding: $button-padding-lg;
+  }
+
+  &.block {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.horizontal-buttons {
+  display: flex;
+
+  > .button {
+    margin: $spacing-md;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

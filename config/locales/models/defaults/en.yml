@@ -1,0 +1,23 @@
+en:
+  models:
+    defaults:
+      calendar:
+        name: "(Unnamed Calendar)"
+      company:
+        errors:
+          email_domain_mismatch: "must be a %{domain} domain"
+      contact_us_request:
+        categories:
+          technical: "I have a technical problem"
+          billing: "I need help with billing"
+          request_info: "I am seeking more information"
+          other: "Other"
+      profile:
+        roles: 
+          basic: "Employee"
+          team_manager: "Team manager"
+          company_manager: "Company manager"
+          company_admin: "Company admin"
+      team:
+        unassigned_team_name: "Unassigned"
+

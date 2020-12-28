@@ -1,0 +1,61 @@
+.button.primary {
+  background: $button-primary-background;
+  border: 1px solid $button-primary-background;
+  color: $button-primary-color;
+  height: $button-height;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+
+  &:focus { // define focus before active
+    border: 1px solid darken($button-primary-background, 30%);
+  }
+
+  &:active {
+    background: darken($button-primary-background, 10%);
+    border: 1px solid darken($button-primary-background, 10%);
+  }
+
+  &.disabled, &[disabled=disabled] {
+    background-color: lighten($button-primary-background, 15%);
+    border-color: lighten($button-primary-background, 15%);
+  }
+
+  &.outline {
+    background: transparent;
+    border: 1px solid $button-primary-background;
+    color: $button-primary-background;
+
+    &:focus { // define focus before active
+      // darken the border and text color
+      border: 1px solid darken($button-primary-background, 30%);
+      color: darken($button-primary-background, 5%);
+    }
+
+    &:hover {
+      // fill in the background solid
+      // set color to white since we can't use border color anymore
+      background: $button-primary-background;
+      color: $button-primary-color;
+    }
+
+    &:active {
+      // simply darken the background
+      background: darken($button-primary-background, 10%);
+      color: $button-primary-color;
+    }
+
+    &.disabled, &[disabled=disabled] {
+      border-color: lighten($button-primary-background, 15%);
+      color: lighten($button-primary-background, 15%);
+
+      &:hover {
+        background: transparent;
+        border-color: lighten($button-primary-background, 15%);
+        color: lighten($button-primary-background, 15%);
+      }
+    }
+  }
+}

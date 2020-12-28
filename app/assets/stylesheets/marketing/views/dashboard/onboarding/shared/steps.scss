@@ -1,0 +1,40 @@
+.dashboard-onboarding-shared-steps {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-section;
+  text-align: center;
+  width: 100%;
+
+  > section {
+    display: flex;
+
+    > article > img {
+      max-width: 200px;
+    }
+  }
+
+  .step {
+    display: flex;
+    margin: $spacing-md auto 0 $spacing-md;
+
+    > aside {
+      border-radius: 50%;
+      border: 1px solid $purple;
+      color: $purple;
+      display: flex;
+      justify-content: center;
+      margin-right: $spacing-md;
+      min-height: 25px;
+      max-height: 25px;
+      max-width: 25px;
+      min-width: 25px;
+    }
+
+    &.completed {
+      > aside {
+        background: $purple-gradient; // lighten($purple, 20%);
+        color: $white;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+table {
+  width: 100%;
+
+  td, th {
+    padding: $spacing-sm $spacing-md;
+    text-align: left;
+  }
+
+  thead > tr > td {
+    font-weight: bold;
+
+    &:last-child {
+    }
+  }
+
+  thead > tr {
+    border-bottom: $default-border;
+  }
+
+  &.bordered {
+    border: $default-border;
+    border-radius: $border-radius;
+  }
+
+  &.striped {
+    tr {
+      background-color: lighten($gray-light, 2%);
+
+      &:nth-child(even) {
+        background-color: $white;
+      }
+    }
+
+    thead > tr {
+      background-color: $white;
+    }
+  }
+
+  &.small {
+    font-size: $font-size-small;
+  }
+
+  &.padded {
+    td {
+      padding: $spacing-sm $spacing-md;
+    }
+  }
+}

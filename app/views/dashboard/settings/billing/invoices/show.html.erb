@@ -1,0 +1,30 @@
+<div class="dashboard-settings-billing-invoices-show">
+  <header class="breadcrumbs">
+    <%= link_to(
+      "Settings",
+      dashboard_settings_root_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;
+    <%= link_to(
+      "Billing",
+      dashboard_settings_billings_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;Invoice
+  </header>
+
+  <h3>Retrieve Invoice</h3>
+
+  <div class="link">
+    <%= link_to(@stripe_invoice.hosted_invoice_url, target: "_blank") do %>
+      <%= ion_icon("android-open") %>
+      View online
+    <% end %>
+  </div>
+
+  <div class="download">
+    <%= link_to(@stripe_invoice.invoice_pdf, target: "_blank") do %>
+      <%= ion_icon("ios-cloud-download-outline") %>
+      Download
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+{
+  "provider":"google_oauth2",
+  "uid":"114720261053094914372",
+  "info": {
+    "name":"Colin Petruno",
+    "email":"colin@meettrics.com",
+    "unverified_email":"colin@meettrics.com",
+    "email_verified":true,
+    "first_name":"Colin",
+    "last_name":"Petruno",
+    "image":"https://lh5.googleusercontent.com/-z1kqfpvGEuI/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdqa3QAw1npjsbffOWR-OpxGjv2TA/photo.jpg"
+  },
+
+  "credentials":{
+    "token":"ya29.Il-pB0B6roYt32JFEGS7LEZ8GrxisKXzP_t6-oNscBGXKJo6cUfTQAy7jFAGpkXl4UA6cLeJ_VbxSo-djgdoweiWgx9quDt0L7mwG2qO0kFKnktpWYPcc2F5KTPydV6bQQ",
+    "refresh_token":"dummy_refresh_token",
+    "expires_at":1572088456,
+    "expires":true
+  },
+
+  "extra": {
+    "id_token":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjhhNjNtruncated.....",
+    "id_info": {
+      "iss": "https://accounts.google.com",
+      "azp":"342065462454-19gb4ctdj5888oerhgk073a5hcdq4j7g.apps.googleusercontent.com",
+      "aud":"342065462454-19gb4ctdj5888oerhgk073a5hcdq4j7g.apps.googleusercontent.com",
+      "sub":"114720261053094914372",
+      "hd":"meettrics.com",
+      "email":"colin@meettrics.com",
+      "email_verified":true,
+      "at_hash":"Q2RpD-K-SKjs7gB0MJE-HA",
+      "name":"Colin Petruno",
+      "picture":"https://lh5.googleusercontent.com/-z1kqfpvGEuI/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdqa3QAw1npjsbffOWR-OpxGjv2TA/s96-c/photo.jpg",
+      "given_name":"Colin",
+      "family_name":"Petruno",
+      "locale":"en",
+      "iat":1572084856,
+      "exp":1572088456
+    },
+
+    "raw_info": {
+      "sub":"114720261053094914372",
+      "name":"Colin Petruno",
+      "given_name":"Colin",
+      "family_name":"Petruno",
+      "picture":"https://lh5.googleusercontent.com/-z1kqfpvGEuI/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdqa3QAw1npjsbffOWR-OpxGjv2TA/photo.jpg",
+      "email":"colin@meettrics.com",
+      "email_verified":true,
+      "locale":"en",
+      "hd":"meettrics.com"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<div class="marketing-static_pages-connect">
+  <section class="connection-frame">
+    <article>
+      <div>
+        <header class="meettrics-intro">
+          <%= link_to(root_path, class: "root-link") do %>
+            <%= image_tag("logos/symbol/symbol_64.png") %>
+            <%= t("base.application_name") %>
+          <% end %>
+        </header>
+
+        <% if !Rails.env.production? || (params[:beta_test] == "true") %>
+          <section class="providers">
+            Choose your provider to login or signup.<br/ ><br />
+            <%= link_to(
+              "Continue with Google",
+              "/auth/google_oauth2",
+              class: "button google"
+            ) %>
+
+            <%= link_to(
+              "Continue with Microsoft (coming soon)",
+              "/auth/microsoft",
+              class: "button microsoft disabled",
+              onclick: "return(false)"
+            ) %>
+          </section>
+        <% else %>
+          <%= render partial: "marketing/beta_requests/form" %>
+        <% end %>
+      </div>
+    </article>
+
+    <aside>
+      <!-- marketing image -->
+    </aside>
+  </section>
+</div>

@@ -1,0 +1,103 @@
+.onboarding-company_settings-index {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+
+  .header-message {
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-top: 30px;
+
+    > section {
+      display: flex;
+
+      img {
+        max-height: 150px;
+      }
+    }
+  }
+
+  > aside {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    margin: 0 auto;
+    text-align: center;
+
+    > img {
+      max-width: 100%;
+    }
+  }
+
+  > section.right-pane {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    max-width: 800px;
+    margin: auto auto;
+    text-align: center;
+
+    > section {
+      display: flex;
+      flex-direction: column;
+      margin: auto auto;
+    }
+  }
+
+  .input-group.string > label, h4 {
+    color: $gray-dark;
+  }
+
+  .input-group.string {
+    margin-bottom: $spacing-lg;
+  }
+
+  .signup-options {
+    display: flex;
+    flex-direction: column;
+    margin-top: $spacing-md;
+    width: 100%;
+  }
+
+  .signup-option {
+    cursor: pointer;
+    display: flex;
+    background-color: $white;
+    border: $default-border;
+    padding: $spacing-lg;
+    flex-direction: row;
+
+    aside.image {
+      display: flex;
+      max-height: 125px;
+      max-width: 125px;
+      margin: 0 auto;
+      width: 200px;
+
+      > img {
+        display: block;
+        max-width: 100%;
+        max-height: 150px;
+        margin: 0 auto;
+      }
+    }
+
+    input[type=radio] {
+      margin: $spacing-sm auto 0 auto;
+    }
+
+    div.details {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      flex-grow: 1;
+      padding: 0 $spacing-md;
+    }
+  }
+
+  .submit-button {
+    margin-top: $spacing-lg;
+  }
+}

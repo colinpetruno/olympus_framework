@@ -1,0 +1,34 @@
+<div class="scheduling-reschedules-new">
+  <header>
+    <h3>Confirm your appointment details</h3>
+    Review and confirm your changes.
+  </header>
+
+  <section>
+    <%= render(
+      partial: "scheduling/calendar_events/details",
+      locals: {
+        duration_minutes: @reschedule.duration_minutes,
+        start_time: @reschedule.start_time.in_time_zone(@booking.timezone),
+        timezone: @booking.timezone
+      }
+    ) %>
+
+    <%= simple_form_for([:scheduling, @booking, @reschedule]) do |f| %>
+      <%= f.input :start_time, as: :hidden %>
+      <%= f.input :old_start_time, as: :hidden %>
+      <%= f.input :duration_minutes, as: :hidden %>
+      <%= f.input :old_duration, as: :hidden %>
+
+      <div class="buttons">
+        <%= link_to(
+          "Back",
+          edit_scheduling_booking_path(@booking),
+          class: "button link outline"
+        ) %>
+
+        <%= f.submit("Confirm", class: "button primary outline") %>
+      </div>
+    <% end %>
+  </section>
+</div>

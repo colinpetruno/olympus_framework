@@ -1,0 +1,13 @@
+<div class="aion-layouts-week-event"
+     data-controller="aion--event-detail-popup"
+     data-action="click->aion--event-detail-popup#togglePopup"
+     id="event-<%= event.id %>"
+     style="<%= ::Aion::Utilities::EventCoordinates.for(event, indent_count, overlap_count) %>">
+  <header>
+     <%= event.calendar_event_detail.name %>
+  </header>
+
+  <section>
+    <%= event.time_range_display %>
+  </section>
+</div>

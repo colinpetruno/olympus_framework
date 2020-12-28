@@ -1,0 +1,9 @@
+en:
+  buttons:
+    defaults:
+      profile:
+        create: "Save"
+      team:
+        new: "Add a team"
+        create: "Create team"
+

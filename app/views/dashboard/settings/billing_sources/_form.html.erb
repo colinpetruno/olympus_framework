@@ -1,0 +1,82 @@
+<div class="dashboard-settings-billing_sources-form"
+     data-stripe-public-key="<%= Rails.application.credentials.stripe_public_key %>"
+     data-controller="dashboard--billing--sources">
+  <h3>Add payment method</h3>
+
+  <div>
+    <label for="card-element">
+      Credit or debit card
+    </label>
+
+    <div id="card-element">
+      <!-- A Stripe Element will be inserted here. -->
+    </div>
+
+    <!-- Used to display form errors. -->
+    <div id="card-errors" role="alert"></div>
+  </div>
+
+  <%= simple_form_for([:dashboard, :settings, @source]) do |f| %>
+    <%= f.simple_fields_for(
+      :billing_detail_attributes,
+      (@source.billing_detail || @source.build_billing_detail),
+    ) do |fbd| %>
+      <%= fbd.input :id, as: :hidden %>
+
+      <div class="horizontal">
+        <%= fbd.input(
+          :entity_type,
+          as: :select,
+          collection: ::Billing::Detail.entity_options,
+          include_blank: false
+        ) %>
+
+        <%= fbd.input :entity_name %>
+      </div>
+      <%= fbd.input :tax_number %>
+
+      <%= fbd.simple_fields_for(
+        :address_attributes,
+        (@source.billing_detail.address || @source.billing_detail.build_address),
+      ) do |fa| %>
+        <%= fa.input :line_1 %>
+        <%= fa.input :line_2 %>
+        <div class="horizontal">
+          <%= fa.input :city %>
+          <%= fa.input :province %>
+          <%= fa.input :postalcode %>
+        </div>
+        <%= fa.input(
+          :country_code,
+          as: :country,
+          input_html: {
+            data: { controller: "wisp--select" }
+          }
+        ) %>
+      <% end %>
+    <% end %>
+
+    <%= f.input :exp_year, as: :hidden %>
+    <%= f.input :exp_month, as: :hidden %>
+    <%= f.input :brand, as: :hidden %>
+    <%= f.input :last_four, as: :hidden %>
+    <%= f.simple_fields_for(:billing_external_id_attributes) do |fs| %>
+      <%= fs.input :external_id, as: :hidden %>
+    <% end %>
+    <%= f.input :default, as: :boolean, label: "Use as default payment method" %>
+    <%= f.submit "Add", class: "button primary block" %>
+  <% end %>
+
+    <%= link_to(
+      "Go back",
+      dashboard_settings_billings_path,
+      class: "button link outline block"
+    ) %>
+
+  <% if !Rails.env.production? %>
+    <%= render(
+      partial: "dashboard/settings/billing/development/js_helper",
+      locals: { page: "sources" }
+    ) %>
+  <% end %>
+</div>

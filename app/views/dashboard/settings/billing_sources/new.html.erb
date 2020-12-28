@@ -1,0 +1,16 @@
+<div class="dashboard-settings-sources-new">
+  <header>
+    <%= link_to(
+      "Settings",
+      dashboard_settings_root_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;
+    <%= link_to(
+      "Billing",
+      dashboard_settings_billings_path
+    ) %>
+    &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;Sources
+  </header>
+
+  <%= render partial: "dashboard/settings/billing_sources/form" %>
+</div>

@@ -1,0 +1,20 @@
+<div class="dashboard-notification_settings-show">
+  <%= simple_form_for(
+    [:dashboard, @notification_settings],
+    url: dashboard_notification_settings_path
+  ) do |f| %>
+    <%= f.input(
+      :marketing_emails,
+      as: :boolean,
+      label: "Do you want to receive marketing emails"
+    ) %>
+
+    <%= f.input(
+      :unsubscribed,
+      as: :boolean,
+      label: "Do you want to completely stop receiving Meettrics emails (even notifications)?"
+    ) %>
+
+    <%= f.submit "Save", class: "button primary" %>
+  <% end %>
+</div>
