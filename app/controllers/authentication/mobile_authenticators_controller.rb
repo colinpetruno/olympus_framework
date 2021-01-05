@@ -18,12 +18,27 @@ module Authentication
           disable_mobile_auth(@mobile_authenticator)
         else
           enable_mobile_auth(@mobile_authenticator)
+
+          # Set this so they won't be force to reauth right away after the
+          # creation of the 2FA.
+          session[:two_factor_authed_at] = DateTime.now.utc.to_i
+          session[:two_factor_last_activity] = DateTime.now.utc.to_i
         end
 
-        redirect_to(
-          new_auth_two_factor_authentication_path,
-          flash: { success: "Mobile authenticator settings applied" }
-        )
+        if session[:after_enrollment_path].present?
+          enrollment_path = session[:after_enrollment_path].dup
+          session[:after_enrollment_path] = nil # clean up the session
+
+          redirect_to(
+            enrollment_path,
+            flash: { success: "Mobile authenticator settings applied" }
+          )
+        else
+          redirect_to(
+            new_auth_two_factor_authentication_path,
+            flash: { success: "Mobile authenticator settings applied" }
+          )
+        end
       else
         redirect_to(
           new_auth_two_factor_authentication_path,

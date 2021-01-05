@@ -1,19 +1,19 @@
 .button.microsoft {
-  background-color: $white;
+  background-color: $color-white;
   background-image: url(asset_path("logos_vendor/microsoft/m_128x128"));
   background-position: $spacing-md center;
   background-repeat: no-repeat;
   background-size: 20px;
-  border: 1px solid darken($gray-light, 15%);
+  border: 1px solid darken($color-gray-light, 15%);
 
-  color: lighten($gray-dark, 15%);
+  color: lighten($color-gray-dark, 15%);
   height: $button-height;
 
   letter-spacing: normal;
   padding-left: 50px;
 
   &:hover {
-    color: lighten($gray-dark, 15%);
+    color: lighten($color-gray-dark, 15%);
     text-decoration: none;
   }
 
@@ -22,14 +22,14 @@
   }
 
   &:active {
-    background-color: $gray-light;
-    border: 1px solid darken($gray-light, 25%);
+    background-color: $color-gray-light;
+    border: 1px solid darken($color-gray-light, 25%);
   }
 
   &.disabled {
     background-color: #eeeeee;
     border-color: darken(#eeeeee, 15%);
-    color: lighten($gray-dark, 25%);
+    color: lighten($color-gray-dark, 25%);
   }
 
   &.large {

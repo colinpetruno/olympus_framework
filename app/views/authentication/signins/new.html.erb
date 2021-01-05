@@ -1,0 +1,47 @@
+<div class="authentication-signins-new header-view">
+  <header>
+    <%= link_to(root_path, class: "root-link") do %>
+      <%= image_tag("logos/symbol/symbol_64.png") %>
+      <h3><%= t("base.application_name") %></h3>
+    <% end %>
+  </header>
+
+  <section>
+    <h3 class="center">Sign in</h3>
+    <br />
+    <% if !Rails.env.production? || (params[:beta_test] == "true") %>
+      <section class="providers">
+        <%= link_to(
+          "Continue with Google",
+          "/auth/google_oauth2",
+          class: "button google"
+        ) %>
+
+        <%= link_to(
+          "Continue with Microsoft (coming soon)",
+          "/auth/microsoft",
+          class: "button microsoft disabled",
+          onclick: "return(false)"
+          ) %>
+        <br /><br />
+        <div class="center">
+          Or use your email and password.<br/ ><br />
+        </div>
+
+        <%= simple_form_for([:auth, @signin_form]) do |f| %>
+          <%= f.input :email %>
+          <%= f.input :password %>
+          <%= link_to("Forgot your password?", auth_password_resets_path) %>
+          <br /><br />
+          <%= f.submit "Sign in", class: "button primary block" %>
+          <div class="center">
+            <br />
+            <%= link_to("Sign up", new_auth_signup_path) %>
+          </div>
+        <% end %>
+      </section>
+    <% else %>
+      <%= render partial: "marketing/beta_requests/form" %>
+    <% end %>
+  </section>
+</div>

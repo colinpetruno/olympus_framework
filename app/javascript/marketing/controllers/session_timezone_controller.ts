@@ -8,7 +8,7 @@ export default class extends Controller {
     this.$container = $(this.element);
     this.remoteUrl = this.$container.data("remoteUrl");
 
-    let timezoneSet = localStorage.getItem("meettricsTimezoneSet");
+    let timezoneSet = localStorage.getItem("applicationTimezoneSet");
     let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     if (!timezoneSet) {
@@ -19,7 +19,7 @@ export default class extends Controller {
           authenticity_token: $("meta[name=csrf-token]").attr("content")
         }, 
         function () {
-          localStorage.setItem("meettricsTimezoneSet", "true");
+          localStorage.setItem("applicationTimezoneSet", "true");
         }
       );
     }

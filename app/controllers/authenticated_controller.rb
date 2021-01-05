@@ -7,7 +7,6 @@ class AuthenticatedController < ApplicationController
   before_action :protect_against_forgery?
   before_action :ensure_active_profile
 
-  # this will ensure that their is no accounts they need to "reconnect"
   before_action :check_broken_connections!
 
   layout "dashboard"

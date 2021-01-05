@@ -17,12 +17,12 @@
 
 .accordion.bordered {
   .accordion-section {
-    border: $default-border;
+    border: $border;
     margin-bottom: -1px;
     overflow: hidden;
 
     > header {
-      border-bottom: $default-border;
+      border-bottom: $border;
       margin-bottom: -1px;
 
       > button {

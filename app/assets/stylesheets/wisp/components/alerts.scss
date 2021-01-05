@@ -1,31 +1,30 @@
 .alert {
-  background-color: $white;
+  background-color: $color-white;
   border-radius: $border-radius;
-  border: $default-border;
+  border: $border;
   padding: $spacing-md;
 
   &.success {
-    background-color: lighten($green, 25%);
-    border: 1px solid darken($green, 10%);
-    color: darken($green, 40%);
+    background-color: lighten($color-green, 25%);
+    border: 1px solid darken($color-green, 10%);
+    color: darken($color-green, 40%);
   }
 
   &.notice {
-    background-color: lighten($blue, 30%);
-    border: 1px solid lighten($blue, 10%);
-    color: darken($blue, 23%);
+    background-color: lighten($color-blue, 30%);
+    border: 1px solid lighten($color-blue, 10%);
+    color: darken($color-blue, 23%);
   }
 
   &.error {
-    background-color: lighten($pink, 15%);
-    border: 1px solid darken($pink, 0%);
-    color: darken($pink, 40%);
+    background-color: lighten($color-pink, 15%);
+    border: 1px solid darken($color-pink, 0%);
+    color: darken($color-pink, 40%);
   }
 
   &.warning {
-    $orange: #fff3cd;
-    background-color: $orange;
-    border: 1px solid darken($orange, 25%);
+    background-color: $color-orange;
+    border: 1px solid darken($color-orange, 25%);
   }
 }
 

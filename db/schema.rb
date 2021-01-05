@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_071125) do
+ActiveRecord::Schema.define(version: 2021_01_04_093823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -462,6 +462,12 @@ ActiveRecord::Schema.define(version: 2020_12_28_071125) do
     t.integer "provider", default: 0, null: false
     t.string "webauthn_id"
     t.string "otp_secret"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.index ["company_id"], name: "index_members_on_company_id"
     t.index ["uuid"], name: "index_members_on_uuid"
   end
@@ -517,14 +523,12 @@ ActiveRecord::Schema.define(version: 2020_12_28_071125) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "deleted_at"
-    t.integer "team_id", null: false
     t.integer "role", default: 0, null: false
     t.string "timezone", null: false
     t.string "external_slug", null: false
     t.string "hashed_external_slug", null: false
     t.integer "status", default: 0, null: false
     t.index ["hashed_external_slug"], name: "index_profiles_on_hashed_external_slug", unique: true
-    t.index ["team_id"], name: "index_profiles_on_team_id"
   end
 
   create_table "support_request_messages", force: :cascade do |t|

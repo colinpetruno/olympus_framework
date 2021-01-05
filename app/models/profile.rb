@@ -5,13 +5,7 @@ class Profile < ApplicationRecord
 
   belongs_to :company
   belongs_to :member
-  belongs_to :team
-  has_many :calendars
-  has_many :calendar_events
-  has_many :event_participants, as: :participatable
-  has_many :meeting_templates
   has_one :notification_preference
-  has_one :schedule_setting
 
   validates :given_name, :family_name, presence: true
   validates :email, :hashed_email, presence: true
@@ -25,7 +19,6 @@ class Profile < ApplicationRecord
     :email,
     :full_name,
     :timezone,
-    :team_id,
     external_slug: {
       attr_name: :external_url,
       transform: -> (field_value) { [field_value, field_value].join(" - ") }
@@ -34,9 +27,8 @@ class Profile < ApplicationRecord
 
   enum role: {
     basic: 0,
-    team_manager: 1,
-    company_manager: 2,
-    company_admin: 3
+    company_manager: 1,
+    company_admin: 2
   }
 
   enum status: {
@@ -61,6 +53,4 @@ class Profile < ApplicationRecord
     # wrapping lines and treats the name as one word.
     [given_name, family_name].compact.join([160].pack('U*'))
   end
-
-  private
 end

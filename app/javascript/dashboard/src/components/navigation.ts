@@ -27,15 +27,9 @@ class Navigation {
     if(!this.navigationPane) {
       return;
     }
-
- //   this.navigationToggle.addEventListener(
-  //    "click", this.toggleNavigation.bind(this)
-   // );
   }
 
   toggleNavigation() {
-//    this.collapseSidebar.classList.toggle("closed");
-
     localStorage.setItem(
       "navigationClosed", 
       $(this.collapseSidebar).hasClass("closed").toString()

@@ -1,0 +1,28 @@
+<div class="admin-enrollments-index header-view">
+  <header>
+    <h3>Admin Signup</h3>
+    Create your admin account. You will be required to sign in and enroll a
+    two factor authentication (2FA) device
+  </header>
+
+  <section>
+    <% if Member.all.size == 0 %>
+      <div class="alert notice">
+        Welcome to Olympus! Since this is the first time utilizing the
+        application, we need to set up an admin account for you. Olympus
+        admin comes protected by two factor authentication out of the box. We
+        will walk you through the enrollment of your device(s).
+      </div>
+      <br />
+    <% end %>
+
+    <%= simple_form_for [:admin, @form] do |f| %>
+      <%= f.input :email %>
+      <%= f.input :given_name %>
+      <%= f.input :family_name %>
+      <%= f.input :password %>
+      <%= f.input :password_confirmation %>
+      <%= f.submit("Next step", class: "button primary block") %>
+    <% end %>
+  </section>
+</div>

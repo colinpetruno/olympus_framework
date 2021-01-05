@@ -3,9 +3,9 @@
   border-radius: 5px;
 
   > div {
-    background-color: $white;
+    background-color: $color-white;
     display: flex;
-    border: 1px solid darken($gray-light, 10%);
+    border: 1px solid darken($color-gray-light, 10%);
     border-right: none;
     cursor: pointer;
     justify-content: center;
@@ -19,25 +19,25 @@
     }
 
     &:last-child {
-      border-right: 1px solid darken($gray-light, 10%);
+      border-right: 1px solid darken($color-gray-light, 10%);
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
     }
 
     i {
-      color: darken($gray-light, 20%);
+      color: darken($color-gray-light, 20%);
     }
 
     &:hover {
-      background-color: $gray-light;
+      background-color: $color-gray-light;
     }
 
     &.active {
-      background-color: $blue;
-      color: $white;
+      background-color: $color-blue;
+      color: $color-white;
 
       i {
-        color: $white;
+        color: $color-white;
       }
     }
   }

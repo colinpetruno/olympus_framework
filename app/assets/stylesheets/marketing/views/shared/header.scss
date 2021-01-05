@@ -1,11 +1,10 @@
 .marketing-shared-header {
   $header-height: 60px;
 
-  background-color: $white;
-  border-bottom: 1px solid darken($gray-light, 10%);
-  color: $gray-dark;
+  background-color: $color-white;
+  border-bottom: 1px solid darken($color-gray-light, 10%);
+  color: $color-gray-dark;
   min-height: $header-height;
-  // height: $header-height;
   position: fixed;
   top: 0;
   left: 0;
@@ -93,7 +92,7 @@
         text-align: center;
 
         > li > a {
-          border-bottom: $default-border;
+          border-bottom: $border;
           display: block;
           text-align: center;
         }

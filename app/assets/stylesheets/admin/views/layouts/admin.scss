@@ -6,18 +6,18 @@
   min-height: 100vh;
 
   > aside {
-    background-color: $white;
+    background-color: $color-white;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     min-width: 250px;
     max-width: 250px;
     width: 250px;
-    border-right: $default-border;
+    border-right: $border;
     padding: $spacing-md;
 
     h3 {
-      border-bottom: $default-border;
+      border-bottom: $border;
       margin-bottom: $spacing-md;
     }
 
@@ -40,8 +40,8 @@
     overflow-y: auto;
 
     > nav.layout-nav {
-      background-color: $white;
-      border-bottom: $default-border;
+      background-color: $color-white;
+      border-bottom: $border;
       display: flex;
       flex-grow: 1;
       position: fixed;

@@ -1,42 +1,4 @@
 <div class="dashboard-home-show">
   <h3><%= t(".title") %></h3>
-
-  <div class="card">
-    <header>
-      <h4>Your public scheduling url.</h4>
-    </header>
-
-    <div class="form-group">
-      <div class="input-group" data-controller="utilities--clipboard-copy">
-        <input
-          class="input string"
-          type="text"
-          readonly="readonly"
-          data-target="utilities--clipboard-copy.source"
-          value="<%= scheduling_profile_url(session_info.profile.external_slug) %>" />
-        <div class="input-group-append">
-          <button class="button secondary outline hidden copy"
-                  type="button"
-                  data-toggle="tooltip"
-                  data-action="utilities--clipboard-copy#copy"
-                  title="Copy link">
-            <%= ion_icon("ios-copy-outline") %>
-          </button>
-
-          <%= link_to(
-            scheduling_profile_url(session_info.profile.external_slug),
-            class: "button secondary outline",
-            title: "View your scheduling portal",
-            target: "_blank",
-            data: {
-              toggle: "tooltip"
-            }
-          ) do %>
-            <%= ion_icon("link") %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
   <br /><br />
 </div>

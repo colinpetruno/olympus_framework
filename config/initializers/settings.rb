@@ -1,0 +1,1 @@
+# @@settings ||= Olympus::Settings.new

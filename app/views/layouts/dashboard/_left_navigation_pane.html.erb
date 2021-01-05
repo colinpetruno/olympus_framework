@@ -143,9 +143,9 @@
     <section id="LeftNavPaneContent">
       <article>
         <% [:company, :calendars, :calendar, :individual, :teams].each do |tab| %>
-          <% tab_presenter = presenter.lookup(tab).new(session_info) %>
+          <%# tab_presenter = presenter.lookup(tab).new(session_info) %>
 
-          <%= render(
+          <%# render(
             partial: tab_presenter.partial_name,
             locals: {
               presenter: tab_presenter,

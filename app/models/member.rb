@@ -2,7 +2,8 @@ class Member < ApplicationRecord
   include NotDeletable
   include Uuidable
 
-  devise :registerable, :rememberable, :validatable, :trackable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+         :trackable, :confirmable
 
   # NOTE: This association is explicit to this app since a login email can
   # only get tied to one company. Destroy it if a member can belong to

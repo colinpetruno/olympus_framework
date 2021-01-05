@@ -14,25 +14,25 @@ table {
   }
 
   thead > tr {
-    border-bottom: $default-border;
+    border-bottom: $border;
   }
 
   &.bordered {
-    border: $default-border;
+    border: $border;
     border-radius: $border-radius;
   }
 
   &.striped {
     tr {
-      background-color: lighten($gray-light, 2%);
+      background-color: lighten($color-gray-light, 2%);
 
       &:nth-child(even) {
-        background-color: $white;
+        background-color: $color-white;
       }
     }
 
     thead > tr {
-      background-color: $white;
+      background-color: $color-white;
     }
   }
 

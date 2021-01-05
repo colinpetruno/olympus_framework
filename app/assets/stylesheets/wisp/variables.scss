@@ -1,40 +1,41 @@
-// colors
+// Colors
+$color-blue: #4e77e7;
+$color-purple: #914dcc;
+$color-pink: #fc6371;
+$color-salmon: #f9997e;
+$color-white: #ffffff;
+$color-gray-light: #eaf5f8;
+$color-gray: #747881;
+$color-gray-dark: #2c3242;
+$color-green: #77d671;
+$color-navy: $color-gray-dark;
+// for warnings
+$color-red: #721c24;
+$color-orange: #fff3cd;
 
-$blue-gradient: linear-gradient(45deg, #2571f5 0%, #369bf4 100%);
-$purple-gradient: linear-gradient(45deg, #5a00c8 0%, #b675d6 100%);
-$salmon-gradient:linear-gradient(45deg, #f1766d 0%, #fca37d 100%);
+// Gradients
+$gradient-blue: linear-gradient(45deg, #2571f5 0%, #369bf4 100%);
+$gradient-purple: linear-gradient(45deg, #5a00c8 0%, #b675d6 100%);
+$gradient-salmon: linear-gradient(45deg, #f1766d 0%, #fca37d 100%);
 
-$blue: #4e77e7;
-$purple: #914dcc;
-$pink: #fc6371;
-$salmon: #f9997e;
-$white: #ffffff;
-$gray-light: #eaf5f8;
-$gray: #747881;
-$gray-dark: #2c3242;
-$green: #77d671;
-$navy: $gray-dark;
-$red: #721c24; // for warnings
-
-// common
-$box-shadow: 0 3px 5px darken($gray-light, 5%);
-$box-shadow-success: inset 0 0 10px lighten($green, 15%);
-$box-shadow-error: inset 0 0 10px darken($pink, 0%);
+// Box shadows
+$box-shadow: 0 3px 5px darken($color-gray-light, 5%);
+$box-shadow-success: inset 0 0 10px lighten($color-green, 15%);
+$box-shadow-error: inset 0 0 10px darken($color-pink, 0%);
 
 
 // borders
-$border-color: lighten($gray, 35%);
-$default-border: 1px solid $border-color;
-$border: $default-border; // use this one, deprecate default-border
+$border-color: lighten($color-gray, 35%);
+$border: 1px solid $border-color;
 $border-radius: 10px;
 $border-radius-small: 5px;
 $border-radius-large: 20px;
 
-// font
-$heading-font-family: 'Noto Serif SC', serif; // "Whitney", "Helvetica Neue", Arial, sans-serif;
+// Font
+$heading-font-family: 'Noto Serif SC', serif;
 $paragraph-font-family: "GT Walsheim Pro", "Helvetica Neue", Arial, sans-serif;
 
-$font-color: $gray-dark;
+$font-color: $color-gray-dark;
 $font-size-base-px: 16px;
 
 $font-size-small: 0.8rem;
@@ -46,13 +47,13 @@ $font-size-main-heading: 2.5rem;
 $font-size-icon: 1.7rem;
 
 // frame
-$frame-background-color: $white;
+$frame-background-color: $color-white;
 $frame-border-radius: 20px;
 $frame-box-shadow: $box-shadow;
 
 // layout
-$background-color: $white; // $gray-light;
-$background-color-application: $gray-light;
+$background-color: $color-white;
+$background-color-application: $color-gray-light;
 $body-max-width: 1280px; // max width of content sections
 
 // spacing
@@ -64,7 +65,7 @@ $spacing-section: 50px;
 //buttons
 $button-border-radius: 3px;
 $button-transition: all;
-$button-focus-box-shadow: 0 3px 5px darken($gray-light, 5%);
+$button-focus-box-shadow: 0 3px 5px darken($color-gray-light, 5%);
 
 $button-height: 48px;
 
@@ -72,31 +73,31 @@ $button-padding-lg: $spacing-md $spacing-lg;
 $button-padding: 10px $spacing-md;
 $button-padding-sm: 5px $spacing-sm 3px $spacing-sm;
 
-$button-primary-background: $pink; // $purple-gradient;
-$button-primary-color: $white;
+$button-primary-background: $color-pink;
+$button-primary-color: $color-white;
 
-$button-secondary-background: $blue;
-$button-secondary-color: $white;
+$button-secondary-background: $color-blue;
+$button-secondary-color: $color-white;
 
-$button-tertiary-background: $pink; // outline until hover
-$button-tertiary-color: $white; // only for hover
+$button-tertiary-background: $color-pink;
+$button-tertiary-color: $color-white;
 
-$button-link-background: $white; // only for hover
-$button-link-color: $gray-dark;
+$button-link-background: $color-white;
+$button-link-color: $color-gray-dark;
 
-$button-danger-background: lighten($red, 65%); // only for hover
-$button-danger-color: lighten($red, 20%);
+$button-danger-background: lighten($color-red, 65%);
+$button-danger-color: lighten($color-red, 20%);
 
-// cards
-$card-background-color: $white;
-$card-border-color: lighten($gray, 35%);
+// Cards
+$card-background-color: $color-white;
+$card-border-color: lighten($color-gray, 35%);
 $card-border-radius: 5px;
 
 
 // forms
-$form-label-color: lighten($gray-dark, 15%);
+$form-label-color: lighten($color-gray-dark, 15%);
 $form-input-border-radius: 5px;
-$form-input-border-color: lighten($gray, 35%);
+$form-input-border-color: lighten($color-gray, 35%);
 $form-bottom-margin: 20px;
 
 // dropdowns
@@ -105,10 +106,10 @@ $dropdown-item-padding-x: $spacing-md;
 
 
 // tooltips
-$tooltip-color: $white;
-$tooltip-bg: $navy;
+$tooltip-color: $color-white;
+$tooltip-bg: $color-navy;
 $tooltip-border-radius: $border-radius-small;
-$tooltip-arrow-color: $navy;
+$tooltip-arrow-color: $color-navy;
 
 // modals
 
@@ -124,7 +125,7 @@ $modal-dialog-margin-y-sm-up:       1.75rem !default;
 $modal-title-line-height:           1rem !default;
 
 $modal-content-color:               null !default;
-$modal-content-bg:                  $white !default;
+$modal-content-bg:                  $color-white !default;
 $modal-content-border-color:        rgba(#000, .2) !default;
 $modal-content-border-width:        1px !default;
 $modal-content-border-radius:       $border-radius !default;

@@ -56,10 +56,6 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # add hosts for setting up google webhooks
-  config.hosts << "cpetruno-meettrics.pagekite.me"
-  config.hosts << "development.meettrics.com"
-  config.web_console.whitelisted_ips = "213.127.88.26"
   config.require_master_key = true
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true

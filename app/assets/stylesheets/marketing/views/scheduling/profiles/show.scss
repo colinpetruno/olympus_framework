@@ -18,7 +18,7 @@
 
   .meeting-option {
     a {
-      border: $default-border;
+      border: $border;
       border-radius: $border-radius;
       cursor: pointer;
       display: flex;
@@ -30,7 +30,7 @@
       }
 
       > aside {
-        border-right: $default-border;
+        border-right: $border;
         font-size: 1.8rem;
         font-weight: 200;
         max-width: 125px;
@@ -51,7 +51,7 @@
           font-family: ionicons;
           font-size: 1.3rem;
           content: "\f125";
-          color: darken($gray-light, 20%);
+          color: darken($color-gray-light, 20%);
           display: flex;
           margin-left: auto;
           margin-right: $spacing-md;
@@ -59,18 +59,18 @@
       }
 
       &:hover {
-        background: $salmon-gradient;
-        border-color: $white;
-        color: $white;
+        background: $gradient-salmon;
+        border-color: $color-white;
+        color: $color-white;
 
         > aside {
-          border-color: $white;
+          border-color: $color-white;
         }
 
         > section:after {
-          color: $white;
+          color: $color-white;
         }
       }
-    } // end .meeting-option
+    }
   }
 }

@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   root "marketing/static_pages#homepage"
 
   namespace :admin do
-    resources :profiles, only: [:index, :show]
-
     root to: "dashboards#show"
+
+    resources :enrollments, only: [:index, :create]
+    resources :profiles, only: [:index, :show]
 
     namespace :development do
       root to: "dashboards#show"
@@ -42,8 +43,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :authentication, path: :auth, as: :auth do
-    resources :password_authentications, only: [:new, :create]
-    resources :password_confirmations, only: [:new, :create]
+    resources :signins, only: [:new, :create]
+    resources :signups, only: [:new, :create]
+    resources :password_resets, only: [:new, :create], path: "forgot-password"
+    # resources :password_confirmations, only: [:new]
     resource :mobile_authenticator, only: [:update]
 
     resources(
@@ -176,7 +179,6 @@ Rails.application.routes.draw do
   end
 
   get "/about-us", to: "marketing/static_pages#about_us"
-  get "/connect", to: "marketing/static_pages#connect"
   get "/homepage", to: "marketing/static_pages#homepage"
   get "/pricing", to: "marketing/static_pages#pricing"
 

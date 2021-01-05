@@ -1,5 +1,5 @@
 .breadcrumbs {
-  color: $gray-dark;
+  color: $color-gray-dark;
   display: flex;
   font-size: $font-size-base;
   line-height: 22px;
@@ -7,7 +7,7 @@
   vertical-align: middle;
 
   a {
-    color: $gray-dark;
+    color: $color-gray-dark;
     display: inline;
     text-decoration: underline;
   }

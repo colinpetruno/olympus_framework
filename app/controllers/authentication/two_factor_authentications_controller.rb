@@ -1,6 +1,6 @@
 module Authentication
   class TwoFactorAuthenticationsController < AuthenticatedController
-    layout "billing"
+    layout "art_pane/authentication"
 
     before_action -> (redirect_url = new_auth_password_authentication_path) do
       require_password_confirmation(redirect_url)
@@ -12,9 +12,9 @@ module Authentication
 
       # TODO: extract to config
       issuer = if Rails.env.production?
-                 "Meettrics"
+                 I18n.t("base.application_name")
                else
-                 "Meettrics_#{Rails.env}"
+                 "#{I18n.t("base.application_name")}_#{Rails.env}"
                end
 
       totp = ROTP::TOTP.new(

@@ -46,7 +46,7 @@
   }
 
   .input-group.string > label, h4 {
-    color: $gray-dark;
+    color: $color-gray-dark;
   }
 
   .input-group.string {
@@ -63,8 +63,8 @@
   .signup-option {
     cursor: pointer;
     display: flex;
-    background-color: $white;
-    border: $default-border;
+    background-color: $color-white;
+    border: $border;
     padding: $spacing-lg;
     flex-direction: row;
 

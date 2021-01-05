@@ -1,6 +1,6 @@
 .marketing-shared-footer {
-  background-color: $gray-dark;
-  color: $gray-light;
+  background-color: $color-gray-dark;
+  color: $color-gray-light;
   display: flex;
   flex-direction: column;
   margin-top: auto;
@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: $site-max-width;
+    max-width: $body-max-width;
     padding: $spacing-section 0;
     justify-content: center;
 
@@ -32,7 +32,7 @@
   }
 
   ul > li > a {
-    color: $gray-light;
+    color: $color-gray-light;
   }
 
   .logo {

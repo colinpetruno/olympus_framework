@@ -7,11 +7,11 @@
     padding-bottom: $spacing-md;
 
     &.staff {
-      background-color: lighten($blue, 35%);
+      background-color: lighten($color-blue, 35%);
     }
 
     &.customer {
-      background-color: lighten($salmon, 15%);
+      background-color: lighten($color-salmon, 15%);
     }
 
     > section {

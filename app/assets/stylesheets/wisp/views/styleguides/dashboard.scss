@@ -15,9 +15,7 @@
     }
 
     > aside {
-      background-color: $white;
-      // border-right: 1px solid darken($gray-light, 5%);
-//      box-shadow: 10px 0px 30px 0px darken($gray-light, 5%);
+      background-color: $color-white;
       min-width: 350px;
       max-width: 350px;
       width: 350px;
@@ -25,7 +23,7 @@
     }
 
     > article {
-      background-color: $gray-light;
+      background-color: $color-gray-light;
       padding: $spacing-section;
     }
   }

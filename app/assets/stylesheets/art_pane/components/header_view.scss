@@ -1,0 +1,14 @@
+.header-view {
+  display: flex;
+  flex-direction: column;
+
+  > header {
+    border-bottom: $border;
+    text-align: center;
+    padding: $spacing-lg;
+  }
+
+  > section {
+    padding: $spacing-lg;
+  }
+}

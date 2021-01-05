@@ -5,7 +5,7 @@
   margin: 50px;
 
   h4 {
-    border-bottom: $default-border;
+    border-bottom: $border;
     margin-bottom: $spacing-lg;
     padding-bottom: $spacing-md;
   }
@@ -25,7 +25,7 @@
   }
 
   .prices > .item {
-    color: lighten($gray-dark, 25%);
+    color: lighten($color-gray-dark, 25%);
     display: flex;
     padding: $spacing-sm 0;
 
@@ -39,7 +39,7 @@
 
     &.total {
       border-bottom: none;
-      color: $gray-dark;
+      color: $color-gray-dark;
     }
 
     &.vat {

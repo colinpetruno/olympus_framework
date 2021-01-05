@@ -20,18 +20,11 @@ module Accounts
         account = Account.create
         company = Company.create(attrs[:company].merge(account: account))
 
-        team = Team.create!(
-          company: company,
-          team_name: I18n.t("models.defaults.team.unassigned_team_name"),
-          deletable: false
-        )
-
         member = ::Accounts::AddMember.add(
           attrs[:member].deep_merge({
             company: company,
             profile_attributes: {
               company: company,
-              team: team,
               role: :company_admin,
               external_slug: SecureRandom.uuid
             }

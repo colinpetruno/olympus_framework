@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
- include Pagy::Backend
-
+  include Pagy::Backend
+  before_action :enroll_admin_if_required?
   before_action :track_page_view
 
   helper_method :session_info
@@ -56,6 +56,12 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def enroll_admin_if_required?
+    unless Olympus.settings.admin_created?
+      redirect_to(admin_enrollments_path) and return
+    end
+  end
 
   def two_factor_redemption_params
     params.require(:two_factor_redemption).permit(:id)

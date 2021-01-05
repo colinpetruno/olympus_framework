@@ -7,10 +7,10 @@
     position: relative;
 
     .nav-toggle {
-      background-color: $white;
-      border: 1px solid darken($gray-light, 10%);
+      background-color: $color-white;
+      border: 1px solid darken($color-gray-light, 10%);
       border-radius: 50px;
-      color: $gray;
+      color: $color-gray;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -69,7 +69,7 @@
   }
 
   .sticky-nav {
-    border-right: 1px solid darken($gray-light, 5%);
+    border-right: 1px solid darken($color-gray-light, 5%);
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -79,7 +79,7 @@
 
     .logo-link:hover {
       text-decoration: none;
-      background-color: $white;
+      background-color: $color-white;
     }
 
     img {
@@ -97,7 +97,7 @@
     width: 100%;
 
     > li {
-      color: $gray;
+      color: $color-gray;
       display: flex;
       justify-content: center;
       font-size: $font-size-icon;
@@ -105,7 +105,7 @@
       padding: 10px 0;
 
       a {
-        color: $gray;
+        color: $color-gray;
         display: flex;
         border-radius: 50%;
         justify-content: center;
@@ -115,8 +115,8 @@
         vertical-align: middle;
 
         &:hover {
-          background-color: lighten($purple, 40%);
-          color: $purple;
+          background-color: lighten($color-purple, 40%);
+          color: $color-purple;
         }
       }
     }
@@ -128,19 +128,11 @@
 
   .nav-pane-link {
     display: block;
-    // margin-bottom: $spacing-sm;
 
     > a {
-      // border: $default-border;
-      // border-radius: $border-radius-small;
       display: block;
       padding: $spacing-sm 0;
       position: relative;
-
-      &:hover {
-        // background: $salmon-gradient;
-        // color: $white;
-      }
 
       &:after {
         position: absolute;
