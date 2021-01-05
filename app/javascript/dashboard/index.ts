@@ -1,7 +1,6 @@
 import { Application } from "stimulus"
 import { Controller } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
-import { Aion } from '../aion/index';
 
 const application = Application.start()
 const context = require.context("./controllers", true, /.ts$/)
@@ -46,7 +45,6 @@ class MeettricsCore {
 declare global {
   interface Window { 
     Meettrics: MeettricsCore; 
-    Aion: Aion;
     Tether: any;
     $: any;
     Stripe: any;
@@ -55,9 +53,7 @@ declare global {
 }
 
 document.addEventListener("turbolinks:load", function() {
-  window.Aion = new Aion();
   window.Meettrics = new MeettricsCore();
 
-  window.Aion.setup();
   window.Meettrics.setup();
 })

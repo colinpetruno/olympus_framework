@@ -152,7 +152,7 @@
   align-items: center; // vertically center
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
   padding: $spacing-md $spacing-lg;
-  border-top: $default-border;
+  border-top: $border;
   @include border-bottom-radius($modal-content-inner-border-radius);
   margin-top: auto;
 

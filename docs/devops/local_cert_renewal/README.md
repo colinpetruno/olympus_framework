@@ -9,10 +9,10 @@ First run ngrok to serve up traffic from http for you development domain.
 `bin/ngrok_renew`
 
 Next run the certbot standalone command.
-`sudo certbot certonly --standalone --preferred-challenges http -d development.meettrics.com`
+`sudo certbot certonly --standalone --preferred-challenges http -d development.yourdomain.com`
 
 The certs should get outputted somewhere like... 
-`/etc/letsencrypt/live/development.meettrics.com/fullchain.pem`
+`/etc/letsencrypt/live/development.yourdomain.com/fullchain.pem`
 
 Copy these into the project directory or where your `bin/ssl_server` command
 can locate them.

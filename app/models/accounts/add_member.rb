@@ -9,14 +9,9 @@ module Accounts
     end
 
     def add
-      member = Member.create!(member_attributes)
-
-      # create default templates for the user
-      templates = MeetingTemplates::DefaultCreator.for(member.profile)
-      ScheduleSettings::Creator.for(member.profile, templates)
-
-      # TODO: Queue the calendar sync so it can be ready when they get there
-      member
+      # NOTE: You can expand any default seeding of member data here once
+      # the member is created, or add tracking etc.
+      Member.create!(member_attributes)
     end
 
     private

@@ -1,0 +1,56 @@
+<div class="authentication-signups-new header-view">
+  <header class="application-intro">
+    <%= link_to(root_path, class: "root-link") do %>
+      <%= image_tag("logos/symbol/symbol_64.png") %>
+      <h3><%= t("base.application_name") %></h3>
+    <% end %>
+  </header>
+
+  <section>
+    <h3 class="center">Sign up</h3>
+    <br />
+    <% if !Rails.env.production? || (params[:beta_test] == "true") %>
+      <section class="providers">
+        <%= link_to(
+          "Continue with Google",
+          "/auth/google_oauth2",
+          class: "button google"
+        ) %>
+
+        <%= link_to(
+          "Continue with Microsoft (coming soon)",
+          "/auth/microsoft",
+          class: "button microsoft disabled",
+          onclick: "return(false)"
+        ) %>
+
+      <br /><br /><br />
+        <div class="center">
+          Or use an email and password:
+        </div>
+        <br/ >
+
+        <%= simple_form_for([:auth, @signup_form]) do |f| %>
+          <%= f.input :email %>
+
+          <div class="horizontal">
+            <%= f.input :given_name %>
+            <%= f.input :family_name %>
+          </div>
+
+          <%= f.input :password %>
+          <%= f.input :password_confirmation %>
+          <%= f.submit "Sign up", class: "button primary block" %>
+          <div class="center">
+            <br />
+            <%= link_to("Sign in", new_auth_signin_path) %>
+          </div>
+        <% end %>
+        <br />
+
+      </section>
+    <% else %>
+      <%= render partial: "marketing/beta_requests/form" %>
+    <% end %>
+  </section>
+</div>

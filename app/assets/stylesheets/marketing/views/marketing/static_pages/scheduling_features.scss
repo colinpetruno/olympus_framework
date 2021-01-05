@@ -4,7 +4,7 @@
   .features {
     justify-content: center;
     margin: 0 auto;
-    max-width: $site-max-width;
+    max-width: $body-max-width;
   }
 
   .hero {
@@ -15,10 +15,7 @@
     position: relative;
 
     > aside {
-      // background-color: $white;
-      // background: $purple-gradient;
-      background-color: lighten($blue, 30%);
-      // color: $white;
+      background-color: lighten($color-blue, 30%);
       display: flex;
       min-height: 70vh;
       width: 50%;

@@ -1,5 +1,5 @@
 {
-  "name": "meettrics_web",
+  "name": "olympus_framework",
   "private": true,
   "dependencies": {
     "@github/webauthn-json": "^0.4.5",

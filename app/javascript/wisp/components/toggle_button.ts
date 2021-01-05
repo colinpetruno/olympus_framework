@@ -65,20 +65,7 @@ class ToggleButton {
   }
 
   triggerChange(): void {
-    // let evt = document.createEvent("HTMLEvents");
-    // evt.initEvent("change", false, true);
-    // let evt = new Event("change", { "bubbles": true, "cancelable": false, composed: true });
-    // this.checkboxInput.dispatchEvent(evt);
-
     let inputsForm = $(this.checkboxInput).closest("form")[0];
-
-    // I am not happy about this because it should be able to be consolidated
-    // into the autosave module. However, while this does work in the browser,
-    // the above commented out code does not work in capybara during automated
-    // testing.  
-    if(inputsForm.classList.contains("autosave")){
-      inputsForm.dispatchEvent(new Event("submit", {bubbles: true})); 
-    }
   }
 }
 

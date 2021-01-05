@@ -17,7 +17,7 @@ Copy the nginx configuration from the files directory to
 `/usr/local/var/etc/nginx`
 
 You may need to customize the root path once it is outside of the repo. The
-root is currently set to `root ~/Projects/meettrics_web/public;` 
+root is currently set to `root ~/Projects/application/public;` 
 
 $   brew services restart nginx
 

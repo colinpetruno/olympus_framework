@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Meettrics</title>
+    <title><%= I18n.t("base.application_name") %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -31,12 +31,7 @@
     <div class="layouts-dashboard">
       <aside>
         <%= render(
-          partial: "layouts/dashboard/left_navigation_pane",
-          locals: {
-            presenter: ::Dashboard::LeftNavigationPane::PresenterMap.for(
-              session[:selected_navigation_pane]
-            )
-          }
+          partial: "layouts/dashboard/left_navigation_pane"
         ) %>
       </aside>
 

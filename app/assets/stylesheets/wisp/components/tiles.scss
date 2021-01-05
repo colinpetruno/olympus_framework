@@ -31,17 +31,17 @@
 }
 
 .tile {
-  border: $default-border;
+  border: $border;
   border-radius: $border-radius-small;
-  background-color: $white;
+  background-color: $color-white;
   box-sizing: border-box;
-  color: $gray-dark;
+  color: $color-gray-dark;
   display: flex;
   flex-direction: column;
   margin: 0 $spacing-lg $spacing-md $spacing-lg;
 
   > header, > footer {
-    background-color: $white;
+    background-color: $color-white;
     display: flex;
     padding: $spacing-md;
     justify-content: center;
@@ -66,7 +66,7 @@
   }
 
   > footer {
-    border-top: $default-border;
+    border-top: $border;
     border-bottom-left-radius: $border-radius-small;
     border-bottom-right-radius: $border-radius-small;
   }

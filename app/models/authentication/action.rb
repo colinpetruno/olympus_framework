@@ -37,7 +37,7 @@ module Authentication
     end
 
     def member
-      @_member ||= Members::Finder.by_email(oauth_response.email)
+      @_member ||= ::Members::Finder.by_email(oauth_response.email)
     end
 
     private

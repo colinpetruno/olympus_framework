@@ -10,7 +10,7 @@
   }
 
   h3 {
-    border-bottom: $default-border;
+    border-bottom: $border;
     padding-bottom: $spacing-md;
     margin-bottom: $spacing-section;
   }
@@ -22,7 +22,7 @@
     flex-direction: column;
     flex-basis: 0;
     flex-grow: 1;
-    border: $default-border;
+    border: $border;
     padding: $spacing-lg;
     margin: 0 $spacing-lg;
     min-width: 200px;

@@ -8,7 +8,7 @@ module Authentication
       totp = ROTP::TOTP.new(@mobile_authenticator.otp_base)
 
       verified_timestamp = totp.verify(
-        mobile_authenticator_params[:otp_password],
+        mobile_authenticator_params[:otp_password].gsub(" ", ""),
         drift_behind: 15,
         at: DateTime.now
       )
@@ -18,12 +18,27 @@ module Authentication
           disable_mobile_auth(@mobile_authenticator)
         else
           enable_mobile_auth(@mobile_authenticator)
+
+          # Set this so they won't be force to reauth right away after the
+          # creation of the 2FA.
+          session[:two_factor_authed_at] = DateTime.now.utc.to_i
+          session[:two_factor_last_activity] = DateTime.now.utc.to_i
         end
 
-        redirect_to(
-          new_auth_two_factor_authentication_path,
-          flash: { success: "Mobile authenticator settings applied" }
-        )
+        if session[:password_confirmation_redirect].present?
+          enrollment_path = session[:password_confirmation_redirect].dup
+          session[:password_confirmation_redirect] = nil # clean up the session
+
+          redirect_to(
+            enrollment_path,
+            flash: { success: "Mobile authenticator settings applied" }
+          )
+        else
+          redirect_to(
+            new_auth_two_factor_authentication_path,
+            flash: { success: "Mobile authenticator settings applied" }
+          )
+        end
       else
         redirect_to(
           new_auth_two_factor_authentication_path,

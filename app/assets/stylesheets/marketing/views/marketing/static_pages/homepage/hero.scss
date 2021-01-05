@@ -11,7 +11,7 @@
   }
 
   > aside {
-    background-color: $white;
+    background-color: $color-white;
     min-height: 500px;
     width: 50%;
   }
@@ -29,7 +29,7 @@
   }
 
   .hero-text {
-    color: #1d3065; // #8E3AA5; // #3870FF; // $white;
+    color: #1d3065;
     max-width: 640px;
     margin-left: auto;
     padding: 100px;
@@ -37,7 +37,7 @@
     width: 100%;
 
     > h1 > span {
-      color: $purple;
+      color: $color-purple;
     }
 
     > section {
@@ -68,7 +68,7 @@
     }
 
     > aside {
-      background: $purple-gradient;
+      background: $gradient-purple;
       order: 1;
       z-index: 5;
     }
@@ -85,7 +85,7 @@
     }
 
     .hero-text {
-      color: $white;
+      color: $color-white;
       padding: 0;
       text-align: center;
       margin: auto;
@@ -95,7 +95,7 @@
       }
 
       > h1 > span {
-        color: $white;
+        color: $color-white;
       }
 
       > h1, > section {

@@ -1,3 +1,5 @@
 en:
   base:
     application_name: "Olympus"
+    application_url_production: "https://www.olympusframework.com"
+    application_url_development: "https://localhost:3008"

@@ -34,7 +34,7 @@ module Authentication
     end
 
     def member
-      @_member ||= Members::Finder.by_email!(lookup_email)
+      @_member ||= ::Members::Finder.by_email!(lookup_email)
     end
 
     def lookup_email

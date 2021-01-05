@@ -1,9 +1,9 @@
 module Authentication
   class TwoFactorAuthenticationsController < AuthenticatedController
-    layout "billing"
+    layout "art_pane/authentication"
 
-    before_action -> (redirect_url = new_auth_password_authentication_path) do
-      require_password_confirmation(redirect_url)
+    before_action -> (redirect_path = determine_redirect_path) do
+      require_password_confirmation_if_needed(redirect_path)
     end, only: :new
 
     def new
@@ -12,9 +12,9 @@ module Authentication
 
       # TODO: extract to config
       issuer = if Rails.env.production?
-                 "Meettrics"
+                 I18n.t("base.application_name")
                else
-                 "Meettrics_#{Rails.env}"
+                 "#{I18n.t("base.application_name")}_#{Rails.env}"
                end
 
       totp = ROTP::TOTP.new(
@@ -39,6 +39,10 @@ module Authentication
       @webauthn_credentials = @two_factor_auths.webauthn_tokens
 
       session[:creation_challenge] = @webauthn_options.challenge
+    end
+
+    def determine_redirect_path
+      session[:password_confirmation_redirect] || nil
     end
   end
 end

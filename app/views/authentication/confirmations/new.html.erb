@@ -1,0 +1,62 @@
+<div class="header-view">
+  <header>
+    <h3>Confirm your email</h3>
+  </header>
+
+  <section class="center">
+
+    <% if params[:confirmation_token].blank? %>
+      <div>
+        It seems like the link you followed is not valid. Resend the
+        confirmation email and click the link as soon as possible.
+      </div>
+
+      <br />
+      <%= render(
+        partial: "authentication/confirmations/form",
+        locals: {
+          form: @form
+        }
+      ) %>
+    <% elsif @member.blank? %>
+      <div>
+        This confirmation token is no longer valid. Enter your email below to
+        get a new confirmation token.
+      </div>
+
+      <br />
+      <%= render(
+        partial: "authentication/confirmations/form",
+        locals: {
+          form: @form
+        }
+      ) %>
+    <% elsif !@member.confirmed? %>
+      <div>
+        We were unable to confirm your account. Your link may be too old or the
+        email no longer in our system. Resend the confirmation by entering your
+        email below. The link will expire after a short while.
+      </div>
+
+      <br />
+      <%= render(
+        partial: "authentication/confirmations/form",
+        locals: {
+          form: @form
+        }
+      ) %>
+    <% elsif @member.confirmed? %>
+      <div>
+        Thanks for confirming your account!
+        <br /><br />
+        <div>
+          <%= link_to(
+            "Sign in",
+            new_auth_signin_path,
+            class: "button primary"
+          ) %>
+        </div>
+      </div>
+    <% end %>
+  </section>
+</div>

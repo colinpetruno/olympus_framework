@@ -81,9 +81,9 @@
       }
 
       &.selected > section {
-        background: $pink; // $salmon-gradient;
+        background: $color-pink;
         border-radius: 50%;
-        color: $white;
+        color: $color-white;
       }
     }
 
@@ -99,7 +99,7 @@
 
       i {
         font-size: 1.5rem;
-        color: lighten($gray-dark, 30%);
+        color: lighten($color-gray-dark, 30%);
       }
 
       &.prev-week {
@@ -114,17 +114,17 @@
     }
 
     .disabled {
-      color: lighten($gray-dark, 55%) !important;
+      color: lighten($color-gray-dark, 55%) !important;
       cursor: not-allowed !important;
 
       i {
-        color: lighten($gray-dark, 55%) !important;
+        color: lighten($color-gray-dark, 55%) !important;
       }
     }
   }
 
   section.availabilities-container {
-    border: $default-border;
+    border: $border;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -180,7 +180,7 @@
     }
 
     .availability {
-      border: $default-border;
+      border: $border;
       border-radius: 3px;
       cursor: pointer;
       display: flex;
@@ -197,17 +197,17 @@
       user-select: none;
 
       &.selected {
-        background: $salmon-gradient;
-        border-color: $white;
+        background: $gradient-salmon;
+        border-color: $color-white;
         border-radius: 3px;
-        color: $white;
+        color: $color-white;
       }
 
       &:hover {
-        background: $salmon-gradient;
-        border-color: $white;
+        background: $gradient-salmon;
+        border-color: $color-white;
         border-radius: 3px;
-        color: $white;
+        color: $color-white;
 
         animation-name: hvr-pop;
         animation-duration: 0.4s;

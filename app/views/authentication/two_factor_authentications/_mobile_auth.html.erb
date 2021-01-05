@@ -1,11 +1,11 @@
 <div class="authentication-two_factor_authentications-mobile_auth">
-  <div data-controller="authentication--mobile-otp">
+  <div data-controller="soteria--mobile-otp">
     <div class="slider slide-1">
       <div class="start">
         <% if two_factor_sources.mobile_auth_enabled? %>
           <div>
             <button class="button link outline block"
-                    data-action="authentication--mobile-otp#goToSlideTwo">
+                    data-action="soteria--mobile-otp#goToSlideTwo">
               Disable
             </button>
           </div>
@@ -14,7 +14,7 @@
             Mobile auth disabled
 
             <button class="button primary outline"
-                    data-action="authentication--mobile-otp#goToSlideTwo">
+                    data-action="soteria--mobile-otp#goToSlideTwo">
               Enable
             </button>
           </div>
@@ -42,7 +42,7 @@
 
             <%= f.submit "Enable", class: "button secondary outline" %>
             <button class="button link outline"
-                    data-action="authentication--mobile-otp#goToSlideOne">
+                    data-action="soteria--mobile-otp#goToSlideOne">
               Cancel
             </button>
           <% end %>
@@ -58,7 +58,7 @@
 
             <%= f.submit "Disable", class: "button secondary outline" %>
             <button class="button link outline"
-                    data-action="authentication--mobile-otp#goToSlideOne">
+                    data-action="soteria--mobile-otp#goToSlideOne">
               Cancel
             </button>
           <% end %>

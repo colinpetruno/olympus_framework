@@ -1,0 +1,22 @@
+<div class="header-view">
+  <header>
+    <h3>Reset Password</h3>
+
+    Enter your email to reset your password
+  </header>
+
+  <section>
+    <%= simple_form_for([:auth, @form]) do |f| %>
+      <%= f.input :email %>
+      <%= f.submit "Reset", class: "button primary block" %>
+
+      <br /><br />
+
+      <%= link_to(
+        "Back",
+        new_auth_signin_path,
+        class: "button link outline block"
+      ) %>
+    <% end %>
+  </section>
+</div>

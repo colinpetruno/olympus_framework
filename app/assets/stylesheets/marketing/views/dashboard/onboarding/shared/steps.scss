@@ -19,8 +19,8 @@
 
     > aside {
       border-radius: 50%;
-      border: 1px solid $purple;
-      color: $purple;
+      border: 1px solid $color-purple;
+      color: $color-purple;
       display: flex;
       justify-content: center;
       margin-right: $spacing-md;
@@ -32,8 +32,8 @@
 
     &.completed {
       > aside {
-        background: $purple-gradient; // lighten($purple, 20%);
-        color: $white;
+        background: $gradient-purple;
+        color: $color-white;
       }
     }
   }

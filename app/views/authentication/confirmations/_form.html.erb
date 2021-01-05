@@ -1,0 +1,4 @@
+<%= simple_form_for([:auth, form]) do |f| %>
+  <%= f.input :email %>
+  <%= f.submit "Resend instructions", class: "button primary" %>
+<% end %>

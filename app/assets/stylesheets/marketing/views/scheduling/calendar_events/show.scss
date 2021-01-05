@@ -2,7 +2,7 @@
   text-align: center;
 
   > header {
-    border-bottom: $default-border;
+    border-bottom: $border;
     margin: 25px 0 0 0;
     padding: 0 25px 10px 25px;
     text-align: center;
@@ -22,7 +22,7 @@
     margin-bottom: $spacing-sm;
 
     i {
-      color: $pink;
+      color: $color-pink;
       font-size: 1.4rem;
       margin-right: $spacing-md;
     }

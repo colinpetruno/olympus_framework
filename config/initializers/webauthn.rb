@@ -1,14 +1,10 @@
 WebAuthn.configure do |config|
   # This value needs to match `window.location.origin` evaluated by
   # the User Agent during registration and authentication ceremonies.
-  config.origin = if Rails.env.production?
-                    "https://www.meettrics.com"
-                  else
-                    "http://localhost:3000"
-                  end
+  config.origin = Olympus.settings.url
 
   # Relying Party name for display purposes
-  config.rp_name = "Meettrics"
+  config.rp_name = I18n.t("base.application_name")
 
   # Optionally configure a client timeout hint, in milliseconds.
   # This hint specifies how long the browser should wait for any

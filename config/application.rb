@@ -6,7 +6,60 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module MeettricsWeb
+module Olympus
+  class Settings
+    def admin_created!
+      @admin_created = true
+    end
+
+    def admin_created?
+      # NOTE: Memoizing false will not actually be enough here. False values
+      # that are in ||= will be considered the same as nil
+      unless @admin_created.nil?
+        return @admin_created
+      end
+
+      @admin_created ||= Member.where(member_type: :application_admin).present?
+    end
+
+    def protocol
+      central_config["protocol"]
+    end
+
+    def domain
+      central_config["domain"]
+    end
+
+    def port
+      central_config["port"]
+    end
+
+    def url
+      base = "#{protocol}://#{domain}"
+      [base, port].compact.join(":")
+    end
+
+    def auth_email_address
+      central_config["auth_email_address"]
+    end
+
+    private
+
+    def central_config
+      @_central_config ||= YAML.load(
+        File.read(
+          Rails.root.join("config/central_config.yml")
+        )
+      )[Rails.env]
+    end
+  end
+
+  @@settings ||= Settings.new
+
+  def self.settings
+    @@settings
+  end
+
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0

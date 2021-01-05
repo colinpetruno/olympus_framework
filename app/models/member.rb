@@ -2,7 +2,8 @@ class Member < ApplicationRecord
   include NotDeletable
   include Uuidable
 
-  devise :registerable, :rememberable, :validatable, :trackable
+  devise :database_authenticatable, :registerable, :rememberable, :validatable,
+         :trackable, :confirmable, :recoverable
 
   # NOTE: This association is explicit to this app since a login email can
   # only get tied to one company. Destroy it if a member can belong to
@@ -18,17 +19,13 @@ class Member < ApplicationRecord
   has_one :member_billing_detail
   has_one :profile
 
-  # These are used for devise to function but not used for the application
-  # itself right now.
-  attr_accessor :password, :password_confirmation
-
   validates :email, :hashed_email, presence: true
   validates :email, email: true
   validates :hashed_email, uniqueness: true
 
   accepts_nested_attributes_for :profile
 
-  encrypted_fields :email
+  encrypted_fields :email, :unconfirmed_email
   attr_scrubbable :hashed_email, :email
 
   # We could get rid of this using finders but we need to first figure out
@@ -42,7 +39,7 @@ class Member < ApplicationRecord
 
   enum provider: {
     google_oauth2: 0,
-    password: 1
+    email: 1
   }
 
   def password_required?

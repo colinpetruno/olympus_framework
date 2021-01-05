@@ -2,7 +2,7 @@
   margin-top: $spacing-lg;
 
   .calendar {
-    border-bottom: 1px solid darken($gray-light, 10%);
+    border-bottom: 1px solid darken($color-gray-light, 10%);
     margin-bottom: $spacing-md;
     padding-bottom: $spacing-sm;
   }
@@ -13,7 +13,7 @@
     vertical-align: middle;
 
     i {
-      color: $gray;
+      color: $color-gray;
       display: flex;
       margin-right: 10px;
       font-size: 1.4rem;

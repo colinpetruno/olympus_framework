@@ -1,6 +1,6 @@
 module Authentication
   class PasswordConfirmationsController < AuthenticatedController
-    layout "billing"
+    layout "art_pane/authentication"
 
     def new
     end

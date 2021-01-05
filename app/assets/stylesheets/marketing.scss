@@ -2,14 +2,6 @@
 @import "wisp/mixins/**/*";
 @import "bootstrap/mixins/breakpoints";
 
-// TODO: Move me somewhere more appropriate
-$site-max-width: 1280px;
-
 // @import "marketing/base/**/*";
 @import "marketing/components/**/*";
 @import "marketing/views/**/*";
-
-
-// need to figure out someway to handle that third layout better. This partial
-// is shared between both so needs included for both styleshset
-@import "dashboard/views/dashboard/calendars/calendar_list_item"

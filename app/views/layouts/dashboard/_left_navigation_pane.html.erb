@@ -10,22 +10,6 @@
 
       <li>
         <%= link_to(
-          ion_icon("ios-person"),
-          "#",
-          id: "navbarIndividualButton",
-          title: "Your dashboards",
-          data: {
-            toggle: "tooltip",
-            placement: "right",
-            trigger: "hover",
-            action: "click->dashboard--navigation#updateTab",
-            tabname: "your_dashboard"
-          }
-        ) %>
-      </li>
-
-      <li>
-        <%= link_to(
           ion_icon("ios-people"),
           "#",
           id: "navbarTeamsButton",
@@ -52,22 +36,6 @@
             trigger: "hover",
             action: "click->dashboard--navigation#updateTab",
             tabname: "company"
-          }
-        ) %>
-      </li>
-
-      <li>
-        <%= link_to(
-          ion_icon("ios-cloud"),
-          "#",
-          id: "navbarCalendarsButton",
-          title: "Connected accounts",
-          data: {
-            toggle: "tooltip",
-            placement: "right",
-            trigger: "hover",
-            action: "click->dashboard--navigation#updateTab",
-            tabname: "calendars"
           }
         ) %>
       </li>
@@ -142,14 +110,11 @@
 
     <section id="LeftNavPaneContent">
       <article>
-        <% [:company, :calendars, :calendar, :individual, :teams].each do |tab| %>
-          <% tab_presenter = presenter.lookup(tab).new(session_info) %>
-
+        <% [:company, :team_list].each do |tab| %>
           <%= render(
-            partial: tab_presenter.partial_name,
+            partial: "dashboard/left_navigation_pane/#{tab}",
             locals: {
-              presenter: tab_presenter,
-              active: presenter.section_active?(tab.to_sym)
+              active: tab == :team_list
             }
           ) %>
         <% end %>

@@ -1,0 +1,51 @@
+.authentications-two_factor_authentications-new {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  > header {
+    border-bottom: $border;
+    padding: $spacing-lg;
+    text-align: center;
+    margin-bottom: $spacing-section;
+  }
+
+  > section {
+    margin: 0 $spacing-section;
+  }
+
+  .slider {
+    display: flex;
+    margin: auto 0;
+    max-width: 100%;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-width: 100%;
+      transition: all 0.5s ease-in-out;
+      padding: $spacing-sm;
+    }
+
+    &.slide-1 > div:first-child{
+      margin-left: 0;
+    }
+
+    &.slide-2 > div:first-child {
+      margin-left: -100%;
+    }
+  }
+
+  .qr-holder.medium {
+    min-width: 220px;
+    min-height: 220px;
+    margin: 0 auto;
+  }
+
+  .enabled {
+    color: darken($color-green, 25%);
+  }
+}

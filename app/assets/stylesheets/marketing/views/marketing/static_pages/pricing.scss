@@ -41,7 +41,7 @@
     }
 
     .tier {
-      border: $default-border;
+      border: $border;
       border-radius: $border-radius;
       display: flex;
       flex-direction: column;
@@ -53,11 +53,11 @@
       }
 
       > header {
-        background: $blue-gradient;
+        background: $gradient-blue;
         border-radius: $border-radius $border-radius 0 0;
         margin-bottom: $spacing-lg;
         padding: $spacing-md $spacing-lg;
-        color: $white;
+        color: $color-white;
       }
 
       > section.features {
@@ -76,7 +76,7 @@
         padding: 0;
 
         > li {
-          color: lighten($gray-dark, 45%);
+          color: lighten($color-gray-dark, 45%);
           position: relative;
           display: flex;
           text-align: center;
@@ -84,7 +84,7 @@
         }
 
         > li.included {
-          color: $gray-dark;
+          color: $color-gray-dark;
 
           &:before {
             display: flex;
@@ -92,7 +92,7 @@
             flex-grow: 0;
             // content: "\f3ff";
             content: "\f3fe";
-            color: $green;
+            color: $color-green;
             left: $spacing-sm;
             position: absolute;
             margin-right: $spacing-sm;
@@ -130,7 +130,7 @@
     }
 
     .banner {
-      border: $default-border;
+      border: $border;
       border-radius: $border-radius;
       display: flex;
       padding: $spacing-lg;

@@ -7,7 +7,6 @@ class AuthenticatedController < ApplicationController
   before_action :protect_against_forgery?
   before_action :ensure_active_profile
 
-  # this will ensure that their is no accounts they need to "reconnect"
   before_action :check_broken_connections!
 
   layout "dashboard"
@@ -56,8 +55,10 @@ class AuthenticatedController < ApplicationController
     )
   end
 
-  def require_password_confirmation(redirect_path, duration = 10.minutes)
-    return true unless current_member.password?
+  def require_password_confirmation_if_needed(redirect_path, duration = 10.minutes)
+    # NOTE: A bit confusing but true returns the block and does not mean
+    # that it's required. If it's required, the redirect happens
+    return true if current_member.provider.to_sym != :email
 
     confirmations = PasswordConfirmationLog.
       where(member: current_member).
