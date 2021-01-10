@@ -41,6 +41,7 @@ module Admin::Forms
             password: password,
             password_confirmation: password_confirmation,
             member_type: :application_admin,
+            provider: :email,
             profile_attributes: {
               email: email.downcase,
               given_name: given_name,

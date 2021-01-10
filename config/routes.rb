@@ -43,8 +43,11 @@ Rails.application.routes.draw do
   end
 
   scope module: :authentication, path: :auth, as: :auth do
+    # For confirming the account
+    resources :confirmations, only: [:index, :new, :create]
     resources :signins, only: [:new, :create]
     resources :signups, only: [:new, :create]
+    resources :password_confirmations, only: [:new, :create]
     resources :password_resets, only: [:new, :create], path: "forgot-password"
     # resources :password_confirmations, only: [:new]
     resource :mobile_authenticator, only: [:update]

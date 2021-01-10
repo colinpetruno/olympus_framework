@@ -13,6 +13,13 @@ module Authentication
 
       if @form.sign_up
         sign_in(@form.member)
+
+        PasswordConfirmationLog.create(
+          member: @form.member,
+          confirmed_at: DateTime.now,
+          ip_address: request.remote_ip
+        )
+
         redirect_to_path = redirect_path.dup
         # Ensure the session is cleaned up
         session[:signin_redirect_path] = nil

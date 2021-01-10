@@ -2,20 +2,4 @@
   <header>
     <h3>Teams</h3>
   </header>
-
-  <section class="list">
-    <% presenter.teams.each do |team| %>
-      <div class="team">
-        <%= link_to team.team_name, dashboard_team_path(team) %>
-      </div>
-    <% end %>
-  </section>
-
-  <footer>
-    <%= link_to(
-      t("buttons.defaults.team.new"),
-      new_dashboard_team_path,
-      class: "button primary outline block"
-    ) %>
-  </footer>
 </div>

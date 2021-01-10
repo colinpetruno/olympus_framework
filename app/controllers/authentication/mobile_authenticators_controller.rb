@@ -8,7 +8,7 @@ module Authentication
       totp = ROTP::TOTP.new(@mobile_authenticator.otp_base)
 
       verified_timestamp = totp.verify(
-        mobile_authenticator_params[:otp_password],
+        mobile_authenticator_params[:otp_password].gsub(" ", ""),
         drift_behind: 15,
         at: DateTime.now
       )
@@ -25,9 +25,9 @@ module Authentication
           session[:two_factor_last_activity] = DateTime.now.utc.to_i
         end
 
-        if session[:after_enrollment_path].present?
-          enrollment_path = session[:after_enrollment_path].dup
-          session[:after_enrollment_path] = nil # clean up the session
+        if session[:password_confirmation_redirect].present?
+          enrollment_path = session[:password_confirmation_redirect].dup
+          session[:password_confirmation_redirect] = nil # clean up the session
 
           redirect_to(
             enrollment_path,

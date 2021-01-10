@@ -16,6 +16,7 @@ module Authentication::Forms
             password: password,
             password_confirmation: password_confirmation,
             member_type: :member,
+            provider: :email,
             profile_attributes: {
               email: email.downcase,
               given_name: given_name,

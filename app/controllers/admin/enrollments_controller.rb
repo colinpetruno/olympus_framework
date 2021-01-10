@@ -25,7 +25,13 @@ module Admin
       if @form.valid? && @form.enroll
         sign_in(@form.member)
 
-        session[:after_enrollment_path] = admin_root_path
+        PasswordConfirmationLog.create(
+          member: @form.member,
+          confirmed_at: DateTime.now,
+          ip_address: request.remote_ip
+        )
+
+        session[:password_confirmation_redirect] = admin_root_path
 
         redirect_to(
           new_auth_two_factor_authentication_path

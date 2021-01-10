@@ -12,7 +12,7 @@ module Authentication
       @signin_form = Authentication::Forms::SigninForm.new(signin_params)
 
       if @signin_form.sign_in?
-        sign_in(@form.member)
+        sign_in(@signin_form.member)
         redirect_to_path = redirect_path.dup
         # Ensure the session is cleaned up
         session[:signin_redirect_path] = nil

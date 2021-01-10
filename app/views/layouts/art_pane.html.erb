@@ -24,7 +24,7 @@
     <% end %>
 
     <% if content_for?(:header_js) %>
-      <%= content_for(:header_css) %>
+      <%= content_for(:header_js) %>
     <% else %>
       <%# NOTE: to make the chunks work we don't want to call this more than
                 once %>

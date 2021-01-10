@@ -1,0 +1,12 @@
+<% content_for(:header_js) do %>
+  <%= javascript_packs_with_chunks_tag(
+    "rails",
+    "wisp",
+    "dashboard",
+    "data-turbolinks-track": "reload"
+  ) %>
+
+  <script src="https://js.stripe.com/v3/"></script>
+<% end %>
+
+<%= render template: "layouts/art_pane" %>
