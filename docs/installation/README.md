@@ -1,11 +1,11 @@
 # Installation
 
-Meettrics so far is a very simple app to set up.
+Olympus so far is a very simple app to set up.
 
 If running into a problem with forking and resque
 https://stackoverflow.com/questions/52671926/rails-may-have-been-in-progress-in-another-thread-when-fork-was-called
 
-* `git clone git@github.com:colinpetruno/meettrics_web.git`
+* `git clone git@github.com:colinpetruno/olympus_framework.git`
 * `bundle install`
 * `rails db:setup`
 * `rails s`

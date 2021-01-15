@@ -35,7 +35,7 @@ Fortuna features a system to meter billing useage for your plans.
 ### Reset billing rake task
 In order to help with billing there is a rake task to reset all billing tables.
 
-`$ bundle exec rake meettrics:db:reset_billing`
+`$ bundle exec rake application:db:reset_billing`
 
 This will reset the tables back to a default billing state where no customers
 have signed up yet. The data will still be in the stripe test instance but 

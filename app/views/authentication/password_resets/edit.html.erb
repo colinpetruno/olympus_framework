@@ -1,0 +1,29 @@
+<div class="header-view">
+  <header>
+    <h3>Reset password</h3>
+  </header>
+
+  <section class="center">
+    <% if @member.present? %>
+      We have found your email on record. Enter a new password below.
+      <br />
+      <br />
+      <%= simple_form_for(
+        [:auth, @form],
+        url: auth_password_reset_path(params[:id]),
+        method: :put
+      ) do |f| %>
+        <%= f.input :password %>
+        <%= f.input :password_confirmation %>
+
+        <%= f.submit "Reset password", class: "button primary block" %>
+      <% end %>
+    <% else %>
+      This link is invalid. <br />
+      <%= link_to(
+        "Send a new password reset",
+        new_auth_password_reset_path
+      ) %>
+    <% end %>
+  </section>
+</div>

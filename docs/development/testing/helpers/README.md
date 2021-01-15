@@ -2,7 +2,7 @@
 In order to help support testing we provide some helpers to create account and
 calendar objects. These helpers can be found here:
 
-[/spec/helpers](https://github.com/colinpetruno/meettrics_web/tree/master/spec/helpers)
+[/spec/helpers](https://github.com/colinpetruno/olympus_framework/tree/master/spec/helpers)
 
 
 ### Account Creator Helper

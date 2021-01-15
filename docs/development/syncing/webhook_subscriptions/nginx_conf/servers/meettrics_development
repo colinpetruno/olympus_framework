@@ -1,7 +1,7 @@
 server {
     listen       8080;
     listen 7443 ssl;
-    server_name  development.meettrics.com;
+    server_name  development.yourapplication.com;
 
     passenger_enabled on;
     passenger_app_env development;

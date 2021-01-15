@@ -180,7 +180,7 @@ for each field. It will load up an array of either
 
 #### ScrubbableFieldConfigurer
 This class contains how a field is scrubbed. The current settings can 
-be found in the [linked file](https://github.com/colinpetruno/meettrics_web/blob/master/app/models/harpocrates/scrubbable_field_configurer.rb#L52-L65). It be great to have this configured in a lambda. There is some 
+be found in the [linked file](https://github.com/colinpetruno/olympus_framework/blob/master/app/models/harpocrates/scrubbable_field_configurer.rb#L52-L65). It be great to have this configured in a lambda. There is some 
 support stubbed in from Portunus but it hasn't been completely finished yet. 
 
 #### ExportableFieldConfigurer

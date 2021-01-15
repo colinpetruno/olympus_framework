@@ -3,7 +3,7 @@ class Member < ApplicationRecord
   include Uuidable
 
   devise :database_authenticatable, :registerable, :rememberable, :validatable,
-         :trackable, :confirmable
+         :trackable, :confirmable, :recoverable
 
   # NOTE: This association is explicit to this app since a login email can
   # only get tied to one company. Destroy it if a member can belong to

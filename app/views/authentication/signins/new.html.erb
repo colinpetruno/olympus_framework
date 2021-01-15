@@ -31,7 +31,7 @@
         <%= simple_form_for([:auth, @signin_form]) do |f| %>
           <%= f.input :email %>
           <%= f.input :password %>
-          <%= link_to("Forgot your password?", auth_password_resets_path) %>
+          <%= link_to("Forgot your password?", new_auth_password_reset_path) %>
           <br /><br />
           <%= f.submit "Sign in", class: "button primary block" %>
           <div class="center">
