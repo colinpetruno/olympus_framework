@@ -1,18 +1,5 @@
 # Authentication Models
 
-Meettrics utilizes solely login with Google options (and hopefully Microsoft in
-the future). After authenticating we need to determine and handle multiple
-scenarios.
-
-- Unmatched database email
-  - We need to make a new account for this user 
-- New email for existing domain
-  - This user needs to be added to the existing organization and given
-    the correct permissions. 
-- Existing database email
-  - Continue with normal login
-
-
 ### Models utilized in authentication and logging in. 
 
 1. Member: This is the core connection model required for individual users.
