@@ -18,7 +18,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = Olympus.settings.auth_email_address
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -53,7 +53,7 @@ Devise.setup do |config|
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
   #
-  # IMPORTANT: We remove email because this happens pretty late in the process
+  # NOTE: Olympus removes email because this happens pretty late in the process
   # and ends up actually downcasing the encrypted text which causes a failure
   # on decryption
   config.case_insensitive_keys = []

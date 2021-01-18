@@ -1,0 +1,20 @@
+default: &default
+
+development:
+  <<: *default
+  protocol: "http"
+  domain: "localhost"
+  port: "3008"
+  auth_email_address: "accounts@olympusframework.com"
+test:
+  <<: *default
+  protocol: "http"
+  domain: "localhost"
+  port: "3008"
+  auth_email_address: "accounts@olympusframework.com"
+production:
+  <<: *default
+  protocol: "https"
+  domain: "www.olympusframework.com"
+  port: null
+  auth_email_address: "accounts@olympusframework.com"

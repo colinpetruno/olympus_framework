@@ -1,6 +1,6 @@
 module Authentication
   class TwoFactorSessionsController < AuthenticatedController
-    layout "billing"
+    layout "art_pane/authentication"
 
     def new
       @auth_methods = TwoFactorAuthentications::AuthMethods.

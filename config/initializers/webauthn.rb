@@ -1,11 +1,7 @@
 WebAuthn.configure do |config|
   # This value needs to match `window.location.origin` evaluated by
   # the User Agent during registration and authentication ceremonies.
-  config.origin = if Rails.env.production?
-                    I18n.t("base.application_url_production")
-                  else
-                    I18n.t("base.application_url_development")
-                  end
+  config.origin = Olympus.settings.url
 
   # Relying Party name for display purposes
   config.rp_name = I18n.t("base.application_name")
