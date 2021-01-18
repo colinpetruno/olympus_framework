@@ -2,6 +2,10 @@ module Authentication
   class PasswordResetsController < ApplicationController
     layout "art_pane/authentication"
 
+    def index
+      redirect_to new_auth_password_reset_path
+    end
+
     def new
       @form = ::Authentication::Forms::PasswordResetForm.new
     end

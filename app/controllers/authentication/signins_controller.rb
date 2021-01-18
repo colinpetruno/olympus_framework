@@ -19,6 +19,7 @@ module Authentication
 
         redirect_to(redirect_to_path) and return
       else
+        flash.now[:error] = "We weren't able to verify your credentials"
         @signin_form.password = nil
         render :new
       end

@@ -9,13 +9,13 @@ module Authentication
     end
 
     def create
-      @form = Authentication::Forms::SignupForm.new(signup_params)
+      @signup_form = Authentication::Forms::SignupForm.new(signup_params)
 
-      if @form.sign_up
-        sign_in(@form.member)
+      if @signup_form.valid? && @signup_form.sign_up
+        sign_in(@signup_form.member.reload)
 
         PasswordConfirmationLog.create(
-          member: @form.member,
+          member: @signup_form.member,
           confirmed_at: DateTime.now,
           ip_address: request.remote_ip
         )
@@ -26,8 +26,8 @@ module Authentication
 
         redirect_to(redirect_to_path) and return
       else
-        @form.password = nil
-        @form.password_confirmation = nil
+        @signup_form.password = nil
+        @signup_form.password_confirmation = nil
 
         render :new
       end

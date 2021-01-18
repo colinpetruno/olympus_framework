@@ -47,8 +47,11 @@ Rails.application.routes.draw do
     resources :confirmations, only: [:index, :new, :create]
     resource :mobile_authenticator, only: [:update]
     resources :password_confirmations, only: [:new, :create]
-    resources :password_resets, only: [:new, :create, :edit, :update], path: "forgot-password"
-    # resources :password_confirmations, only: [:new]
+    resources(
+      :password_resets,
+      only: [:index, :new, :create, :edit, :update],
+      path: "forgot-password"
+    )
     resources :signins, only: [:new, :create]
     resources :signups, only: [:new, :create]
     resources(

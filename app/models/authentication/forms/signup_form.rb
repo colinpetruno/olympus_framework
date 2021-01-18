@@ -5,6 +5,12 @@ module Authentication::Forms
     attr_accessor :email, :password, :password_confirmation, :given_name,
                   :family_name, :member
 
+    validate :unique_email
+    validate :password_match
+    validates :email, email: true
+    validates :email, :password, :password_confirmation, :given_name,
+              :family_name, presence: true
+
     def self.model_name
       ActiveModel::Name.new(self, nil, "Signup")
     end
@@ -44,6 +50,22 @@ module Authentication::Forms
         # Note: this shouldn't get hit.. just a safety measure instead of
         # trying to continue if something does go wrong in the future
         raise StandardError.new("Something went wrong enrolling the member")
+      end
+    end
+
+    private
+
+    def unique_email
+      if email.blank?
+        errors.add(:email, :blank)
+      elsif Member.where(hashed_email: Portunus::Hasher.for(email)).exists?
+        errors.add(:email, :taken)
+      end
+    end
+
+    def password_match
+      if password != password_confirmation
+        errors.add(:password, :confirmation)
       end
     end
   end
