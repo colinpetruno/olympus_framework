@@ -43,8 +43,11 @@ navigate a code base.
 
 ### Getting started
 
-Olympus has a comprehensive getting started guide here: (TODO: Add link). 
-Once your up and running make sure to read the framework guide here: (TODO: Add link)
+This is a starting point. It's best to download the source and init your own
+git repo. 
+
+Olympus has a comprehensive getting started guide at [OlympusFramework.com](https://www.olympusframework.com/). 
+Once your up and running make sure to read the framework guide by running `bin/docs`  
 The framework guide has documentation around the individual modules and areas
 of Olympus as well as code references on how to implement the common bits that
 you will need to build your app. Since the documentation lives directly in the

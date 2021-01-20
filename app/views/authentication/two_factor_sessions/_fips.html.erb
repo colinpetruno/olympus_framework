@@ -1,15 +1,15 @@
 <% auth_style = "redirect" if local_assigns[:auth_style].nil? %>
 <% form_target = nil if local_assigns[:form_target].nil? %>
 
-<div class="authentication-two_factor_sessions-fips"
-     data-controller="authentication--webauthn-verify"
+<div class="soteria-two_factor_sessions-fips"
+     data-controller="soteria--webauthn-verify"
      data-allowed-devices="<%= @options.allow.to_json %>"
      data-auth-style="<%= auth_style %>"
      data-session-url="<%= auth_two_factor_sessions_path(auth_type: :fips) %>"
      data-session-url-json="<%= auth_two_factor_sessions_path(auth_type: :fips, format: :json) %>"
      data-challenge="<%= @options.challenge %>">
   <button id="authenticate"
-          data-action="authentication--webauthn-verify#authenticate"
+          data-action="soteria--webauthn-verify#authenticate"
           class="button primary outline block">
     Authenticate
   </button>

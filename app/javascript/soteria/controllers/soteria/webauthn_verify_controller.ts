@@ -11,6 +11,7 @@ export default class extends Controller {
   authStyle: string;
 
   connect () {
+    console.log("connected");
     this.challenge = $(this.element).data("challenge")
     this.allowedDevices = $(this.element).data("allowedDevices");
     this.createPath = $(this.element).data("sessionUrl");

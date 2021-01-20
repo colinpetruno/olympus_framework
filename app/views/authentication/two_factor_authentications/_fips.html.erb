@@ -1,5 +1,5 @@
 <div class="authentication-two_factor_authentications-fips">
-  <div data-controller="authentication--webauthn"
+  <div data-controller="soteria--webauthn"
        data-create-path="<%= auth_webauthn_credentials_path %>"
        data-post-create-path="<%= new_auth_two_factor_authentication_path %>"
        data-webauthn-options='<%= webauthn_options.to_json %>'>
@@ -27,7 +27,7 @@
                       method: :delete,
                       form: {
                         data: {
-                          controller: "authentication--redemptions",
+                          controller: "soteria--redemptions",
                           new_session_path: new_auth_two_factor_session_path(format: :js)
                         }
                       }
@@ -40,7 +40,7 @@
         </div>
 
         <button id="register"
-                data-action="click->authentication--webauthn#register"
+                data-action="click->soteria--webauthn#register"
                 class="button primary outline">Add token auth</button>
       </div>
 
@@ -59,12 +59,12 @@
 
         <footer>
           <button class="button outline link"
-                  data-action="authentication--webauthn#reset">
+                  data-action="soteria--webauthn#reset">
             Cancel
           </button>
 
           <button class="button outline primary"
-                  data-action="authentication--webauthn#saveRegistration">
+                  data-action="soteria--webauthn#saveRegistration">
             Save
           </button>
         </footer>

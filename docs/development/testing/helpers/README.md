@@ -47,19 +47,3 @@ session_info_custom_data({
   }
 })
 ```
-
-
-### Calendar Creator Helper
-This helper is used to build lists of calendars for a particular member. It
-can accept a count to determine how many calendars to build and provides 
-an option to customize the attributes of the calendars you create.
-
-```ruby
-  create_calendar_for(member, count: 2, options: {
-    timezone: "",
-    etag: "82c1d8ff-53fd-4244-850d-39fac9c90ac3",
-    primary: true, 
-    sync_enabled: true,
-    deleted_at: nil
-  })
-```

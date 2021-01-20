@@ -1,8 +1,5 @@
 - Guides
 
-  - [Culture](culture/)
-    - [Attitude](culture/attitude/)
-
 - Development
   - Getting Started
     - [Overview](development/)
@@ -21,7 +18,3 @@
     - [Helpers](development/testing/helpers/)
   - Other
     - [Exception Handling](development/exception_handling/)
-
-- Devops
-
-  - [Overview](devops/)

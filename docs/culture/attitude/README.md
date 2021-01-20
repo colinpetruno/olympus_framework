@@ -1,5 +1,8 @@
 # Attitude
 
+Example: You can document your desires for your dev teams here. Add it to the
+sidebar if needed.
+
 The attitude of the company and the employees is the most important point of
 culture. The difference between a good and bad attitude could easily spell the
 difference between success and failure. 
