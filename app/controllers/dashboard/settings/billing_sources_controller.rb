@@ -1,6 +1,6 @@
 module Dashboard::Settings
   class BillingSourcesController < AuthenticatedController
-    layout "billing"
+    layout "art_pane/billing"
 
     def new
       @source = ::Billing::Source.new

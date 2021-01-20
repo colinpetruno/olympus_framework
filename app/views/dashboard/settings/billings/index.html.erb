@@ -1,4 +1,4 @@
-<div class="dashboard-settings-billings-index">
+<div class="dashboard-settings-billings-index header-view">
   <header class="breadcrumbs">
     <%= link_to(
       t(".breadcrumbs.settings"),
@@ -163,11 +163,12 @@
     <% else %>
       <%= t(".no_billing_history") %>
     <% end %>
-  </section>
 
-  <%= link_to(
-    t(".return_to_settings"),
-    dashboard_settings_root_path,
-    class: "button link outline block"
-  ) %>
+    <br /><br />
+    <%= link_to(
+      t(".return_to_settings"),
+      dashboard_settings_root_path,
+      class: "button link outline block"
+    ) %>
+  </section>
 </div>

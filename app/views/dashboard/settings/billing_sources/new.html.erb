@@ -1,4 +1,4 @@
-<div class="dashboard-settings-sources-new">
+<div class="dashboard-settings-sources-new header-view">
   <header>
     <%= link_to(
       "Settings",
@@ -12,5 +12,7 @@
     &nbsp; <%= ion_icon("ios-arrow-right") %> &nbsp;Sources
   </header>
 
-  <%= render partial: "dashboard/settings/billing_sources/form" %>
+  <section>
+    <%= render partial: "dashboard/settings/billing_sources/form" %>
+  </section>
 </div>

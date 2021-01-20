@@ -2,7 +2,7 @@ module Dashboard
   module Settings
     module Billing
       class PricesController < AuthenticatedController
-        layout "billing"
+        layout "art_pane/billing"
 
         def index
           @current_plan = ::Billing::Subscription.find_by(
