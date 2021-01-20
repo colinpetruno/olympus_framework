@@ -7,6 +7,10 @@
 
   <h3>
     Welcome to Olympus! <br />
+    <a href="https://blog.colinpetruno.com/introducing-the-olympus-framework/" target="_blank">
+      Read more
+    </a>
+    <br />
     <a href="https://github.com/colinpetruno/olympus_framework" target="_blank">
       Get the source
     </a>
