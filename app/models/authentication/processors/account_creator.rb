@@ -24,9 +24,7 @@ module Authentication
           },
 
           company: {
-            email_domain: Domains::RejectList.cleaned_domain(
-              oauth_response.email_domain
-            ),
+            email_domain: oauth_response.email_domain,
             name: I18n.t("defaults.application.company_name"),
             auth_credential_id: nil,
             open_signups: :disabled,

@@ -51,9 +51,7 @@ module Admin::Forms
           },
 
           company: {
-            email_domain: Domains::RejectList.cleaned_domain(
-              email.downcase.split("@").last
-            ),
+            email_domain: email.downcase.split("@").last,
             name: I18n.t("defaults.application.company_name"),
             auth_credential_id: nil,
             open_signups: :disabled,
