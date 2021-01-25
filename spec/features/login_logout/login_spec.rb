@@ -6,7 +6,7 @@ feature "Login and out" do
 
     login_as(session_info.member)
 
-    visit(connect_path)
+    visit(dashboard_root_path)
 
     expect(page).to have_content(
       I18n.t("dashboard.home.show.title")
