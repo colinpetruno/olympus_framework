@@ -53,8 +53,8 @@ RSpec.configure do |config|
   # Include helper files
   config.include Rails.application.routes.url_helpers
   config.include AccountCreatorHelper
-  config.include CalendarCreatorHelper
-  config.include CalendarEventHelper
+  # config.include CalendarCreatorHelper
+  # config.include CalendarEventHelper
   config.include Warden::Test::Helpers
 
   # RSpec Rails can automatically mix in different behaviours to your tests
