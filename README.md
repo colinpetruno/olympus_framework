@@ -52,4 +52,7 @@ The framework guide has documentation around the individual modules and areas
 of Olympus as well as code references on how to implement the common bits that
 you will need to build your app. Since the documentation lives directly in the
 repo, it's a breeze to copy code from the docs right into the views and 
-controllers you are using. 
+controllers you are using.
+
+In case you are getting error `./bin/docs: line 1: docsify: command not found`. Please
+install docsify-cli which is npm package can and installed using command line `npm i docsify-cli -g`.
