@@ -1,0 +1,8 @@
+google:
+  client_id: "PlaceholderKey"
+  client_secret: "PlaceholderKey"
+mixpanel_token: "PlaceholderKey"
+mixpanel_api_key: "PlaceholderKey"
+mixpanel_api_secret: "PlaceholderKey"
+stripe_secret_key: "PlaceholderKey"
+stripe_public_key: "PlaceholderKey"
