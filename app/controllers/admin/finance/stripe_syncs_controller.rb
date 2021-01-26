@@ -1,7 +1,7 @@
 module Admin::Finance
   class StripeSyncsController < AdminController
     def create
-      Billing::Stripe::Sync.perform
+      Billing::Stripe::Sync.import_all
 
       redirect_to(
         admin_finance_billing_products_path,

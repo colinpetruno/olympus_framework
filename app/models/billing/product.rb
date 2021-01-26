@@ -12,7 +12,5 @@ module Billing
       foreign_key: :billing_product_id
     )
     accepts_nested_attributes_for :billing_product_features
-
-    belongs_to :productable, polymorphic: true
   end
 end
