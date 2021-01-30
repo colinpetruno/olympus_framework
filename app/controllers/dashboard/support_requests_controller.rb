@@ -22,6 +22,7 @@ module Dashboard
       @message.sent_by_staff = false
       @message.sent_at = DateTime.now
       @message.sendable = session_info.profile
+      @message.support_request = @support_request
 
       if @support_request.save!
         redirect_to(
