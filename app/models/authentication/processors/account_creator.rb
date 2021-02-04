@@ -36,14 +36,6 @@ module Authentication
         if result[:member].persisted?
           Authentication::CredentialsUpdater.for(oauth_response)
 
-          # giving errrors so commentout, please confirm is there any other use or it was calendar synchronization part - kamal
-          # ::Syncs::Queuer.new(
-          #  ::Members::SessionInfo.for(result[:member])
-          # ).queue(
-          #  result[:member].auth_credentials.first
-          # )
-          # if its a new one then we should queue a calendar sync
-          #
           return { company: result[:company],  member: result[:member] }
         else
           return { errors: result[:member].errors.full_messages }
