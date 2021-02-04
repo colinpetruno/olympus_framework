@@ -87,8 +87,7 @@ RSpec.describe Authentication::Action, type: :model do
 
   describe "#redirect_path" do
     it 'redirects to the connect page when when the company exists' do
-      pending('needs route created yet')
-      company = Company.create(
+      Company.create(
         email_domain: 'meettrics.com',
         name: 'meettrics.com',
         open_signups: :allowed,
@@ -100,8 +99,7 @@ RSpec.describe Authentication::Action, type: :model do
     end
 
     it 'asks for an invite when the company exists and signups are closed' do
-      pending('needs route created yet')
-      company = Company.create(
+      Company.create(
         email_domain: "meettrics.com",
         name: 'meettrics.com',
         open_signups: :allowed,
@@ -118,7 +116,7 @@ RSpec.describe Authentication::Action, type: :model do
       expect(
         action.redirect_path
       ).to eql(
-        dashboard_onboarding_company_settings_path
+        dashboard_root_path
       )
     end
   end

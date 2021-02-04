@@ -1,9 +1,5 @@
 module Companies
   class Provider
-    EXTERNAL_RESOURCES = {
-      google: ExternalResources::Google
-    }.freeze
-
     OMNIAUTH_PROIVDER_MAP = {
       google: :google,
       google_oauth2: :google
@@ -19,10 +15,6 @@ module Companies
 
     def provider
       OMNIAUTH_PROIVDER_MAP[company.provider.to_sym].to_sym
-    end
-
-    def external_resource_base
-      EXTERNAL_RESOURCES[provider]
     end
 
     private

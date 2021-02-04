@@ -32,7 +32,7 @@ module Authentication
         when :ask_for_invite
           routes.dashboard_company_pending_members_path
         when :create_account
-          routes.dashboard_onboarding_company_settings_path
+          routes.dashboard_root_path
       end
     end
 
@@ -73,9 +73,7 @@ module Authentication
     end
 
     def post_connection_path(action)
-      if calendars.blank?
-        routes.dashboard_calendars_path
-      elsif action == :login
+      if action == :login
         routes.dashboard_root_path
       elsif action == :connect
         # this connects to an existing account
