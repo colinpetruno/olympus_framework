@@ -1,21 +1,21 @@
 # This file is copied to spec/ when you run "rails generate rspec:install"
-require "spec_helper"
-ENV["RAILS_ENV"] ||= "test"
+require 'spec_helper'
+ENV['RAILS_ENV'] ||= 'test'
 
-require File.expand_path("../config/environment", __dir__)
+require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
-require "rspec/rails"
-require "selenium/webdriver"
-require "capybara/rails"
-require "google/apis/calendar_v3"
-require "capybara-screenshot/rspec"
+abort('The Rails environment is running in production mode!') if Rails.env.production?
+require 'rspec/rails'
+require 'selenium/webdriver'
+require 'capybara/rails'
+require 'google/apis/calendar_v3'
+require 'capybara-screenshot/rspec'
 
-Dir[Rails.root.join("spec", "helpers", "**/*.rb")].each do |f|
+Dir[Rails.root.join('spec', 'helpers', '**/*.rb')].each do |f|
   load(f)
 end
-Dir[Rails.root.join("spec", "support", "mocks", "**/*.rb")].each do |f|
+Dir[Rails.root.join('spec', 'support', 'mocks', '**/*.rb')].each do |f|
   load(f)
 end
 
@@ -53,8 +53,6 @@ RSpec.configure do |config|
   # Include helper files
   config.include Rails.application.routes.url_helpers
   config.include AccountCreatorHelper
-  config.include CalendarCreatorHelper
-  config.include CalendarEventHelper
   config.include Warden::Test::Helpers
 
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -82,7 +80,7 @@ end
 Capybara.register_driver :chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
     loggingPrefs: {
-      browser: "ALL"
+      browser: 'ALL'
     }
   )
 
@@ -95,17 +93,17 @@ end
 
 Capybara.register_driver :headless_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w(headless disable-gpu) },
-    "goog:loggingPrefs": {
-      browser: "ALL"
-    }
-  )
+      chromeOptions: { args: %w[headless disable-gpu] },
+      'goog:loggingPrefs': {
+          browser: 'ALL'
+      }
+    )
 
   Capybara::Selenium::Driver.new(
-    app,
-    browser: :chrome,
-    desired_capabilities: capabilities
-  )
+      app,
+      browser: :chrome,
+      desired_capabilities: capabilities
+    )
 end
 
 Capybara.default_driver = :headless_chrome
@@ -114,16 +112,14 @@ Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
   driver.browser.save_screenshot(path)
 end
 
-if ENV["DEBUG_JS"]
-  Capybara::Chromedriver::Logger::TestHooks.for_rspec!
-end
+Capybara::Chromedriver::Logger::TestHooks.for_rspec! if ENV['DEBUG_JS']
 # Capybara.asset_host = "http://localhost:3000"
 # Capybara::Screenshot.webkit_options = { width: 1280, height: 768 }
 
 # capybara screenshot only really works with selenium
 # https://github.com/mattheworiordan/capybara-screenshot/issues/211
 # Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
- #  driver.browser.save_screenshot(path)
+# driver.browser.save_screenshot(path)
 # end
 
 Shoulda::Matchers.configure do |config|
