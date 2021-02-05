@@ -10,7 +10,6 @@ module AccountCreatorHelper
 
     oauth_response = Authentication::OauthResponse.new(json)
     result = Authentication::Processors::AccountCreator.for(oauth_response)
-    result[:member][:member_type] = 'application_admin'
     @session_info = Members::SessionInfo.for(result[:member])
     @session_info
   end

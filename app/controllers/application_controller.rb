@@ -58,6 +58,8 @@ class ApplicationController < ActionController::Base
   private
 
   def enroll_admin_if_required?
+    return if Rails.env.test?
+
     unless Olympus.settings.admin_created?
       redirect_to(admin_enrollments_path) and return
     end
