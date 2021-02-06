@@ -80,3 +80,4 @@ jobs:
           chromedriver --url-base=/wd/hut &
           sudo Xvfb -ac :99 -screen 0 1280/1024/24 > /dev/null 2>&1 & # optional
           bundle exec rspec
+          bundle exec danger
