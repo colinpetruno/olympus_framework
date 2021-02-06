@@ -77,42 +77,52 @@ RSpec.configure do |config|
 end
 
 
-Capybara.register_driver :chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    loggingPrefs: {
-      browser: 'ALL'
-    }
-  )
+ Capybara.register_driver :chrome do |app|
+   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+     loggingPrefs: {
+       browser: 'ALL'
+     }
+   )
 
-  Capybara::Selenium::Driver.new(
-    app,
+   Capybara::Selenium::Driver.new(
+     app,
     browser: :chrome,
-    desired_capabilities: capabilities
-  )
-end
+     desired_capabilities: capabilities
+   )
+ end
 
 Capybara.register_driver :headless_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-      chromeOptions: { args: %w[headless disable-gpu] },
+      chromeOptions: { args: %w[--headless --disable-gpu] },
       'goog:loggingPrefs': {
           browser: 'ALL'
       }
     )
 
+  options = ::Selenium::WebDriver::Chrome::Options.new
+
+  options.add_argument('--headless')
+  options.add_argument('--disable-gpu')
+  options.add_argument('--no-sandbox')
+  options.add_argument('--window-size=1400,1400')
+
   Capybara::Selenium::Driver.new(
       app,
       browser: :chrome,
-      desired_capabilities: capabilities
+      desired_capabilities: capabilities,
+      options: options
     )
 end
 
-Capybara.default_driver = :headless_chrome
+Capybara.default_driver = :chrome
+Capybara.default_driver = :headless_chrome if ENV['HEADLESS'] == 1 || ENV['HEADLESS'] == '1'
 
 Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
   driver.browser.save_screenshot(path)
 end
 
 Capybara::Chromedriver::Logger::TestHooks.for_rspec! if ENV['DEBUG_JS']
+
 # Capybara.asset_host = "http://localhost:3000"
 # Capybara::Screenshot.webkit_options = { width: 1280, height: 768 }
 
