@@ -1,14 +1,14 @@
-name: Rubocop
+name: CI
 
 on:
   pull_request:
     branches:
       - master
-
+      
 jobs:
   danger:
     runs-on: ubuntu-latest
-    if: github.event_name  == 'pull_request'
+    if: github.event_name  == 'pull_request' # if only run pull request when multiple trigger workflow
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-ruby@v1
@@ -17,9 +17,9 @@ jobs:
     - uses: actions/cache@v1
       with:
         path: vendor/bundle
-        key: ${{ runner.os }}-gems-${{ hashFiles('Gemfile') }} # change your gemfile path
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }} # change your gemfile path
         restore-keys: |
-          ${{ runner.os }}-gems-
+          ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
     - uses: MeilCli/danger-action@v5
       with:
         plugins_file: 'Gemfile'
