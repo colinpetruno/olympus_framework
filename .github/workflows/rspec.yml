@@ -43,6 +43,7 @@ jobs:
         run:  |
           sudo apt-get -yqq install libpq-dev
           sudo apt-get install google-chrome-stable
+
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -60,7 +61,7 @@ jobs:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: |
-            ${{ runner.os }}-gems-
+            ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
       - name: Install Gems and create DB
         env:
           POSTGRES_HOST: localhost
@@ -77,5 +78,5 @@ jobs:
           bin/rails db:setup
           export DISPLAY=:99
           chromedriver --url-base=/wd/hut &
-          sudo Xvfb -ac :99 -screen 0 1280/1024/24 > /dev/null 2>&1 & 
+          sudo Xvfb -ac :99 -screen 0 1280/1024/24 > /dev/null 2>&1 & # optional
           bundle exec rspec
