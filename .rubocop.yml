@@ -1,0 +1,75 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'db/schema.rb'
+    - 'db/seeds.rb'
+    - 'stats/test/**/*'
+    - 'admin_panel/test/**/*'
+    - 'Dangerfile'
+    - 'dev/**.rb'
+    - 'vendor/**.rb'
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+  IndentationWidth: 4
+Layout/CaseIndentation:
+  EnforcedStyle: end
+  IndentOneStep: true
+#  Enabled: false
+Layout/FirstArgumentIndentation:
+  IndentationWidth: 4
+Layout/FirstHashElementIndentation:
+  IndentationWidth: 4
+Layout/MultilineMethodCallIndentation:
+  IndentationWidth: 4
+  EnforcedStyle: indented_relative_to_receiver
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+Style/EmptyElse:
+  EnforcedStyle: empty
+Style/FormatStringToken:
+  EnforcedStyle: template
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+Style/FrozenStringLiteralComment:
+  Exclude:
+    - Gemfile
+Metrics/LineLength:
+  Max: 180
+Metrics/ClassLength:
+  Max: 150
+  Exclude:
+    - 'db/migrate/*'
+Metrics/CyclomaticComplexity:
+  Max: 7
+  Exclude:
+    - 'db/migrate/*'
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - 'db/migrate/*'
+Metrics/ModuleLength:
+  Max: 150
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: true
+Metrics/PerceivedComplexity:
+  Max: 8
+Metrics/AbcSize:
+  Max: 17
+  Exclude:
+    - 'db/migrate/*'
+Metrics/BlockLength:
+  ExcludedMethods:
+    - context
+    - describe
+    - draw
+    - namespace
+    - resources
+    - it
+    - configure
+    - aasm
+    - included
+    - shared_examples_for
+    - devise_scope
+  Exclude:
+    - 'db/migrate/*'

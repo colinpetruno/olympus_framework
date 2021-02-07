@@ -20,6 +20,9 @@ development:
 test:
   <<: *default
   database: olympus_test
+  username: <%= ENV.fetch('POSTGRES_USER') { nil } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { nil } %>
+  host: <%= ENV.fetch('POSTGRES_HOST') { nil } %>
 
 production:
   <<: *default

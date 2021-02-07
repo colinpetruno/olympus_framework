@@ -1,0 +1,83 @@
+name: VerifyCode
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  rspec-job:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready 
+          --health-interval 10s 
+          --health-timeout 5s 
+          --health-retries 5
+        ports:
+          - 5432:5432
+      redis:
+        image: redis:alpine
+        ports: ["6379:6379"]
+        options: --entrypoint redis-server
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Ruby 2.6
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.6.6'
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+
+      - name: install PostgreSQL client
+        run:  |
+          sudo apt-get -yqq install libpq-dev
+          sudo apt-get install google-chrome-stable
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Cache Ruby Gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+      - name: Install Gems and create DB
+        env:
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          HEADLESS: 1
+          RAILS_ENV: test
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+          bin/rails db:setup
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hut &
+          sudo Xvfb -ac :99 -screen 0 1280/1024/24 > /dev/null 2>&1 & # optional
+          bundle exec rspec
+          bundle exec danger
