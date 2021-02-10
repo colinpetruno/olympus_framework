@@ -422,6 +422,10 @@ GEM
       rubyzip (>= 1.2.2)
     sendgrid-ruby (6.3.9)
       ruby_http_client (~> 3.4)
+    shoulda (4.0.0)
+      shoulda-context (~> 2.0)
+      shoulda-matchers (~> 4.0)
+    shoulda-context (2.0.0)
     shoulda-matchers (4.5.1)
       activesupport (>= 4.2.0)
     signet (0.14.1)
@@ -553,6 +557,7 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   sendgrid-ruby
+  shoulda (~> 4.0)
   shoulda-matchers
   simple_form
   simplecov

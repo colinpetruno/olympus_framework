@@ -12,8 +12,8 @@ gem 'chewy'
 gem 'country_select'
 gem 'devise'
 gem 'email_validator'
-gem 'google-api-client', '~> 0.34'
 gem 'font-ionicons-rails'
+gem 'google-api-client', '~> 0.34'
 gem 'mixpanel-ruby'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
@@ -32,19 +32,19 @@ gem 'sassc-rails'
 gem 'sendgrid-ruby'
 gem 'simple_form'
 gem 'stripe'
-gem 'turbolinks', "~> 5"
-gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'turbolinks', '~> 5'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'webauthn'
-gem 'webpacker', "~> 4.0"
+gem 'webpacker', '~> 4.0'
 
 # Use Active Storage variant
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', ">= 2.15"
-  gem 'capybara-screenshot'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara', '>= 2.15'
   gem 'capybara-chromedriver-logger'
+  gem 'capybara-screenshot'
   gem 'danger'
   gem 'danger-rubocop'
   gem 'danger-simplecov_json'
@@ -54,6 +54,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rspec-rails', '~> 3.8'
+  gem 'shoulda', '~> 4.0'
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end
 
@@ -66,7 +68,6 @@ end
 
 group :test do
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers'
   gem 'timecop'
   gem 'webdrivers'
 end
