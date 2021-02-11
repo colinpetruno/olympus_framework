@@ -26,6 +26,7 @@ RSpec.describe MailTemplate, type: :model do
 
   it 'should return proper html for markdown' do
     mail_template
-    expect(mail_template.to_html).to include('<p>Hello someone@gmail.com!')
+    context = binding
+    expect(mail_template.to_html(context)).to include('<p>Hello someone@gmail.com!')
   end
 end
