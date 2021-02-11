@@ -3,6 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe MailTemplate, type: :model do
+  let(:mail_template) {
+      MailTemplate.new(subject:  'subject of email',
+                       content: "Hello someone@gmail.com!
+        We're contacting you to notify you that your password has been changed.",
+                                     method_name: 'method_name',
+                                     class_name: 'class_name')
+ 
+  }
+
   it 'is in_valid with out attributes' do
     expect(MailTemplate.new).not_to be_valid
   end
@@ -12,10 +21,12 @@ RSpec.describe MailTemplate, type: :model do
   it { should validate_presence_of(:subject) }
 
   it 'should be valid with all values' do
-    mail_template = MailTemplate.new(subject: 'subject of email',
-                                     content: 'Content of email',
-                                     method_name: 'method_name',
-                                     class_name: 'class_name')
     expect(mail_template).to be_valid
+  end
+
+  # TODO: Need to add languages, should be internationalized and editable
+  it 'should return proper html for markdown' do
+    mail_template
+    expect(mail_template.to_html).to include('<p>Hello someone@gmail.com!')
   end
 end
