@@ -7,6 +7,6 @@ class MailTemplate < ApplicationRecord
   def to_html
     template = Redcarpet::Render::HTML.new(prettify: true)
     markdown = Redcarpet::Markdown.new(template)
-    markdown.render(self.content)
+    markdown.render(content)
   end
 end
