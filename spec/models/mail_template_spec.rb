@@ -4,11 +4,11 @@ require 'rails_helper'
 
 RSpec.describe MailTemplate, type: :model do
   let(:mail_template) do
-      MailTemplate.new(subject:  'subject of email',
-                       content: "Hello someone@gmail.com!
-        We're contacting you to notify you that your password has been changed.",
-                                     method_name: 'method_name',
-                                     class_name: 'class_name')
+    MailTemplate.new(subject: 'subject of email',
+                     content: "Hello someone@gmail.com!
+We're contacting you to notify you that your password has been changed.",
+                     method_name: 'method_name',
+                     class_name: 'class_name')
   end
 
   it 'is in_valid with out attributes' do

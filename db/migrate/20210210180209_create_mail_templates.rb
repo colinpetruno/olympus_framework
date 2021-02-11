@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Template table for mails
 class CreateMailTemplates < ActiveRecord::Migration[6.0]
   def change
     create_table :mail_templates do |t|
