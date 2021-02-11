@@ -11,7 +11,6 @@ class DeviseMailer < Devise::Mailer
     @context = binding
     @mail_template = Mailers.load('Devise::Mailer', action)
     headers = headers_for(action, {})
-    puts "\n+++\n+++ #{@context.to_s}"
     template_view = 'mail_templates/show.html.erb'
     headers[:subject] = 'This is test email'
     mail headers do |format|

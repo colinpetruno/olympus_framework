@@ -24,7 +24,6 @@ RSpec.describe MailTemplate, type: :model do
     expect(mail_template).to be_valid
   end
 
-  # TODO: Need to add languages, should be internationalized and editable
   it 'should return proper html for markdown' do
     mail_template
     expect(mail_template.to_html).to include('<p>Hello someone@gmail.com!')
