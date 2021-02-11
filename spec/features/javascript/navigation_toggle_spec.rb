@@ -14,9 +14,7 @@ feature "Visitor signs up" do
 
     find("#LeftNavPaneToggle").click
     width = page.evaluate_script("$('#LeftNavPaneContent').width();")
-    expect(width).to eql(0)
-
-
+    expect(width).to be >= 250
 
     find("#LeftNavPaneToggle").click
     expect(find("#LeftNavPaneContent", visible: :all).visible?).to eql(true)
