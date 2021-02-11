@@ -23,6 +23,7 @@ gem 'portunus' # , path: "/Users/colinpetruno/Projects/portunus"
 gem 'puma'
 gem 'pundit'
 gem 'rails', '~> 6.0.0'
+gem 'redcarpet'
 gem 'redis'
 gem 'resque'
 gem 'resque-pool'

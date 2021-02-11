@@ -341,6 +341,7 @@ GEM
     rainbow (3.0.0)
     rake (13.0.3)
     rchardet (1.8.0)
+    redcarpet (3.5.1)
     redis (4.2.5)
     redis-namespace (1.8.1)
       redis (>= 3.0.4)
@@ -546,6 +547,7 @@ DEPENDENCIES
   puma
   pundit
   rails (~> 6.0.0)
+  redcarpet
   redis
   resque
   resque-pool
