@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   before_action :enroll_admin_if_required?
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::Base
     @_session_info ||= Members::SessionInfo.new(member: current_member)
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     homepage_path
   end
 
@@ -36,8 +38,7 @@ class ApplicationController < ActionController::Base
 
   def track_page_view
     # try to avoid tracking bots and get requests
-    return if Browser.new(request.user_agent).bot?
-    return if !request.get?
+    return if Browser.new(request.user_agent).bot? || !request.get?
 
     Ichnaea::TrackPageviewJob.perform_later(
       session.id.to_s,

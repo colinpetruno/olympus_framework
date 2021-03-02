@@ -8,19 +8,20 @@ has_app_changes = !git.modified_files.grep(/lib/).empty? || !git.modified_files.
 has_app_changes = has_app_changes || !git.added_files.grep(/lib/).empty? || !git.added_files.grep(/app/).empty? || !git.added_files.grep(/interactions/).empty?
 has_spec_changes = !git.modified_files.grep(/spec/).empty? || !git.added_files.grep(/spec/).empty?
 
- def notify_migration_change
-   url     = 'https://hooks.slack.com/services/xoxb-1516716670130-1722593003843-Av8SCai0FChQFhPggfjmiVwl'
-   slack_message = "<!here> A migration has been added in #PR #{github.pr_json['html_url']} - Please check if it involves cross project tables"
+
+def notify_migration_change
+ url     = 'https://hooks.slack.com/services/xoxb-1516716670130-1722593003843-Av8SCai0FChQFhPggfjmiVwl'
+ slack_message = "<!here> A migration has been added in #PR #{github.pr_json['html_url']} - Please check if it involves cross project tables"
 # 
-   uri              = URI.parse(url)
-   headers          = { 'Content-Type'    => 'application/json',
-       'Accept'          => 'application/json' }
-   http             = Net::HTTP.new(uri.host, uri.port)
-   http.use_ssl     = true # When using https
-   http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-   response         = http.post(uri.path, { text: slack_message }.to_json, headers)
-   message("Olympus framework General Slack channel notification status of migration change: #{response.body}")
- end
+ uri              = URI.parse(url)
+ headers          = { 'Content-Type'    => 'application/json',
+     'Accept'          => 'application/json' }
+ http             = Net::HTTP.new(uri.host, uri.port)
+ http.use_ssl     = true # When using https
+ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+ response         = http.post(uri.path, { text: slack_message }.to_json, headers)
+ message("Olympus framework General Slack channel notification status of migration change: #{response.body}")
+end
 
 # Warn when there is a big PR
 fail('This pull request is too big 750 a lot- split it into smaller ones') if git.lines_of_code > 750 && !declared_release
@@ -42,7 +43,7 @@ todoist.warn_for_todos
 
 # Run rubocop
 all_files = (git.modified_files + git.added_files).reject { |path| path.include?('dev/') || path.include?('Dangerfile') }
-rubocop.lint files: all_files, force_exclusion: true
+rubocop.lint files: all_files, force_exclusion: true, inline_comment: true, include_cop_names: true
 
 # Check if stats library version dumped
 stats_lib_changed = !git.modified_files.grep(%r{stats\/[abcdl]}).empty? && !git.added_files.grep(%r{stats\/[abcdl]}).empty?
@@ -56,9 +57,15 @@ if ENV['SIMPLECOV'] == 'json'
 end
 
 # Check migration files
-migration_changed = !git.modified_files.grep(%r{db\/migrate\/}).empty?
-migration_updated_message = "Migrations have been updated! Remember that old migrations won't be re-run."
-warn(migration_updated_message, sticky: true) if migration_changed
+migration_changed = !all_files.grep(%r{db\/migrate\/}).empty?
+migration_updated_message = "Migrations have been updated! Look for the checklist below."
+if migration_changed
+  file = "./docs/checklists/adding_a_migration/README.md"
+  contents = File.read(file)
+  checklist = contents.split("### Adding migration checklist").last
+  message("A migration has been added, complete the migration checklist:" + checklist)
+  warn(migration_updated_message)
+end
 
 # Check migration added
 migration_added = !git.added_files.grep(%r{db\/migrate\/}).empty? || migration_changed

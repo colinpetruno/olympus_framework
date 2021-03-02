@@ -10,26 +10,38 @@ AllCops:
     - 'vendor/**.rb'
 Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
-  IndentationWidth: 4
+  IndentationWidth: 2
 Layout/CaseIndentation:
   EnforcedStyle: end
   IndentOneStep: true
 #  Enabled: false
 Layout/FirstArgumentIndentation:
-  IndentationWidth: 4
+  IndentationWidth: 2
 Layout/FirstHashElementIndentation:
-  IndentationWidth: 4
+  IndentationWidth: 2
 Layout/MultilineMethodCallIndentation:
-  IndentationWidth: 4
+  IndentationWidth: 2
   EnforcedStyle: indented_relative_to_receiver
+Metrics/CyclomaticComplexity:
+  Max: 8
+Metrics/MethodLength:
+  CountAsOne: ["array", "heredoc", "hash"]
+Naming/MemoizedInstanceVariableName:
+  EnforcedStyleForLeadingUnderscores: true
 Style/Alias:
   EnforcedStyle: prefer_alias_method
 Style/EmptyElse:
   EnforcedStyle: empty
 Style/FormatStringToken:
   EnforcedStyle: template
+Style/IfUnlessModifier:
+  Enabled: false
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+Style/NegatedIf:
+  Enabled: false
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 Style/FrozenStringLiteralComment:
   Exclude:
     - Gemfile
@@ -73,3 +85,5 @@ Metrics/BlockLength:
     - devise_scope
   Exclude:
     - 'db/migrate/*'
+Style/Documentation:
+  Enabled: false

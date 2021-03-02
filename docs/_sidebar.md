@@ -16,5 +16,7 @@
   - Testing
     - [Overview](development/testing/)
     - [Helpers](development/testing/helpers/)
+  - Checklists
+    - [Overview](checklists/)
   - Other
     - [Exception Handling](development/exception_handling/)
