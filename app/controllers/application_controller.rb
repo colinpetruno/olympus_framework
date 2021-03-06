@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :session_info
   def session_info
     return nil if current_member.blank?
+    puts "blah"
 
     @_session_info ||= Members::SessionInfo.new(member: current_member)
   end
