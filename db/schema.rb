@@ -443,6 +443,19 @@ ActiveRecord::Schema.define(version: 2021_02_10_180209) do
     t.index ["utm_hash"], name: "index_ichnaea_utms_on_utm_hash"
   end
 
+  create_table "mail_templates", force: :cascade do |t|
+    t.string "class_name", null: false
+    t.string "method_name", null: false
+    t.string "subject", null: false
+    t.string "content", null: false
+    t.string "bcc"
+    t.boolean "active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["class_name"], name: "index_mail_templates_on_class_name"
+    t.index ["method_name"], name: "index_mail_templates_on_method_name"
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "hashed_email", null: false
     t.string "email", null: false

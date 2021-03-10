@@ -45,6 +45,8 @@ Style/StringLiterals:
 Style/FrozenStringLiteralComment:
   Exclude:
     - Gemfile
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 Metrics/LineLength:
   Max: 180
 Metrics/ClassLength:
